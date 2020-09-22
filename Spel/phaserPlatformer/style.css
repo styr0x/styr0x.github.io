@@ -1,0 +1,10 @@
+body,html {
+    background-color: black;
+    font-family: '8BITWONDERNominal';
+}
+
+.gamewindow {
+    display: inline-block;
+    margin-left: 30%;
+    margin-top: 35%;
+}

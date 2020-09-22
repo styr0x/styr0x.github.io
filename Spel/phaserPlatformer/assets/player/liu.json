@@ -1,0 +1,159 @@
+{
+  "frames": {
+    "liuWalk0.png": {
+      "frame": {
+        "x": 1,
+        "y": 1,
+        "w": 36,
+        "h": 48
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 14,
+        "y": 16,
+        "w": 36,
+        "h": 48
+      },
+      "sourceSize": {
+        "w": 64,
+        "h": 64
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "liuWalk2.png": {
+      "frame": {
+        "x": 1,
+        "y": 51,
+        "w": 38,
+        "h": 46
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 14,
+        "y": 18,
+        "w": 38,
+        "h": 46
+      },
+      "sourceSize": {
+        "w": 64,
+        "h": 64
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "liuWalk5.png": {
+      "frame": {
+        "x": 39,
+        "y": 1,
+        "w": 34,
+        "h": 46
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 14,
+        "y": 18,
+        "w": 34,
+        "h": 46
+      },
+      "sourceSize": {
+        "w": 64,
+        "h": 64
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "liuWalk3.png": {
+      "frame": {
+        "x": 1,
+        "y": 99,
+        "w": 40,
+        "h": 44
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 12,
+        "y": 20,
+        "w": 40,
+        "h": 44
+      },
+      "sourceSize": {
+        "w": 64,
+        "h": 64
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "liuWalk1.png": {
+      "frame": {
+        "x": 41,
+        "y": 49,
+        "w": 38,
+        "h": 44
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 14,
+        "y": 20,
+        "w": 38,
+        "h": 44
+      },
+      "sourceSize": {
+        "w": 64,
+        "h": 64
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "liuWalk4.png": {
+      "frame": {
+        "x": 75,
+        "y": 1,
+        "w": 40,
+        "h": 40
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 10,
+        "y": 24,
+        "w": 40,
+        "h": 40
+      },
+      "sourceSize": {
+        "w": 64,
+        "h": 64
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  },
+  "meta": {
+    "app": "http://free-tex-packer.com",
+    "version": "0.6.6",
+    "image": "liu.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 116,
+      "h": 144
+    },
+    "scale": 1
+  }
+}

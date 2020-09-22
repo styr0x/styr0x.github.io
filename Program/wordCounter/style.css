@@ -1,0 +1,110 @@
+@viewport {
+    width: device-width ;
+    zoom: 1.0 ;
+  }
+
+  @media screen and (min-width: 1200px) {
+html, body {
+    display: inline-block;
+    text-align: center;
+    color: rgb(138, 30, 247);
+    background-color: rgb(239, 239, 239);
+    font-size: 1.5rem;
+    font-family: sans-serif;
+    margin-top: 80px;
+    
+}
+
+.description {
+    margin-top: -50px;
+    font-size: 1rem;
+    color: rgb(114, 114, 114)
+}
+
+.wordBox {
+    height: 300px;
+    width: 1000px;
+    resize: none;
+    background-color: white;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+
+
+.p1, .p2  {
+    margin-top: -50px;
+    
+}
+
+.leftcounter {
+    float: left;
+}
+
+.rightcounter {
+    float: right;
+}
+
+.leftcounter, .rightcounter {
+    margin: 50px;
+    margin-top: -50px;
+    color: rgb(114, 114, 114);
+}
+
+.n1 , .n2 {
+    font-size: 3rem;
+}
+
+  }
+
+
+  @media screen and (min-width: 320px) and (max-width:768px) {
+    html, body {
+        display: inline-block;
+        text-align: center;
+        color: rgb(138, 30, 247);
+        background-color: rgb(239, 239, 239);
+        font-size: 1rem;
+        font-family: sans-serif;
+        
+    }
+    
+    .description {
+        margin-top: -20px;
+        font-size: 0.8rem;
+        color: rgb(114, 114, 114)
+    }
+    
+    .wordBox {
+        height: 600px;
+        width: 300px;
+        resize: none;
+        background-color: white;
+        border-radius: 10px;
+        font-size: 1rem;
+    }
+    
+    
+    
+    .p1, .p2  {
+        margin-top: -100px;
+        
+    }
+    
+    .leftcounter {
+        float: left;
+    }
+    
+    .rightcounter {
+        float: right;
+    }
+    
+    .leftcounter, .rightcounter {
+        color: rgb(114, 114, 114);
+    }
+    
+    .n1 , .n2 {
+        font-size: 2rem;
+    }
+    
+      }

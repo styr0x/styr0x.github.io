@@ -1,0 +1,73 @@
+html, body {
+    font-size: 1rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: rgb(129, 129, 129);
+}
+
+
+
+.center {
+    position: relative;
+    text-align: center;
+}
+
+.button1 {
+    position: absolute;
+    transform: translate(-50px, 150px);
+    height: 36px;
+    width: 100px;
+    background-color: rgb(151, 89, 224);
+    color: white;
+    border: 0px;
+    text-align: center;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.button2 {
+    display: none;
+    color: rgb(209, 0, 157);
+    margin:40px auto;
+    border: 0px;
+    background-color: white;
+    text-align: center;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    transform: translate(0px, 110px);
+}
+
+input {
+    border-radius: 3px;
+    height: 30px;
+}
+
+.inputbox {
+    float: center;
+}
+
+
+
+h1 {
+    float: top;
+    font-size: 3rem;
+    font-weight: 100;
+}
+
+.visa {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.info {
+    float: top;
+    transform: translate(-115px, 10px);
+}
+
+.namn {
+    transform: translate(-65px, 0px);    
+}
+
+.age {
+    transform: translate(-68px, 10px);
+}
+

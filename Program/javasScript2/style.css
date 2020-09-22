@@ -1,0 +1,20 @@
+body {
+    text-align: center;
+    background-color: white;
+}
+
+button {
+    height: 36px;
+    width: 100px;
+    background-color: rgb(151, 89, 224);
+    color: white;
+    border: 0px;
+    text-align: center;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.parent {
+    display: inline-flex;
+    margin-top: 20%;
+}

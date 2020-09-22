@@ -1,0 +1,54 @@
+body, html {
+    text-align: center;
+    background-color: darkolivegreen;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    transform: translate(0, 15%);
+}
+
+
+
+button {
+    position: relative;
+    background-color: #4CAF50;
+    border: none;
+    font-size: 1rem;
+    color: #FFFFFF;
+    padding: 10px;
+    width: 100px;
+    text-align: center;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+    margin: 40px;
+    outline: 0;
+}
+
+button:hover {
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+.allt {
+    border-radius: 4px;
+    border: 0px;
+}
+
+input {
+    outline: none;
+    width: 100px;
+}
+
+.voltSymbol {
+    display: inline;
+    margin-left: 5px;
+}
+
+.ohmSymbol {
+    display: inline;
+    margin-left: 5px;
+}
+
+.currentSymbol {
+    display: inline;
+    margin-left: 5px;
+}

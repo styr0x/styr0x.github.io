@@ -1,0 +1,134 @@
+//Variabler
+const button = document.getElementById("btn");
+const button2 = document.getElementById("btn2");
+const age = document.getElementById("age");
+const input = document.getElementById("namn");
+const visa = document.getElementById("visa");
+const form = document.getElementById("form");
+
+//Knapptryck
+button.addEventListener("click", nameCheck);
+button2.addEventListener("click", tillbaka);
+
+//Förinställningar
+form.style.display = "block"
+visa.style.display = "none"
+
+//Funktioner
+//Checkar om man lagt in ett namn i den första inputboxen
+function nameCheck() {
+    if (input.value == "") {
+        enterNamePls();   
+    }
+    else {
+        determineAge();
+    }
+}
+//Säger till användaren att man bör skriva ett namn ifall inputboxen är tom
+function enterNamePls() {
+    visa.innerText = "Var god och skriv ditt namn!";
+    
+    if (form.style.display === "block") {
+        form.style.display = "none";
+    }
+    
+    if (button2.style.display === "none") {
+        button2.style.display = "block";
+    }
+    
+    if (visa.style.display === "none") {
+        visa.style.display = "block";
+        button2.style.display = "block"
+    }
+
+}
+//Kollar om man har lagt in en ålder, eller ifall man är för ung, eller är tillräckligt gammal
+function determineAge() {
+    if (age.value == "") {
+        enterAgePls();
+    }
+
+    else if (age.value < 13) {
+        tooYoung();
+    }
+    else {
+        visaNamn();
+    }
+}
+
+
+//Påminner användaren att skriva in sin ålder
+function enterAgePls() {
+    visa.innerText = "Var god och skriv din ålder!";
+    
+    if (form.style.display === "block") {
+        form.style.display = "none";
+    }
+    
+    if (button2.style.display === "none") {
+        button2.style.display = "block";
+    }
+    
+    if (visa.style.display === "none") {
+        visa.style.display = "block";
+        button2.style.display = "block"
+    }
+
+}
+//Ifall användaren är för ung
+function tooYoung() {
+    visa.innerText = "Förlåt, men du är för ung, man måste vara över 13!";
+    
+    if (form.style.display === "block") {
+        form.style.display = "none";
+    }
+    
+    if (button2.style.display === "none") {
+        button2.style.display = "block";
+    }
+    
+    if (visa.style.display === "none") {
+        visa.style.display = "block";
+        button2.style.display = "block"
+    }
+
+}
+//Om allt gått igenom
+function visaNamn() {
+    visaNamn.called = true;
+    const namn= input.value;
+    visa.innerText = "Hej, " + namn;
+    
+    if (form.style.display === "block") {
+        form.style.display = "none";
+    }
+    
+    if (button2.style.display === "none") {
+        button2.style.display = "block";
+    }
+    
+    if (visa.style.display === "none") {
+        visa.style.display = "block";
+        button2.style.display = "block"
+    }
+    
+
+}
+//Går tillbaka till den första rutan och resettar all info ifall den gått igenom
+function tillbaka() {
+    if (form.style.display === "none") {
+        form.style.display = "block";
+    }
+    if (button2.style.display === "block") {
+        button2.style.display = "none";
+    }
+    if (visa.style.display === "block") {
+        visa.style.display = "none";
+    }
+    if (visaNamn.called) {
+        namn.value = ""
+        age.value = ""
+    }
+
+}
+
