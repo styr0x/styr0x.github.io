@@ -15,10 +15,18 @@ body {
 }
 
 .child {
-    background-color: white;
-    border-bottom: 1px solid #eeeeee;
-    flex-basis: 100%;
+    display: grid;
+    grid-gap: 1em;
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
 }
+
+.grid {
+    padding: 1em;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+
 
 .colorCell {
     flex-basis: 100%;
