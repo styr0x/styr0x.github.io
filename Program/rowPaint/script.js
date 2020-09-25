@@ -34,7 +34,6 @@ colorCells.forEach(item => {
 //Denna funktion loopar igenom färg-array'en och skapar en div med den rätta färgen för varje färg i array'en.
 function addColorPicker() {
 
-
     for (let i=0; i < colors.length; i++) {
         let colorCell = document.createElement('div')
         colorCell.className = 'colorCell'
@@ -49,9 +48,9 @@ function addColorPicker() {
 }
 //Denna funktion skapar en 16x16 grid att måla på
 function addGrid(rows, cols) {
+
     paintParentDiv.style.setProperty('--grid-rows', rows);
     paintParentDiv.style.setProperty('--grid-cols', cols);
-    paintCells = document.querySelectorAll('grid');
     
     for (c = 0; c < (rows * cols); c++) {
       let cell = document.createElement("div");
@@ -61,7 +60,7 @@ function addGrid(rows, cols) {
     
     }
 
-    
+    paintCells = document.querySelectorAll('.grid')
   }
 
 

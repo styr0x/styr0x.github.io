@@ -1,5 +1,6 @@
 body {
     margin: 0%;
+    background-color: black;
 }
 
 .selector {
@@ -15,16 +16,16 @@ body {
 }
 
 .child {
+    margin: 0 auto;
     display: grid;
-    grid-gap: 1em;
-    grid-template-rows: repeat(var(--grid-rows), 1fr);
-    grid-template-columns: repeat(var(--grid-cols), 1fr);
+    grid-template-rows: repeat(var(--grid-rows), 10vh);
+    grid-template-columns: repeat(var(--grid-cols), 10vh);
 }
 
 .grid {
-    padding: 1em;
+    height: 10vh;
+    width: 10vh;
     border: 1px solid #ddd;
-    text-align: center;
   }
 
 
