@@ -4,7 +4,7 @@ body {
 }
 
 .selector {
-    display: flex;
+    display: grid;
     border-bottom: 1px solid #eeeeee;
     flex-direction: row;
 }
