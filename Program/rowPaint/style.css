@@ -18,13 +18,13 @@ body {
 .child {
     margin: 0 auto;
     display: grid;
-    grid-template-rows: repeat(var(--grid-rows), 10vh);
-    grid-template-columns: repeat(var(--grid-cols), 10vh);
+    grid-template-rows: repeat(var(--grid-rows), 5vh);
+    grid-template-columns: repeat(var(--grid-cols), 5vh);
 }
 
 .grid {
-    height: 10vh;
-    width: 10vh;
+    height: 5vh;
+    width: 5vh;
     border: 1px solid #ddd;
   }
 
