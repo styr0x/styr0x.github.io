@@ -3,12 +3,12 @@ let colorCells;
 let paintCells;
 let colorParentDiv = document.getElementById("selector");
 let paintParentDiv = document.getElementById("child")
-let colors = ["red", "green", "blue"];
+let colors = ["SaddleBrown", "gold", "white", "red", "Coral", "black"];
 let pickedColor;
 
 //Kör funktionerna
 addColorPicker();
-addGrid(8,8);
+addGrid(16,16);
 
 console.log(colorCells)
 console.log(paintCells)
