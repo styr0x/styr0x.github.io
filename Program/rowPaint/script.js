@@ -1,4 +1,6 @@
 //Variabler
+let selectedColor = document.getElementById("selectedColorBox")
+
 let gridSizeElement = document.getElementById("gridSize")
 let gridSizes = [0, 4, 8, 16]
 
@@ -19,11 +21,15 @@ gridSizeElement.addEventListener('change', getGridSize)
 
 
 
-//Loopar igenom alla färgelement från klassen 'colorCell' och skapar en eventlistener för varje färg.
+//Loopar igenom alla färgelement från klassen 'colorCell' och skapar en eventlistener för varje färg
+// och ger den rätta id'n åt griden att målas med
 colorCells.forEach(item => {         
-    item.addEventListener('click', event => {    
-        pickedColor = item.id 
-        console.log("You picked color " + pickedColor)    
+    item.addEventListener('click', event => {
+        colorKill();
+        item.style.border = "3px solid red" 
+        pickedColor = item.id
+        selectedColor.style.backgroundColor = colors[pickedColor]   
+        console.log("You picked color " + colors[pickedColor])    
     })
 })
 
@@ -93,5 +99,14 @@ function killGrid(grid) {
 
 }
 
+
+//Nollställer färgvalsindikatorn
+function colorKill() {
+  colorCells.forEach(item => {
+    item.style.border = "3px solid black"          
+  
+    })
+
+}
 
 

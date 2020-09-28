@@ -12,7 +12,6 @@ h1 {
 
 .selector {
     display: grid;
-    border: 5px solid grey;
 }
 
 .parent {
@@ -22,16 +21,13 @@ h1 {
 }
 
 .child {
-    margin: 0 auto;
-    margin-top: -50%;
+    margin: -45% auto;
     display: grid;
-    float: right;
     grid-template-rows: repeat(var(--grid-rows), 5vh);
     grid-template-columns: repeat(var(--grid-cols), 5vh);
 }
 
 .grid {
-    margin: 0 auto;
     height: 5vh;
     width: 5vh;
     border: 1px solid grey;
@@ -39,9 +35,12 @@ h1 {
 
 
 .colorCell {
+    margin: 5px;
+    border: 3px solid black;
+    display: grid;
     flex-basis: 100%;
-    height: 10vh;
-    width: 10vh;
+    height: 8vh;
+    width: 8vh;
 }
 
 .menu{
@@ -52,6 +51,14 @@ h1 {
 
 .selectedColor {
     margin-top: 0%;
-    margin-left: 80%;
+    margin-left: 75%;
     position: absolute;
+}
+
+.selectedColorBox {
+    margin: 0 auto;
+    background-color: white;
+    border: 3px solid black;
+    height: 8vh;
+    width: 8vh;
 }
