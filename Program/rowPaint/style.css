@@ -1,5 +1,7 @@
-body {
-    margin: 0%;
+body, html {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
     background-color: black;
 }
 
@@ -18,6 +20,7 @@ body {
 .child {
     margin: 0 auto;
     display: grid;
+    float: right;
     grid-template-rows: repeat(var(--grid-rows), 5vh);
     grid-template-columns: repeat(var(--grid-cols), 5vh);
 }
@@ -33,4 +36,9 @@ body {
     flex-basis: 100%;
     height: 10vh;
     width: 10vh;
+}
+
+
+.gridSize {
+    position: absolute;
 }
