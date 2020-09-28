@@ -21,7 +21,7 @@ h1 {
 }
 
 .child {
-    margin: -45% auto;
+    margin: -50% auto;
     display: grid;
     grid-template-rows: repeat(var(--grid-rows), 5vh);
     grid-template-columns: repeat(var(--grid-cols), 5vh);
