@@ -2,13 +2,17 @@ body, html {
     margin: 0;
     height: 100%;
     overflow: hidden;
-    background-color: black;
+    background-color: lightgray;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+h1 {
+    font-size: 5vh;
 }
 
 .selector {
-    display: flex;
-    border-bottom: 1px solid #eeeeee;
-    flex-direction: row;
+    display: grid;
+    border: 5px solid grey;
 }
 
 .parent {
@@ -19,6 +23,7 @@ body, html {
 
 .child {
     margin: 0 auto;
+    margin-top: -50%;
     display: grid;
     float: right;
     grid-template-rows: repeat(var(--grid-rows), 5vh);
@@ -26,9 +31,10 @@ body, html {
 }
 
 .grid {
+    margin: 0 auto;
     height: 5vh;
     width: 5vh;
-    border: 1px solid #ddd;
+    border: 1px solid grey;
   }
 
 
@@ -39,7 +45,13 @@ body, html {
 }
 
 .menu{
-    margin-top: 25%;
+    margin-top: 0%;
     margin-left: 10%;
     position: fixed;
+}
+
+.selectedColor {
+    margin-top: 0%;
+    margin-left: 80%;
+    position: absolute;
 }

@@ -6,7 +6,7 @@ let colorCells;
 let paintCells;
 let colorParentDiv = document.getElementById("selector");
 let paintParentDiv = document.getElementById("child")
-let colors = ["SaddleBrown", "gold", "white", "red", "Coral", "black", "pink"];
+let colors = ["SaddleBrown", "gold", "white", "red", "Coral", "black", "pink", "green", "blue", "purple"];
 let pickedColor;
 
 //Kör funktionerna
