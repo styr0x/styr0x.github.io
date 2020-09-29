@@ -15,14 +15,13 @@ html, body {
 }
 
 .gameArea {
-    margin: 20% 0;
+    margin: 10% 0;
 
 }
 
 .messageDiv {
-    transform: translate(0, -150%);
     display: block;
-    margin: -5% auto;
+    margin: 0 auto;
     color: red;
     font-size: 10vh;
 }
@@ -39,7 +38,7 @@ button {
 }
 
 .timerNumber {
-    margin: 100px auto;
+    margin: 50px auto;
     width: 100px;
     border-radius: 12px;
     background-color: chartreuse;
