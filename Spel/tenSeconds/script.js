@@ -48,7 +48,7 @@ function stopTimer() {
         messageDiv.innerText = "Congratulations, right on time!"  
     }
     else if (i != 10) {
-        messageDiv.innerText += "You suck, and lose!"
+        messageDiv.innerText+= "You suck, and lose!"
     }
     
     document.getElementById("restart").addEventListener("click", restartTimer)
