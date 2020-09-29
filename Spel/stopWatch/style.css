@@ -1,0 +1,47 @@
+html, body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    background-color: cornflowerblue;
+    overflow: hidden;
+}
+
+.description {
+    background-color: chartreuse;
+    margin: auto;
+    width: 50%;
+    border: 3px solid blue;
+
+}
+
+.gameArea {
+    margin: 20% 0;
+
+}
+
+.messageDiv {
+    transform: translate(0, -150%);
+    display: block;
+    margin: -5% auto;
+    color: red;
+    font-size: 10vh;
+}
+
+
+button {
+    font-size: 10vh;
+    border-radius: 12px;
+    background-color: chartreuse;
+}
+
+.timerDiv {
+    display: block;
+}
+
+.timerNumber {
+    margin: 100px auto;
+    width: 100px;
+    border-radius: 12px;
+    background-color: chartreuse;
+    font-size: 10vh;
+    color: red;
+}
