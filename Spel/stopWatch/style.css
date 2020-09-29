@@ -8,14 +8,14 @@ html, body {
 .description {
     background-color: chartreuse;
     margin: auto;
-    width: 50%;
+    width: 90%;
     border: 3px solid blue;
     font-size: 2vh;
 
 }
 
 .gameArea {
-    margin: 10% 0;
+    margin: 10% auto;
 
 }
 
@@ -28,7 +28,7 @@ html, body {
 
 
 button {
-    font-size: 10vh;
+    font-size: 8vh;
     border-radius: 12px;
     background-color: chartreuse;
 }
