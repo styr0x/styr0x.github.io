@@ -55,8 +55,9 @@ button{
 }
 
 .image1 {
+    margin: -10vh 10vw;
     float: left;
-    height: 40vh;
+    height: 30vh;
 }
 
 .info {
@@ -64,6 +65,7 @@ button{
 }
 
 .image2 {
+    margin: -10vh 10vw;
     float: right;
-    height: 40vh;
+    height: 30vh;
 }
