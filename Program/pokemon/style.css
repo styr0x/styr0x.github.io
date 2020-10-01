@@ -1,0 +1,67 @@
+html, body {
+    font-size: 2vw;
+    text-align: center;
+    background-color: gainsboro;
+    font-family: sans-serif;
+}
+
+
+
+input {
+    text-align: center;
+    font-size: 64px;
+    height: 5vw;
+    width: 25vw;
+}
+
+.parent {
+    border-radius: 100px;
+    margin: 6vh auto;
+}
+
+.ballTop {
+    height: 33vh;
+    background-color: red;
+}
+
+.ballMiddle {
+    color: gainsboro;
+    height: 28vh;
+    background-color: black;
+}
+
+.ballBottom{
+    display: inline;
+    margin: -4vw auto;
+    height: 33vh;
+    background-color: white;
+}
+
+p {
+    margin: auto 10px;
+}
+
+button{
+    width: 5vw;
+    height: 5vh;
+}
+
+.image1 {
+    transform: translate(25vw,0%);
+    float: left;
+    background-color: turquoise;
+    width: 10vw;
+    height: 20vh;
+}
+
+.info {
+    margin: 0 40%;
+}
+
+.image2 {
+    transform: translate(-25vw,0%);
+    float: right;
+    background-color: turquoise;
+    width: 10vw;
+    height: 20vh;
+}
