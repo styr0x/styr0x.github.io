@@ -14,10 +14,10 @@ if (data.main.temp < 0) {
     commentText.innerText = "Brrr, it's cold as fuck man!"
 }
 else if (data.main.temp <= 15){
-    commentText.innerText = "Better put a jacket on!"
+    commentText.innerText = "Better put a fucking jacket on!"
 }
 else if (data.main.temp > 15) {
-    commentText.innerText = "It's pretty alright!"
+    commentText.innerText = "It's pretty fucking alright!"
 }
 else if (data.main.temp > 25) {
     commentText.innerText = "Fuck, it's hot!"
