@@ -1,7 +1,7 @@
 let displayTemp = document.getElementById("temp");
 let commentText = document.getElementById("comment");
 
-fetch(`http://api.openweathermap.org/data/2.5/weather?id=656130&appid=fb3069e2cddf22b9c087ca74ea3e2aba&units=metric`)
+fetch(`https://api.openweathermap.org/data/2.5/weather?id=656130&appid=fb3069e2cddf22b9c087ca74ea3e2aba&units=metric`)
 .then(res => res.json())
 .then (onWeatherLoaded);
 
