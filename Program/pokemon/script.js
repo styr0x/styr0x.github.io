@@ -26,7 +26,7 @@ new autoComplete({
         if (a.match > b.match) return 1;
         return 0;
     },
-    placeHolder: "Pokemon",     // Place Holder text                 | (Optional)
+    placeHolder: "Search for a Pokemon",     // Place Holder text                 | (Optional)
     selector: "#autoComplete",           // Input field selector              | (Optional)
     threshold: 0,                        // Min. Chars length to start Engine | (Optional)
     debounce: 300,                       // Post duration for engine to start | (Optional)
