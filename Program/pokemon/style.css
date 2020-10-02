@@ -28,7 +28,7 @@ input {
 .ballMiddle {
     width: 100%;
     color: gainsboro;
-    height: 28vh;
+    height: 35vh;
     background-color: black;
 }
 
@@ -47,7 +47,7 @@ p {
 
 button{
     border-radius: 50px;
-    font-size: 1.5rem;
+    font-size: 1rem;
     background-color: black;
     color:  white;
     border-color: red;
