@@ -19,7 +19,8 @@ getButton.addEventListener("click", getValue)
 
 function getValue() {
         var param = document.getElementById("input").value;
-        var pokeURL = "https://pokeapi.co/api/v2/pokemon/" + param;
+        let input = param.toLowerCase();
+        var pokeURL = "https://pokeapi.co/api/v2/pokemon/" + input;
         fetch(pokeURL)
             .then(response => response.json())
             .then(displayInfo);
