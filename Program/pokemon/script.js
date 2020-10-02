@@ -10,6 +10,11 @@ let infoDiv = document.getElementById("infoDiv");
 let img1 = document.getElementById("img1");
 let img2 = document.getElementById("img2");
 
+let inputBox = document.getElementById("input");
+let pokeArray = [];
+let input;
+fetchPokemonList();
+
 hideTypeTwo.style.visibility = "hidden"
 infoDiv.style.visibility = "hidden"
 img1.style.visibility = "hidden"
@@ -18,9 +23,9 @@ img2.style.visibility = "hidden"
 getButton.addEventListener("click", getValue)
 
 function getValue() {
-        var param = document.getElementById("input").value;
-        let input = param.toLowerCase();
-        var pokeURL = "https://pokeapi.co/api/v2/pokemon/" + input;
+        let param = document.getElementById("input").value;
+        input = param.toLowerCase();
+        let pokeURL = "https://pokeapi.co/api/v2/pokemon/" + input;
         fetch(pokeURL)
             .then(response => response.json())
             .then(displayInfo);
@@ -50,3 +55,21 @@ function displayInfo(allpokemon) {
     img2.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${imgId}.png`;
     
 }
+
+function fetchPokemonList() {
+    let pokeURL = "https://pokeapi.co/api/v2/pokemon?limit=1050"
+    fetch(pokeURL)
+        .then(response => response.json())
+        .then(getArray);
+}
+
+function getArray(allpokemon) {
+    console.log(allpokemon);
+    console.log(allpokemon.results.length);
+    console.log(allpokemon.results[5].name);
+
+    for (let i = 0; i < allpokemon.results.length; i++) {
+        pokeArray.push(allpokemon.results[i].name);
+    }
+}
+
