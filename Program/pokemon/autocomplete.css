@@ -93,7 +93,7 @@
 .autoComplete_result {
   position: relative;
   z-index: 1000;
-  margin: -2vh 38vw;
+  margin: auto 39%;
   padding: 0.6rem;
   max-width: 280px;
   border: 0.05rem solid #e3e3e3;
