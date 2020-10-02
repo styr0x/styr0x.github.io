@@ -9,6 +9,7 @@ html, body {
 
 
 input {
+    margin-top: 5%;
     text-align: center;
     font-size: 2rem;
     height: 5vw;
