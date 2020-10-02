@@ -46,7 +46,8 @@ p {
 }
 
 button{
-    font-size: 2rem;
+    border-radius: 50px;
+    font-size: 1.5rem;
     background-color: black;
     color:  white;
     border-color: red;

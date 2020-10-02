@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokemon Info</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.2.0/dist/css/autoComplete.min.css">
 
 </head>
 <body>
@@ -15,8 +16,9 @@
         <div class="ballMiddle">
             <br>
             <p>Type a name here to get the info!</p>
-            <input type="text" id="input">
-            <br><button id="btn">Get</button>
+            <br>
+            <input id="autoComplete" tabindex="1">
+            <button id="btn">Get</button>
         </div>
         <div class="ballBottom">
             <br>
@@ -35,6 +37,7 @@
 
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.2.0/dist/js/autoComplete.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
