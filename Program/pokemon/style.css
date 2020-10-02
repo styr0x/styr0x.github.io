@@ -9,7 +9,7 @@ html, body {
 
 input {
     text-align: center;
-    font-size: 48px;
+    font-size: 2rem;
     height: 5vw;
     width: 25vw;
 }
@@ -47,11 +47,12 @@ p {
 }
 
 button{
+    font-size: 2rem;
     background-color: black;
     color:  white;
     border-color: red;
-    width: 5vw;
-    height: 5vh;
+    width: auto;
+    height: auto;
 }
 
 .image1 {
