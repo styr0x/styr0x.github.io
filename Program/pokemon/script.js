@@ -11,6 +11,7 @@ let img1 = document.getElementById("img1");
 let img2 = document.getElementById("img2");
 
 let pokeArray = [];
+let param = document.getElementById("autoComplete").value;
 let input;
 
 fetchPokemonList();
@@ -57,7 +58,10 @@ new autoComplete({
         document.querySelector("#autoComplete_list").appendChild(result);
     },
     onSelection: feedback => {             // Action script onSelection event | (Optional)
-        //console.log(data)
+        console.log(feedback.selection.value);
+        param = feedback.selection.value;
+        getValue();
+
     }
 });
 
@@ -69,7 +73,6 @@ img2.style.visibility = "hidden"
 getButton.addEventListener("click", getValue)
 
 function getValue() {
-        let param = document.getElementById("autoComplete").value;
         input = param.toLowerCase();
         let pokeURL = "https://pokeapi.co/api/v2/pokemon/" + input;
         fetch(pokeURL)
