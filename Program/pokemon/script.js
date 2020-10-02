@@ -1,4 +1,4 @@
-let getButton = document.getElementById("btn");
+
 let name = document.getElementById("name");
 let height = document.getElementById("height");
 let weight = document.getElementById("weight");
@@ -70,7 +70,7 @@ infoDiv.style.visibility = "hidden"
 img1.style.visibility = "hidden"
 img2.style.visibility = "hidden"
 
-getButton.addEventListener("click", getValue)
+
 
 function getValue() {
         input = param.toLowerCase();
