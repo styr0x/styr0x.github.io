@@ -16,8 +16,8 @@ html, body {
     position: relative;
     margin: 0 auto;
     height: 30vh;
-    width: 90vw;
-    background-image: url("fretboard.jpg");
+    width: 95.051vw;
+    background-color: rgb(53, 0, 0);
 }
 
 .nut {
