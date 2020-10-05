@@ -37,7 +37,6 @@ function makeNeck(){
     //Skapar resten av banden
 for (let i = 0; i < 11; i++) {
     let newFret = oldFret;
-    let x = 0;
     let oldScale = neckScale;
     let newScale= oldScale - newFret;
 
@@ -51,15 +50,47 @@ for (let i = 0; i < 11; i++) {
     oldScale = newScale;
     neckDiv.appendChild(fret);
 
-    if (i === 0 ||i === 2||i === 4||i ===6|| i === 11) {
-        x+= 3.5
-        console.log("hej");
+    if (i === 0) {
         let fretMarker = document.createElement("div")
         fretMarker.id = `fretMarker${i}`
         fretMarker.className = "fretMarker"
-        fretMarker.style.marginLeft = `${result}vw`
-        fretMarker.style.transform = `translate(${x}vw,0)`
+        fretMarker.style.marginLeft = `${result + 4.2}vw`
         neckDiv.appendChild(fretMarker);
+    }
+    if (i === 2) {
+        let fretMarker = document.createElement("div")
+        fretMarker.id = `fretMarker${i}`
+        fretMarker.className = "fretMarker"
+        fretMarker.style.marginLeft = `${result +3.7}vw`
+        neckDiv.appendChild(fretMarker);
+    }
+    if (i === 4) {
+        let fretMarker = document.createElement("div")
+        fretMarker.id = `fretMarker${i}`
+        fretMarker.className = "fretMarker"
+        fretMarker.style.marginLeft = `${result +3.2}vw`
+        neckDiv.appendChild(fretMarker);
+    }
+    if (i === 6) {
+        let fretMarker = document.createElement("div")
+        fretMarker.id = `fretMarker${i}`
+        fretMarker.className = "fretMarker"
+        fretMarker.style.marginLeft = `${result +2.9}vw`
+        neckDiv.appendChild(fretMarker);
+    }
+    if (i === 9) {
+        let twelfthFretOne = document.createElement("div");
+        let twelfthFretTwo = document.createElement("div");
+        twelfthFretOne.id = `fretMarker${i}`
+        twelfthFretOne.className = "fretMarker"
+        twelfthFretOne.style.marginLeft = `${result +2.5}vw`
+        twelfthFretOne.style.marginTop = `4vh`
+        twelfthFretTwo.id = `fretMarker${i}`
+        twelfthFretTwo.className = "fretMarker"
+        twelfthFretTwo.style.marginLeft = `${result +2.5}vw`
+        twelfthFretTwo.style.marginTop = `24vh`
+        neckDiv.appendChild(twelfthFretOne);
+        neckDiv.appendChild(twelfthFretTwo);
     }
 }
 

@@ -39,8 +39,9 @@ html, body {
 .fretMarker {
     position: absolute;
     margin-top: 13vh;
-    height: 5%;
-    width: 1%;
+    height: 2vh;
+    width: 1vw;
     background-color: lightgray;
+    border-radius: 50px;
 
 }
