@@ -4,6 +4,7 @@ let firstFret = neckScale / ratio;
 
 let oldFret;
 
+let neckDiv;
 let parentDiv = document.getElementById("parent");
 
 
@@ -41,7 +42,7 @@ for (let i = 0; i < 11; i++) {
     let newScale= oldScale - newFret;
 
     let result = (newScale / ratio) + newFret;
-    let neckDiv = document.getElementById("neck");
+    neckDiv = document.getElementById("neck");
     let fret = document.createElement("div");
     fret.id = `fret${i}`;
     fret.className = "fret";
@@ -50,48 +51,43 @@ for (let i = 0; i < 11; i++) {
     oldScale = newScale;
     neckDiv.appendChild(fret);
 
-    if (i === 0) {
+    if (i === 1 || i === 3 || i === 5 || i === 7) {
         let fretMarker = document.createElement("div")
         fretMarker.id = `fretMarker${i}`
         fretMarker.className = "fretMarker"
-        fretMarker.style.marginLeft = `${result + 4.2}vw`
+        fretMarker.style.marginLeft = `${(newFret + result - 0.8) / 2}vw`
         neckDiv.appendChild(fretMarker);
     }
-    if (i === 2) {
-        let fretMarker = document.createElement("div")
-        fretMarker.id = `fretMarker${i}`
-        fretMarker.className = "fretMarker"
-        fretMarker.style.marginLeft = `${result +3.7}vw`
-        neckDiv.appendChild(fretMarker);
-    }
-    if (i === 4) {
-        let fretMarker = document.createElement("div")
-        fretMarker.id = `fretMarker${i}`
-        fretMarker.className = "fretMarker"
-        fretMarker.style.marginLeft = `${result +3.2}vw`
-        neckDiv.appendChild(fretMarker);
-    }
-    if (i === 6) {
-        let fretMarker = document.createElement("div")
-        fretMarker.id = `fretMarker${i}`
-        fretMarker.className = "fretMarker"
-        fretMarker.style.marginLeft = `${result +2.9}vw`
-        neckDiv.appendChild(fretMarker);
-    }
-    if (i === 9) {
+
+ 
+    if (i === 10) {
         let twelfthFretOne = document.createElement("div");
         let twelfthFretTwo = document.createElement("div");
         twelfthFretOne.id = `fretMarker${i}`
-        twelfthFretOne.className = "fretMarker"
-        twelfthFretOne.style.marginLeft = `${result +2.5}vw`
-        twelfthFretOne.style.marginTop = `4vh`
         twelfthFretTwo.id = `fretMarker${i}`
+        twelfthFretOne.className = "fretMarker"
         twelfthFretTwo.className = "fretMarker"
-        twelfthFretTwo.style.marginLeft = `${result +2.5}vw`
-        twelfthFretTwo.style.marginTop = `24vh`
+        twelfthFretOne.style.marginLeft = `${(newFret + result -0.8) / 2}vw`
+        twelfthFretTwo.style.marginLeft = `${(newFret + result -0.8) / 2}vw`
+        twelfthFretOne.style.marginTop = `2.1vh`
+        twelfthFretTwo.style.marginTop = `26.5vh`
         neckDiv.appendChild(twelfthFretOne);
         neckDiv.appendChild(twelfthFretTwo);
     }
 }
 
+//Skapar strängar
+for (let i = 0; i < 4; i++) {
+    let string = document.createElement("div");
+    let x = 6;
+    string.style.height = "0.1vh"
+    string.style.width = "90vw"
+    string.style.backgroundColor = "white";
+    string.style.marginTop = `${x}vh`
+
+    neckDiv.appendChild(string);
 }
+
+}
+
+

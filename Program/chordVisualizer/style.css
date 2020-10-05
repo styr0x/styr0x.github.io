@@ -1,5 +1,5 @@
 html, body {
-    background-image: linear-gradient(rgb(12, 0, 122),rgb(161, 0, 153));
+    background-color: rgb(0, 0, 20);
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
@@ -13,18 +13,18 @@ html, body {
 }
 
 .neck {
+    border: 0.1vh solid lightgray;
     position: relative;
     margin: 0 auto;
     height: 30vh;
     width: 90vw;
-    background-color: rgb(53, 0, 0);
 }
 
 .nut {
     position: absolute;
     background-color: lightgray;
     height: 30vh;
-    width: 0.5vw;
+    width: 1vw;
 }
 
 
@@ -33,14 +33,14 @@ html, body {
     position: absolute;
     background-color: lightgray;
     height: 30vh;
-    width: 0.5vw;
+    width: 0.1vw;
 }
 
 .fretMarker {
     position: absolute;
-    margin-top: 13vh;
-    height: 2vh;
-    width: 1vw;
+    margin-top: 14.5vh;
+    height: 1.4vh;
+    width: 0.7vw;
     background-color: lightgray;
     border-radius: 50px;
 
