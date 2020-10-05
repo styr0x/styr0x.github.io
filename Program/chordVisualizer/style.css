@@ -16,7 +16,7 @@ html, body {
     position: relative;
     margin: 0 auto;
     height: 30vh;
-    width: 95.051vw;
+    width: 90vw;
     background-color: rgb(53, 0, 0);
 }
 
@@ -40,66 +40,4 @@ html, body {
     background-color: lightgray;
     height: 30vh;
     width: 0.5vw;
-}
-
-.singledot {
-    position: absolute;
-    margin-top: 13vh;
-
-}
-
-.marker1 {
-    position: absolute;
-    background-color: lightgray;
-    width: 2vw;
-    height: 3.5vh;
-    border-radius: 50px;
-    margin-left: 23.3vw;
-}
-
-.marker2 {
-    position: absolute;
-    background-color: lightgray;
-    width: 2vw;
-    height: 3.5vh;
-    border-radius: 50px;
-    margin-left: 40.3vw;
-}
-
-.marker3 {
-    position: absolute;
-    background-color: lightgray;
-    width: 2vw;
-    height: 3.5vh;
-    border-radius: 50px;
-    margin-left: 55.4vw;
-}
-
-.marker4 {
-    position: absolute;
-    background-color: lightgray;
-    width: 2vw;
-    height: 3.5vh;
-    border-radius: 50px;
-    margin-left: 69vw;
-}
-
-.doublemarker1{
-    position: absolute;
-    background-color: lightgray;
-    width: 2vw;
-    height: 3.5vh;
-    border-radius: 50px;
-    margin-left: 86.5vw;
-    margin-top: 4vh;    
-}
-
-.doublemarker2{
-    position: absolute;
-    background-color: lightgray;
-    width: 2vw;
-    height: 3.5vh;
-    border-radius: 50px;
-    margin-left: 86.5vw;
-    margin-top: 22vh;    
 }
