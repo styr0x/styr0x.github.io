@@ -10,12 +10,34 @@ html, body {
 .parent {
     margin-top: 30vh;
     width: 100%;
-    background-color: burlywood;
 }
 
 .neck {
+    position: relative;
     margin: 0 auto;
     height: 30vh;
     width: 90vw;
     background-image: url("fretboard.jpg");
+}
+
+.nut {
+    position: absolute;
+    background-color: lightgray;
+    height: 30vh;
+    width: 0.5vw;
+}
+
+.firstFret {
+    position: absolute;
+    background-color: lightgray;
+    height: 30vh;
+    width: 0.5vw;
+    transform: translate(10.103vw,0);
+}
+
+.fret {
+    position: absolute;
+    background-color: lightgray;
+    height: 30vh;
+    width: 0.5vw;
 }
