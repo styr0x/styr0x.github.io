@@ -1,30 +1,56 @@
 let neckScale = 90 * 2;
-let firstFret = neckScale / 17.817;
+let ratio = 17.817;
+let firstFret = neckScale / ratio;
 
+let oldFret;
 
 let parentDiv = document.getElementById("parent");
 
-let firstFretDistance = "10.103vw"
-let frets = ["19.638", "28.639", "37.134", "45.152", "52.721", "59.864", "66.607", "72.971", "78.978", "84.648", "90.00", "95.051"];
+
 
 
 makeNeck();
 
 
 function makeNeck(){
-    let neck = document.createElement("div");
-    neck.id = `neck`
-    neck.className = `neck`
-    parentDiv.appendChild(neck);
+    oldFret = firstFret;
 
+
+    // Skapar bruna nacken
+    let neck = document.createElement("div");
+    neck.id = `neck`;
+    neck.className = `neck`;
+    parentDiv.appendChild(neck);
+    //Skapar nut'en
+    let nut = document.createElement("div");
+    nut.id="nut";
+    nut.className = "nut";
+    neck.appendChild(nut);
+    let firstFretDiv = document.createElement("div");
+    firstFretDiv.id = "firstFret"
+    firstFretDiv.className = "fret"
+    firstFretDiv.style.transform=`translate(${firstFret}vw,0)`;
+    neck.appendChild(firstFretDiv);
+
+
+    //Skapar resten av banden
 for (let i = 0; i < 12; i++) {
+    
+    let newFret = oldFret;
+
+    let oldScale = neckScale;
+    let newScale= oldScale - newFret;
+
+    let result = (newScale / ratio) + newFret;
     let neckDiv = document.getElementById("neck");
     let fret = document.createElement("div");
-    fret.id = `fret${i}`
-    fret.className = "fret"
-    fret.style.transform=`translate(${frets[i]}vw,0)`
+    fret.id = `fret${i}`;
+    fret.className = "fret";
+    fret.style.transform=`translate(${result}vw,0)`;
+    oldFret = result;
+    oldScale = newScale;
     neckDiv.appendChild(fret);
-    console.log(i)
+    console.log(oldFret);
 }
 
 }

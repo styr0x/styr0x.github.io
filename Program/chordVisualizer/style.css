@@ -27,13 +27,7 @@ html, body {
     width: 0.5vw;
 }
 
-.firstFret {
-    position: absolute;
-    background-color: lightgray;
-    height: 30vh;
-    width: 0.5vw;
-    transform: translate(10.103vw,0);
-}
+
 
 .fret {
     position: absolute;
