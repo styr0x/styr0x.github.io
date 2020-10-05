@@ -35,3 +35,12 @@ html, body {
     height: 30vh;
     width: 0.5vw;
 }
+
+.fretMarker {
+    position: absolute;
+    margin-top: 13vh;
+    height: 5%;
+    width: 1%;
+    background-color: lightgray;
+
+}

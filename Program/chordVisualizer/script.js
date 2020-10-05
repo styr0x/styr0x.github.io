@@ -26,6 +26,7 @@ function makeNeck(){
     nut.id="nut";
     nut.className = "nut";
     neck.appendChild(nut);
+    //Första bandet
     let firstFretDiv = document.createElement("div");
     firstFretDiv.id = "firstFret"
     firstFretDiv.className = "fret"
@@ -34,10 +35,9 @@ function makeNeck(){
 
 
     //Skapar resten av banden
-for (let i = 0; i < 12; i++) {
-    
+for (let i = 0; i < 11; i++) {
     let newFret = oldFret;
-
+    let x = 0;
     let oldScale = neckScale;
     let newScale= oldScale - newFret;
 
@@ -50,7 +50,17 @@ for (let i = 0; i < 12; i++) {
     oldFret = result;
     oldScale = newScale;
     neckDiv.appendChild(fret);
-    console.log(oldFret);
+
+    if (i === 0 ||i === 2||i === 4||i ===6|| i === 11) {
+        x+= 3.5
+        console.log("hej");
+        let fretMarker = document.createElement("div")
+        fretMarker.id = `fretMarker${i}`
+        fretMarker.className = "fretMarker"
+        fretMarker.style.marginLeft = `${result}vw`
+        fretMarker.style.transform = `translate(${x}vw,0)`
+        neckDiv.appendChild(fretMarker);
+    }
 }
 
 }
