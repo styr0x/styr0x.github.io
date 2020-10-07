@@ -35,12 +35,18 @@ for (let i = 0; i < 11; i++) {
      result = (newScale / ratio) + newFret;
     neckDiv = document.getElementById("neck");
     let fret = document.createElement("div");
+    let note = document.createElement("div");
     fret.id = `fret${i}`;
+    note.id = `note${i}`;
     fret.className = "fret";
+    note.className = "note";
     fret.style.transform=`translate(${result}vw,0)`;
+    note.style.marginLeft = `${(newFret + result - 2) / 2}vw`;
+    note.style.marginTop = "-1vh";
     oldFret = result;
     oldScale = newScale;
     neckDiv.appendChild(fret);
+    neckDiv.appendChild(note);
 
     //Skapar Markeringar
     if (i === 1 || i === 3 || i === 5 || i === 7) {
@@ -77,16 +83,7 @@ for (let i = 0; i < 4; i++) {
     neckDiv.appendChild(string);
 
 }
-    //Skapa "tonbollar"
-    for (let i = 0; i < 6; i++) {
-        let notes = document.createElement("div");
-        let x = 4
-        notes.id = `note${i}`
-        notes.className = "notes"
-        notes.style.marginTop = `${x}vh`
-        neckDiv.appendChild(notes);
-        
-    }
+
 
 };
 

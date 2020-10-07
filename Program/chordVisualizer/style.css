@@ -46,9 +46,10 @@ html, body {
 
 }
 
-.notes {
+.note {
+    position: absolute;
     height: 2vh;
-    width: 2vw;
+    width: 1.5vw;
     border-radius: 50px;
     background-color: lightgray;
 }
