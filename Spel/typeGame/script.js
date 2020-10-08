@@ -26,11 +26,12 @@ function gameLoop(keyPressed) {
     let nextLetter = document.getElementById(`letter${j + 1}`);
     let colorLetter = document.getElementById(`letter${j}`);
     let wordLength = words[i].length -1;
+    
+    
     if (keyPressed === currentLetter) {
         nextLetter.style.top = "-10px"
         colorLetter.style.top = "0px"
         colorLetter.style.color = "red";
-        console.log("true dis");
         j++  
     }
     if (j === wordLength) {
@@ -56,6 +57,7 @@ function updateWord() {
         restartButton.style.visibility = "visible";
         restartButton.addEventListener('click', initGame)
     }
+    document.getElementById("letter0").style.top = "-10px"
 }
 function startTimer() {
     l = 1;
