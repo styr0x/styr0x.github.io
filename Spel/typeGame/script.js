@@ -2,7 +2,7 @@ let word = document.getElementById("wordDiv");
 let startButton = document.getElementById("startBtn");
 let restartButton = document.getElementById("restartBtn");
 let timerNumber = document.getElementById("timerNumber");
-let words = ["liu ", "miu ", "fiu ", "xiu ", "giu ", "uil ", "biu ", "riu ", "siu ", "impalpable ", " "];
+let words = ["phone ", "ashtray ", "rowboat ", "sky ", "filter ", "scotland ", "lion ", "tent ", "continent ", "llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch ", " "];
 let i = 0;
 let j = 0;
 let l;
@@ -26,8 +26,6 @@ function gameLoop(keyPressed) {
     let nextLetter = document.getElementById(`letter${j + 1}`);
     let colorLetter = document.getElementById(`letter${j}`);
     let wordLength = words[i].length -1;
-    
-    
     if (keyPressed === currentLetter) {
         nextLetter.style.top = "-10px"
         colorLetter.style.top = "0px"
@@ -41,9 +39,7 @@ function gameLoop(keyPressed) {
     }
 }
 function updateWord() {
-
     let splitLetters = words[i].split("");
-
     for (let i = 0; i < splitLetters.length; i++) {
         word.innerHTML = ""
     }
