@@ -76,6 +76,6 @@ function updateWord() {
 
 function startTimer() {
     l = 1;
-    seconds = setInterval(() => {timerNumber.innerText = `Your time is: ${++l}`}, 1000);
+    seconds = setInterval(() => {timerNumber.innerText = `Your time is: ${++l} seconds`}, 1000);
     timerNumber.style.visibility = "hidden"
 }
