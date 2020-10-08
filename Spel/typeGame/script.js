@@ -1,6 +1,7 @@
 //Elementvariabler
 let word = document.getElementById("wordDiv");
 let startButton = document.getElementById("startBtn");
+let restartButton = document.getElementById("restartBtn");
 let timerNumber = document.getElementById("timerNumber");
 //Övriga variabler
 let words = ["liu ", "miu ", "fiu ", "xiu ", "giu ", "uil ", "biu ", "riu ", "siu ", "impalpable ", " "];
@@ -10,11 +11,12 @@ let l;
 let seconds;
 
 
-
+restartButton.style.visibility = ("hidden")
 //Starknappens eventlistener
 startButton.addEventListener("click", initGame);
 //Spelets saker
 function initGame() {
+    restartButton.style.visibility = "hidden";
     startButton.style.visibility = "hidden";
     window.addEventListener('keydown', pressKey);
     updateWord();
@@ -36,7 +38,8 @@ function gameLoop(keyPressed) {
     
 
     if (keyPressed === currentLetter) {
-        nextLetter.style.color = "blue"
+        nextLetter.style.top = "-10px"
+        colorLetter.style.top = "0px"
         colorLetter.style.color = "red";
         console.log("true dis");
         j++
@@ -69,8 +72,11 @@ function updateWord() {
         word.innerHTML += `<span id="letter${i}">${splitLetters[i]} </span>`
     }
     if (i === 10){
+        i = 0
         clearInterval(seconds)
         timerNumber.style.visibility = "visible";
+        restartButton.style.visibility = "visible";
+        restartButton.addEventListener('click', initGame)
     }
 }
 
