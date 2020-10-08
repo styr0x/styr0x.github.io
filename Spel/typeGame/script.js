@@ -3,7 +3,7 @@ let word = document.getElementById("wordDiv");
 let startButton = document.getElementById("startBtn");
 let timerNumber = document.getElementById("timerNumber");
 //Övriga variabler
-let words = ["liu", "miu", "fiu", "xiu", "giu", "uil", "biu", "riu", "siu", "impalpable", " "];
+let words = ["liu ", "miu ", "fiu ", "xiu ", "giu ", "uil ", "biu ", "riu ", "siu ", "impalpable ", " "];
 let i = 0;
 let j = 0;
 let l;
@@ -29,10 +29,14 @@ function pressKey(e) {
 //Main magic
 function gameLoop(keyPressed) {
     let currentLetter = document.getElementById(`letter${j}`).innerText.trim();
+    let nextLetter = document.getElementById(`letter${j + 1}`);
     let colorLetter = document.getElementById(`letter${j}`);
-    let wordLength = words[i].length;
+    let wordLength = words[i].length -1;
     
+    
+
     if (keyPressed === currentLetter) {
+        nextLetter.style.color = "blue"
         colorLetter.style.color = "red";
         console.log("true dis");
         j++
@@ -51,6 +55,7 @@ function gameLoop(keyPressed) {
     console.log(keyPressed, currentLetter);
     console.log(wordLength);
     console.log(i);
+    console.log(nextLetter);
 }
 
 function updateWord() {
