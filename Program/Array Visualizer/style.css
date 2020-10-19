@@ -1,0 +1,42 @@
+.parent {
+    outline: 1px solid black;
+}
+
+.logo {
+    outline: 1px solid black;
+}
+
+img {
+    width: 25%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translate(0,0vh);
+}
+
+.toolbar {
+    text-align: center;
+}
+
+.add, .remove, .misc, .string {
+    margin-right: 2vw;
+    display: inline;
+}
+
+.line {
+
+    border-left: 1px solid black;
+}
+
+button {
+    color: rgb(207, 0, 207);
+    background-color: white;
+    outline: none;
+    border: 1px solid  rgb(207, 0, 207);
+    border-radius: 2px;
+}
+
+button:hover {
+    color: white;
+    background-color:  rgb(207, 0, 207);
+}
