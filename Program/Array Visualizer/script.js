@@ -14,7 +14,7 @@ let buttonResetColor = "white"
 
 //Main array
 let mainArray = [];
-let arrayCounter = 0;
+let arrayCounter = mainArray.length;
 
 window.onload = getToolbarButtons();
 
@@ -179,7 +179,13 @@ function visualizePush() {
 
         let arrayWord = document.createElement("span");
         arrayWord.innerText = mainArray[arrayCounter];
+        arrayWord.className = "arrayWord"
         outputTempDiv.appendChild(arrayWord);
+
+        let arrayNumber = document.createElement("span");
+        arrayNumber.innerText = arrayCounter;
+        arrayNumber.className = "arrayNumber"
+        outputTempDiv.appendChild(arrayNumber);
 
         arrayCounter++
     }

@@ -1,4 +1,5 @@
 html, body {
+    overflow: hidden;
     font-size: 1rem;
 }
 
@@ -53,9 +54,11 @@ button:hover {
 }
 
 .actionButton {
+    transform: translate(0,0.2vh);
     margin-left: 1vw;
-    height: 5vh;
-    font-size: 1.3rem;
+    height: 6vh;
+    width: auto;
+    font-size: 1.5rem;
     color: rgb(207, 0, 207);
     background-color: white;
     outline: none;
@@ -71,26 +74,44 @@ button:hover {
 
 .input {
     text-align: center;
-    height: 25vh;
+    height: 42vh;
     background-color: lightgreen;
 }
 
 .pushInputBox {
-    margin-top: 10vh;
+    margin-top: 16vh;
     height: 5vh;
     width: 20vw;
 }
 
 .output {
-    height: 25vh;
+    height: 42vh;
     background-color: salmon;
 
 }
 
 .temporaryOutputDiv {
+    margin: 1vw;
+    min-width: 5%;
+    max-width: auto;
+    padding: 1vw;
+    height: 25%;
     display: inline-flex;
     background-color: brown;
-    width: 2%;
+    transform: translate(0,13vh);
+}
+
+.arrayWord {
+    font-size: 3rem;
     text-align: center;
-    margin: 2%;
+    margin: auto;
+    margin-top: 1vh;
+
+}
+
+.arrayNumber {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 9vh;
+    margin-left: auto;
 }
