@@ -2,7 +2,8 @@
 let toolbarButtons;
 let inputDiv = document.getElementById("input");
 let outputDiv = document.getElementById("output");
-let tempDiv;
+let inputTempDiv;
+let outputTempDiv
 
 //Färger
 let buttonSelectColor = "purple"
@@ -13,6 +14,7 @@ let buttonResetColor = "white"
 
 //Main array
 let mainArray = [];
+let arrayCounter = 0;
 
 window.onload = getToolbarButtons();
 
@@ -29,6 +31,22 @@ function getToolbarButtons() {
 function determineToolbarButton(e) {
     let buttonPressed = e.target.dataset.id
     doStuff(buttonPressed, e);    
+}
+
+function makeinputTempDiv() {
+    inputTempDiv = document.createElement("div");
+    inputTempDiv.id = "temporaryInputDiv";
+    inputDiv.appendChild(inputTempDiv);
+}
+
+function removeinputTempDiv() {
+    if (inputTempDiv == undefined) {
+
+    }
+
+    else {
+    inputDiv.removeChild(inputTempDiv);
+    }
 }
 
 function doStuff(buttonPressed, e) {
@@ -91,73 +109,78 @@ function resetColor() {
 }
 
 function doPush (){
-    removeTempDiv();
-    makeTempDiv();
+    removeinputTempDiv();
+    makeinputTempDiv();
     //Inputbox
     let pushInput = document.createElement("input");
     pushInput.type = "text"
     pushInput.className = "pushInputBox"
-    tempDiv.appendChild(pushInput);
+    inputTempDiv.appendChild(pushInput);
     //Knapp
     let pushButton = document.createElement("button");
     pushButton.innerText = "PUSH";
     pushButton.className = "actionButton";
+    inputTempDiv.appendChild(pushButton);
+    //Pusha till array'en
     pushButton.addEventListener('click', ()=> {
         mainArray.push(pushInput.value);
+        visualizePush();
     });
-    tempDiv.appendChild(pushButton);
-    //Pusha till array'en
+    
+    
     
 
 }
 
 function doUnshift (){
-    removeTempDiv();
-    makeTempDiv();
+    removeinputTempDiv();
+    makeinputTempDiv();
 }
 
 function doSplice (){
-    removeTempDiv();
-    makeTempDiv();
+    removeinputTempDiv();
+    makeinputTempDiv();
 }
 
 function doPop (){
-    removeTempDiv();
-    makeTempDiv();
+    removeinputTempDiv();
+    makeinputTempDiv();
 }
 
 function doShift (){
-    removeTempDiv();
-    makeTempDiv();
+    removeinputTempDiv();
+    makeinputTempDiv();
 }
 
 function doReverse (){
-    removeTempDiv();
-    makeTempDiv();
+    removeinputTempDiv();
+    makeinputTempDiv();
 }
 
 function doIndexOf (){
-    removeTempDiv();
-    makeTempDiv();
+    removeinputTempDiv();
+    makeinputTempDiv();
 }
 
 function doSplit (){
-    removeTempDiv();
-    makeTempDiv();
+    removeinputTempDiv();
+    makeinputTempDiv();
 }
 
-function makeTempDiv() {
-    tempDiv = document.createElement("div");
-    tempDiv.id = "temporaryDiv";
-    inputDiv.appendChild(tempDiv);
-}
+//Funktioner som gör visualiseringen
+function visualizePush() {
 
-function removeTempDiv() {
-    if (tempDiv == undefined) {
+    
+    if (arrayCounter < mainArray.length) {
+        outputTempDiv = document.createElement("div");
+        outputTempDiv.className = "temporaryOutputDiv";
+        outputTempDiv.id = "tempOutputDiv";
+        outputDiv.appendChild(outputTempDiv);
 
-    }
+        let arrayWord = document.createElement("span");
+        arrayWord.innerText = mainArray[arrayCounter];
+        outputTempDiv.appendChild(arrayWord);
 
-    else {
-    inputDiv.removeChild(tempDiv);
+        arrayCounter++
     }
 }

@@ -86,3 +86,11 @@ button:hover {
     background-color: salmon;
 
 }
+
+.temporaryOutputDiv {
+    display: inline-flex;
+    background-color: brown;
+    width: 2%;
+    text-align: center;
+    margin: 2%;
+}
