@@ -232,9 +232,11 @@ function visualizeUnshift() {
     }
 
     for (let i = 0; i < mainArray.length; i++) {
-        let unshiftNum = document.getElementsByClassName("arrayNumber")[i].innerText;
+        let unshiftNum = document.getElementsByClassName("arrayNumber");
 
-        console.log(unshiftNum)
+        console.log(unshiftNum[i].innerText)
+
+        unshiftNum[i].innerText = i;
         
     }
 
