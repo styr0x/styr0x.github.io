@@ -14,7 +14,9 @@ let buttonResetColor = "white"
 
 //Main array
 let mainArray = [];
-let arrayCounter = mainArray.length;
+let arrayCounter = 0;
+let arrayWord;
+let arrayNumber;
 
 window.onload = getToolbarButtons();
 
@@ -135,6 +137,21 @@ function doPush (){
 function doUnshift (){
     removeinputTempDiv();
     makeinputTempDiv();
+    //Inputbox
+    let pushInput = document.createElement("input");
+    pushInput.type = "text"
+    pushInput.className = "pushInputBox"
+    inputTempDiv.appendChild(pushInput);
+    //Knapp
+    let pushButton = document.createElement("button");
+    pushButton.innerText = "UNSHIFT";
+    pushButton.className = "actionButton";
+    inputTempDiv.appendChild(pushButton);
+    //Pusha till array'en
+    pushButton.addEventListener('click', ()=> {
+        mainArray.unshift(pushInput.value);
+        visualizeUnshift();
+    });
 }
 
 function doSplice (){
@@ -174,19 +191,41 @@ function visualizePush() {
     if (arrayCounter < mainArray.length) {
         outputTempDiv = document.createElement("div");
         outputTempDiv.className = "temporaryOutputDiv";
-        outputTempDiv.id = "tempOutputDiv";
+        outputTempDiv.id = `tempOutputDiv`;
         outputDiv.appendChild(outputTempDiv);
 
-        let arrayWord = document.createElement("span");
+        arrayWord = document.createElement("span");
         arrayWord.innerText = mainArray[arrayCounter];
         arrayWord.className = "arrayWord"
         outputTempDiv.appendChild(arrayWord);
 
-        let arrayNumber = document.createElement("span");
+        arrayNumber = document.createElement("span");
         arrayNumber.innerText = arrayCounter;
         arrayNumber.className = "arrayNumber"
         outputTempDiv.appendChild(arrayNumber);
 
         arrayCounter++
     }
+}
+
+function visualizeUnshift() {
+    if (arrayCounter < mainArray.length) {
+        outputTempDiv = document.createElement("div");
+        outputTempDiv.className = "temporaryOutputDiv";
+        outputTempDiv.id = `tempOutputDiv`;
+        outputDiv.appendChild(outputTempDiv);
+
+        arrayWord = document.createElement("span");
+        arrayWord.innerText = mainArray[arrayCounter];
+        arrayWord.className = "arrayWord"
+        outputTempDiv.appendChild(arrayWord);
+
+        arrayNumber = document.createElement("span");
+        arrayNumber.innerText = arrayCounter;
+        arrayNumber.className = "arrayNumber"
+        outputTempDiv.appendChild(arrayNumber);
+
+        arrayCounter++
+    }
+
 }
