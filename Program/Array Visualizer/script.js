@@ -14,6 +14,7 @@ let buttonResetColor = "white"
 
 //Main array
 let mainArray = [];
+let numArray = [];
 let arrayCounter = 0;
 let arrayWord;
 let arrayNumber;
@@ -209,14 +210,16 @@ function visualizePush() {
 }
 
 function visualizeUnshift() {
+    
+
     if (arrayCounter < mainArray.length) {
         outputTempDiv = document.createElement("div");
         outputTempDiv.className = "temporaryOutputDiv";
         outputTempDiv.id = `tempOutputDiv`;
-        outputDiv.appendChild(outputTempDiv);
+        outputDiv.insertBefore(outputTempDiv, outputDiv.firstChild)
 
         arrayWord = document.createElement("span");
-        arrayWord.innerText = mainArray[arrayCounter];
+        arrayWord.innerText = mainArray[0];
         arrayWord.className = "arrayWord"
         outputTempDiv.appendChild(arrayWord);
 
@@ -226,6 +229,13 @@ function visualizeUnshift() {
         outputTempDiv.appendChild(arrayNumber);
 
         arrayCounter++
+    }
+
+    for (let i = 0; i < mainArray.length; i++) {
+        let unshiftNum = document.getElementsByClassName("arrayNumber")[i].innerText;
+
+        console.log(unshiftNum)
+        
     }
 
 }
