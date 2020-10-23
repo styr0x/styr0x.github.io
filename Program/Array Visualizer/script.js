@@ -9,8 +9,6 @@ let outputTempDiv
 let buttonSelectColor = "purple"
 let buttonResetColor = "white"
 
-//info
-
 
 //Main array
 let mainArray = [];
@@ -158,6 +156,22 @@ function doUnshift (){
 function doSplice (){
     removeinputTempDiv();
     makeinputTempDiv();
+    //Indexinput
+    let fromIndex = document.createElement("input");
+    fromIndex.type = "text";
+    fromIndex.className = "spliceInputBox";
+    inputTempDiv.appendChild(fromIndex);
+    //Countinput
+    let countInput = document.createElement("input");
+    countInput.type = "text"
+    countInput.className = "spliceInputBox";
+    inputTempDiv.appendChild(countInput);
+    //Knapp
+    let pushButton = document.createElement("button");
+    pushButton.innerText = "SPLICE";
+    pushButton.className = "actionButton";
+    inputTempDiv.appendChild(pushButton);
+
 }
 
 function doPop (){
@@ -233,11 +247,15 @@ function visualizeUnshift() {
 
     for (let i = 0; i < mainArray.length; i++) {
         let unshiftNum = document.getElementsByClassName("arrayNumber");
+<<<<<<< HEAD
+        unshiftNum[i].innerText = i
+=======
 
         console.log(unshiftNum[i].innerText)
 
         unshiftNum[i].innerText = i;
         
+>>>>>>> 6bcc6eebb9b1ede018a4fcfc5b613cba11114442
     }
 
 }
