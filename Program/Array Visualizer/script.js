@@ -271,5 +271,10 @@ function visualizeSplice(fromIndex, countInput) {
             outputDiv.removeChild(spliceItems[fromIndex.value])
             }
         }
+
+        for (let i = 0; i < mainArray.length; i++) {
+            let spliceNum = document.getElementsByClassName("arrayNumber");
+            spliceNum[i].innerText = i
+        }
     
 }
