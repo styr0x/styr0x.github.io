@@ -115,7 +115,7 @@ function resetColor() {
     }
 }
 
-function doPush (){
+function doPush () {
     removeinputTempDiv();
     makeinputTempDiv();
     //Inputbox
@@ -139,7 +139,7 @@ function doPush (){
 
 }
 
-function doUnshift (){
+function doUnshift () {
     removeinputTempDiv();
     makeinputTempDiv();
     //Inputbox
@@ -159,7 +159,7 @@ function doUnshift (){
     });
 }
 
-function doSplice (){
+function doSplice () {
     removeinputTempDiv();
     makeinputTempDiv();
     //Indexinput
@@ -180,29 +180,88 @@ function doSplice (){
     //Splicea arrayn
     pushButton.addEventListener('click', () => {
         mainArray.splice(fromIndex.value, countInput.value);
+        arrayCounter = mainArray.length; 
         visualizeSplice(fromIndex, countInput);
     });
 
 }
 
-function doPop (){
+function doPop () {
     removeinputTempDiv();
     makeinputTempDiv();
+        //Knapp
+        let pushButton = document.createElement("button");
+        pushButton.innerText = "POP";
+        pushButton.className = "actionButton";
+        inputTempDiv.appendChild(pushButton);
+        //Poppa arrayn
+        pushButton.addEventListener('click', () => {
+            mainArray.pop();
+            arrayCounter = mainArray.length; 
+            visualizePop();
+        }); 
+        
 }
 
-function doShift (){
+function doShift () {
     removeinputTempDiv();
     makeinputTempDiv();
+            //Knapp
+            let pushButton = document.createElement("button");
+            pushButton.innerText = "SHIFT";
+            pushButton.className = "actionButton";
+            inputTempDiv.appendChild(pushButton);
+            //Shifta arrayn
+            pushButton.addEventListener('click', () => {
+                mainArray.shift();
+                arrayCounter = mainArray.length; 
+                visualizeShift();
+            });
+
 }
 
-function doReverse (){
+function doReverse () {
     removeinputTempDiv();
     makeinputTempDiv();
+            //Knapp
+            let pushButton = document.createElement("button");
+            pushButton.innerText = "REVERSE";
+            pushButton.className = "actionButton";
+            inputTempDiv.appendChild(pushButton);
+            //Reversa arrayn
+            pushButton.addEventListener('click', () => {
+                mainArray.reverse();
+                console.log(mainArray);
+                visualizeReverse();
+            });    
 }
 
-function doIndexOf (){
+function doIndexOf () {
     removeinputTempDiv();
     makeinputTempDiv();
+    //Argument input
+    let indexOfInput = document.createElement("input");
+    indexOfInput.type = "text";
+    indexOfInput.className = "indexOfInputBox";
+    inputTempDiv.appendChild(indexOfInput);
+    //knapp
+    let pushButton = document.createElement("button");
+    pushButton.innerText = "INDEX OF";
+    pushButton.className = "actionButton";
+    inputTempDiv.appendChild(pushButton);
+    //Outputens Div
+    let indexOfValueDiv = document.createElement("div");
+    indexOfValueDiv.className = "indexOfValueDiv";
+    inputTempDiv.appendChild(indexOfValueDiv);
+    //Outputen
+    let indexOfValue = document.createElement("span");
+    indexOfValue.className = "indexOfValue";
+    indexOfValueDiv.appendChild(indexOfValue);
+    //Index of arrayn
+    pushButton.addEventListener('click', () => {
+        visualizeIndexOf(indexOfInput, indexOfValue);
+        });       
+
 }
 
 function doSplit (){
@@ -276,4 +335,29 @@ function visualizeSplice(fromIndex, countInput) {
         }
 
         orderNumbers();  
+}
+
+function visualizePop() {
+    let popItem = document.getElementsByClassName("temporaryOutputDiv");
+    outputDiv.removeChild(popItem[mainArray.length]);
+    
+}
+
+function visualizeShift() {
+    let shiftItem = document.getElementsByClassName("temporaryOutputDiv");
+    outputDiv.removeChild(shiftItem[0]);
+    orderNumbers();
+}
+
+function visualizeReverse() {
+    for (let i = 0; i < mainArray.length; i++) {
+        let reverseWord = document.getElementsByClassName("arrayWord");
+        reverseWord[i].innerText = mainArray[i];
+    }
+}
+
+function visualizeIndexOf(indexOfInput,indexOfValue) {
+
+    indexOfValue.innerText = mainArray.indexOf(indexOfInput.value);
+
 }
