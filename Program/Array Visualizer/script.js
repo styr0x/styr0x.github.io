@@ -4,117 +4,92 @@ let inputDiv = document.getElementById("input");
 let outputDiv = document.getElementById("output");
 let inputTempDiv;
 let outputTempDiv
-
 //Färger
 let buttonSelectColor = "purple"
 let buttonResetColor = "white"
-
-
 //Main array
 let mainArray = [];
 let numArray = [];
 let arrayCounter = 0;
 let arrayWord;
 let arrayNumber;
-
 window.onload = getToolbarButtons();
-
 function getToolbarButtons() {
     toolbarButtons = document.getElementsByClassName("toolbarButton");
-
     for (let i = 0; i < toolbarButtons.length; i++) {
         toolbarButtons[i].dataset.id = i;
         toolbarButtons[i].addEventListener("click", determineToolbarButton)
-
     }
 }
-
 function determineToolbarButton(e) {
     let buttonPressed = e.target.dataset.id
     doStuff(buttonPressed, e);    
 }
-
 function makeinputTempDiv() {
     inputTempDiv = document.createElement("div");
     inputTempDiv.id = "temporaryInputDiv";
     inputDiv.appendChild(inputTempDiv);
 }
-
 function removeinputTempDiv() {
     if (inputTempDiv == undefined) {
-
     }
-
     else {
     inputDiv.removeChild(inputTempDiv);
     }
 }
-
 function orderNumbers() {
     for (let i = 0; i < mainArray.length; i++) {
         let displayNum = document.getElementsByClassName("arrayNumber");
         displayNum[i].innerText = i
     }
 }
-
 function doStuff(buttonPressed, e) {
-
     if (buttonPressed == 0) {
         doPush();
         resetColor();
         e.target.style.backgroundColor = buttonSelectColor;
     }
-
     else if (buttonPressed == 1) {
         doUnshift();
         resetColor();
         e.target.style.backgroundColor = buttonSelectColor;
     }
-
     else if (buttonPressed == 2) {
         doSplice();
         resetColor();
         e.target.style.backgroundColor = buttonSelectColor;
     }
-
     else if (buttonPressed == 3) {
         doPop();
         resetColor();
         e.target.style.backgroundColor = buttonSelectColor;
     }
-
     else if (buttonPressed == 4) {
         doShift();
         resetColor();
         e.target.style.backgroundColor = buttonSelectColor;
     }
-
     else if (buttonPressed == 5) {
         doReverse();
         resetColor();
         e.target.style.backgroundColor = buttonSelectColor;
     }
-
     else if (buttonPressed == 6) {
         doIndexOf();
         resetColor();
         e.target.style.backgroundColor = buttonSelectColor;
     }
-
     else if (buttonPressed == 7) {
         doSplit();
         resetColor();
         e.target.style.backgroundColor = buttonSelectColor;
     }
 }
-
 function resetColor() {
     for (let i = 0; i < toolbarButtons.length; i++) {
         toolbarButtons[i].style.backgroundColor = buttonResetColor;
-
     }
 }
-
 function doPush () {
     removeinputTempDiv();
     makeinputTempDiv();
@@ -133,12 +108,7 @@ function doPush () {
         mainArray.push(pushInput.value);
         visualizePush();
     });
-    
-    
-    
-
 }
-
 function doUnshift () {
     removeinputTempDiv();
     makeinputTempDiv();
@@ -158,7 +128,6 @@ function doUnshift () {
         visualizeUnshift();
     });
 }
-
 function doSplice () {
     removeinputTempDiv();
     makeinputTempDiv();
@@ -183,9 +152,7 @@ function doSplice () {
         arrayCounter = mainArray.length; 
         visualizeSplice(fromIndex, countInput);
     });
-
 }
-
 function doPop () {
     removeinputTempDiv();
     makeinputTempDiv();
@@ -200,9 +167,7 @@ function doPop () {
             arrayCounter = mainArray.length; 
             visualizePop();
         }); 
-        
 }
-
 function doShift () {
     removeinputTempDiv();
     makeinputTempDiv();
@@ -217,9 +182,7 @@ function doShift () {
                 arrayCounter = mainArray.length; 
                 visualizeShift();
             });
-
 }
-
 function doReverse () {
     removeinputTempDiv();
     makeinputTempDiv();
@@ -235,7 +198,6 @@ function doReverse () {
                 visualizeReverse();
             });    
 }
-
 function doIndexOf () {
     removeinputTempDiv();
     makeinputTempDiv();
@@ -261,9 +223,7 @@ function doIndexOf () {
     pushButton.addEventListener('click', () => {
         visualizeIndexOf(indexOfInput, indexOfValue);
         });       
-
 }
-
 function doSplit (){
     removeinputTempDiv();
     makeinputTempDiv();
@@ -292,65 +252,49 @@ function doSplit (){
         console.log(mainArray);
         visualizeSplit(splittedWords);
         });   
-
 }
-
 //Funktioner som gör visualiseringen
 function visualizePush() {
-
-    
     if (arrayCounter < mainArray.length) {
         outputTempDiv = document.createElement("div");
         outputTempDiv.className = "temporaryOutputDiv";
         outputTempDiv.id = `tempOutputDiv`;
         outputDiv.appendChild(outputTempDiv);
-
         arrayWord = document.createElement("span");
         arrayWord.innerText = mainArray[arrayCounter];
         arrayWord.className = "arrayWord"
         outputTempDiv.appendChild(arrayWord);
-
         arrayNumber = document.createElement("span");
         arrayNumber.innerText = arrayCounter;
         arrayNumber.className = "arrayNumber"
         outputTempDiv.appendChild(arrayNumber);
-
         arrayCounter++
     }
 }
-
 function visualizeUnshift() {
-    
-
     if (arrayCounter < mainArray.length) {
         outputTempDiv = document.createElement("div");
         outputTempDiv.className = "temporaryOutputDiv";
         outputTempDiv.id = `tempOutputDiv`;
         outputDiv.insertBefore(outputTempDiv, outputDiv.firstChild)
-
         arrayWord = document.createElement("span");
         arrayWord.innerText = mainArray[0];
         arrayWord.className = "arrayWord"
         outputTempDiv.appendChild(arrayWord);
-
         arrayNumber = document.createElement("span");
         arrayNumber.innerText = arrayCounter;
         arrayNumber.className = "arrayNumber"
         outputTempDiv.appendChild(arrayNumber);
-
         arrayCounter++
     }
-
     orderNumbers();
 }
-
 function visualizeSplice(fromIndex, countInput) {
         let spliceItems = document.getElementsByClassName("temporaryOutputDiv");
         //spliceItems.splice(fromIndex.value, countInput.value)
         console.log(spliceItems);
         console.log(fromIndex.value);
         console.log(countInput.value);
-
         if (countInput.value == 1) {
             outputDiv.removeChild(spliceItems[fromIndex.value])
         }
@@ -359,48 +303,36 @@ function visualizeSplice(fromIndex, countInput) {
             outputDiv.removeChild(spliceItems[fromIndex.value])
             }
         }
-
         orderNumbers();  
 }
-
 function visualizePop() {
     let popItem = document.getElementsByClassName("temporaryOutputDiv");
     outputDiv.removeChild(popItem[mainArray.length]);
-    
 }
-
 function visualizeShift() {
     let shiftItem = document.getElementsByClassName("temporaryOutputDiv");
     outputDiv.removeChild(shiftItem[0]);
     orderNumbers();
 }
-
 function visualizeReverse() {
     for (let i = 0; i < mainArray.length; i++) {
         let reverseWord = document.getElementsByClassName("arrayWord");
         reverseWord[i].innerText = mainArray[i];
     }
 }
-
 function visualizeIndexOf(indexOfInput,indexOfValue) {
-
     indexOfValue.innerText = mainArray.indexOf(indexOfInput.value);
-
 }
-
 function visualizeSplit(splittedWords) {
-
     for (let i = 0; i < splittedWords.length; i++) {
         outputTempDiv = document.createElement("div");
         outputTempDiv.className = "temporaryOutputDiv";
         outputTempDiv.id = `tempOutputDiv`;
         outputDiv.appendChild(outputTempDiv);
-
         arrayWord = document.createElement("span");
         arrayWord.innerText = splittedWords[i];
         arrayWord.className = "arrayWord"
         outputTempDiv.appendChild(arrayWord);
-
         arrayNumber = document.createElement("span");
         arrayNumber.innerText = arrayCounter;
         arrayNumber.className = "arrayNumber"
