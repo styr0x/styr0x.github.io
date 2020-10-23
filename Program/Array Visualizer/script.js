@@ -267,6 +267,32 @@ function doIndexOf () {
 function doSplit (){
     removeinputTempDiv();
     makeinputTempDiv();
+    //Inputbox
+    let splitInput = document.createElement("input");
+    splitInput.type = "text"
+    splitInput.className = "pushInputBox"
+    inputTempDiv.appendChild(splitInput);
+    //Countinput
+    let separator = document.createElement("input");
+    separator.type = "text"
+    separator.className = "spliceInputBox";
+    inputTempDiv.appendChild(separator);
+    //knapp
+    let pushButton = document.createElement("button");
+    pushButton.innerText = "SPLIT";
+    pushButton.className = "actionButton";
+    inputTempDiv.appendChild(pushButton);
+    //Split visualize
+    pushButton.addEventListener('click', () => {
+        let splittedWords = splitInput.value.split(separator.value);
+        for (let i= 0; i < splittedWords.length; i++) {
+            mainArray.push(splittedWords[i]);
+        }
+        console.log(splittedWords);
+        console.log(mainArray);
+        visualizeSplit(splittedWords);
+        });   
+
 }
 
 //Funktioner som gör visualiseringen
@@ -360,4 +386,26 @@ function visualizeIndexOf(indexOfInput,indexOfValue) {
 
     indexOfValue.innerText = mainArray.indexOf(indexOfInput.value);
 
+}
+
+function visualizeSplit(splittedWords) {
+
+    for (let i = 0; i < splittedWords.length; i++) {
+        outputTempDiv = document.createElement("div");
+        outputTempDiv.className = "temporaryOutputDiv";
+        outputTempDiv.id = `tempOutputDiv`;
+        outputDiv.appendChild(outputTempDiv);
+
+        arrayWord = document.createElement("span");
+        arrayWord.innerText = splittedWords[i];
+        arrayWord.className = "arrayWord"
+        outputTempDiv.appendChild(arrayWord);
+
+        arrayNumber = document.createElement("span");
+        arrayNumber.innerText = arrayCounter;
+        arrayNumber.className = "arrayNumber"
+        outputTempDiv.appendChild(arrayNumber);
+        arrayCounter++
+    }
+    orderNumbers();
 }
