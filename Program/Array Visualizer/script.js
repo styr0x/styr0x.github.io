@@ -51,7 +51,6 @@ function removeinputTempDiv() {
 }
 
 function doStuff(buttonPressed, e) {
-    console.log(buttonPressed);
 
     if (buttonPressed == 0) {
         doPush();
@@ -123,7 +122,7 @@ function doPush (){
     pushButton.className = "actionButton";
     inputTempDiv.appendChild(pushButton);
     //Pusha till array'en
-    pushButton.addEventListener('click', ()=> {
+    pushButton.addEventListener('click', () => {
         mainArray.push(pushInput.value);
         visualizePush();
     });
@@ -146,8 +145,8 @@ function doUnshift (){
     pushButton.innerText = "UNSHIFT";
     pushButton.className = "actionButton";
     inputTempDiv.appendChild(pushButton);
-    //Pusha till array'en
-    pushButton.addEventListener('click', ()=> {
+    //Pusha till arrayn
+    pushButton.addEventListener('click', () => {
         mainArray.unshift(pushInput.value);
         visualizeUnshift();
     });
@@ -171,6 +170,11 @@ function doSplice (){
     pushButton.innerText = "SPLICE";
     pushButton.className = "actionButton";
     inputTempDiv.appendChild(pushButton);
+    //Splicea arrayn
+    pushButton.addEventListener('click', () => {
+        mainArray.splice(fromIndex.value, countInput.value);
+        visualizeSplice(fromIndex, countInput);
+    });
 
 }
 
@@ -247,15 +251,25 @@ function visualizeUnshift() {
 
     for (let i = 0; i < mainArray.length; i++) {
         let unshiftNum = document.getElementsByClassName("arrayNumber");
-<<<<<<< HEAD
         unshiftNum[i].innerText = i
-=======
-
-        console.log(unshiftNum[i].innerText)
-
-        unshiftNum[i].innerText = i;
-        
->>>>>>> 6bcc6eebb9b1ede018a4fcfc5b613cba11114442
     }
 
+}
+
+function visualizeSplice(fromIndex, countInput) {
+        let spliceItems = document.getElementsByClassName("temporaryOutputDiv");
+        //spliceItems.splice(fromIndex.value, countInput.value)
+        console.log(spliceItems);
+        console.log(fromIndex.value);
+        console.log(countInput.value);
+
+        if (countInput.value == 1) {
+            outputDiv.removeChild(spliceItems[fromIndex.value])
+        }
+        else if (countInput.value > 1) {
+            for (let i = 0; i < countInput.value; i++) {
+            outputDiv.removeChild(spliceItems[fromIndex.value])
+            }
+        }
+    
 }

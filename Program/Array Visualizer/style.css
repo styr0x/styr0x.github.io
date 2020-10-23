@@ -84,6 +84,13 @@ button:hover {
     width: 20vw;
 }
 
+.spliceInputBox {
+    margin-top: 16vh;
+    height: 5vh;
+    width: 5vw;
+    margin-left: 1vw;
+}
+
 .output {
     height: 45vh;
     background-color: salmon;
