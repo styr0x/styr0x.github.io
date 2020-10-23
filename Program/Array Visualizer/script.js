@@ -50,6 +50,13 @@ function removeinputTempDiv() {
     }
 }
 
+function orderNumbers() {
+    for (let i = 0; i < mainArray.length; i++) {
+        let displayNum = document.getElementsByClassName("arrayNumber");
+        displayNum[i].innerText = i
+    }
+}
+
 function doStuff(buttonPressed, e) {
 
     if (buttonPressed == 0) {
@@ -249,11 +256,7 @@ function visualizeUnshift() {
         arrayCounter++
     }
 
-    for (let i = 0; i < mainArray.length; i++) {
-        let unshiftNum = document.getElementsByClassName("arrayNumber");
-        unshiftNum[i].innerText = i
-    }
-
+    orderNumbers();
 }
 
 function visualizeSplice(fromIndex, countInput) {
@@ -272,9 +275,5 @@ function visualizeSplice(fromIndex, countInput) {
             }
         }
 
-        for (let i = 0; i < mainArray.length; i++) {
-            let spliceNum = document.getElementsByClassName("arrayNumber");
-            spliceNum[i].innerText = i
-        }
-    
+        orderNumbers();  
 }
