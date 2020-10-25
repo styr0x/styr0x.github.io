@@ -54,6 +54,7 @@ button:hover {
 }
 
 .actionButton {
+    margin-top: 15vh;
     transform: translate(0,0.2vh);
     margin-left: 1vw;
     height: 6vh;
@@ -82,6 +83,37 @@ button:hover {
     margin-top: 16vh;
     height: 5vh;
     width: 20vw;
+}
+
+.spliceInputBox {
+    margin-top: 16vh;
+    height: 5vh;
+    width: 5vw;
+    margin-left: 1vw;
+}
+
+.indexOfInputBox {
+    margin-top: 16vh;
+    height: 5vh;
+    width: 10vw;
+    margin-left: 1vw;
+}
+
+.indexOfValueDiv {
+    transform: translate(0,15.8vh);
+    position: absolute;
+    display: inline-flex;
+    width: 6vw;
+    height: 5vh;
+    border:  2px solid black;
+    margin-left: 2vw;
+}
+
+.indexOfValue {
+    margin-top: 3%;
+    font-size: 2rem;
+    text-align: center;
+    width: 100%;
 }
 
 .output {
