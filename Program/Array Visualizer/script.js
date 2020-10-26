@@ -5,8 +5,10 @@ let outputDiv = document.getElementById("output");
 let inputTempDiv;
 let outputTempDiv
 //Färger
-let buttonSelectColor = "purple"
-let buttonResetColor = "white"
+let buttonSelectColor = "rgb(80, 80, 80)"
+let buttonResetColor = "rgb(245, 245, 245)"
+let buttonSelectTextColor = "white"
+let buttonSelectTextResetColor = "rgb(165, 29, 251)"
 //Main array
 let mainArray = [];
 let numArray = [];
@@ -48,46 +50,55 @@ function doStuff(buttonPressed, e) {
         doPush();
         resetColor();
         e.target.style.backgroundColor = buttonSelectColor;
+        e.target.style.color = buttonSelectTextColor;
     }
     else if (buttonPressed == 1) {
         doUnshift();
         resetColor();
         e.target.style.backgroundColor = buttonSelectColor;
+        e.target.style.color = buttonSelectTextColor;
     }
     else if (buttonPressed == 2) {
         doSplice();
         resetColor();
         e.target.style.backgroundColor = buttonSelectColor;
+        e.target.style.color = buttonSelectTextColor;
     }
     else if (buttonPressed == 3) {
         doPop();
         resetColor();
         e.target.style.backgroundColor = buttonSelectColor;
+        e.target.style.color = buttonSelectTextColor;
     }
     else if (buttonPressed == 4) {
         doShift();
         resetColor();
         e.target.style.backgroundColor = buttonSelectColor;
+        e.target.style.color = buttonSelectTextColor;
     }
     else if (buttonPressed == 5) {
         doReverse();
         resetColor();
         e.target.style.backgroundColor = buttonSelectColor;
+        e.target.style.color = buttonSelectTextColor;
     }
     else if (buttonPressed == 6) {
         doIndexOf();
         resetColor();
         e.target.style.backgroundColor = buttonSelectColor;
+        e.target.style.color = buttonSelectTextColor;
     }
     else if (buttonPressed == 7) {
         doSplit();
         resetColor();
         e.target.style.backgroundColor = buttonSelectColor;
+        e.target.style.color = buttonSelectTextColor;
     }
 }
 function resetColor() {
     for (let i = 0; i < toolbarButtons.length; i++) {
         toolbarButtons[i].style.backgroundColor = buttonResetColor;
+        toolbarButtons[i].style.color = buttonSelectTextResetColor;
     }
 }
 function doPush () {
