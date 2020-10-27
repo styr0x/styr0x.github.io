@@ -1,5 +1,12 @@
+body, html {
+    background: linear-gradient(blue, purple);
+    background-repeat: no-repeat;
+    height: 100%;
+    overflow: hidden;
+}
 .parent {
-    font-size: 2rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 3rem;
     display: flex;
     justify-content: center;
 }
@@ -8,14 +15,42 @@
     position: absolute;
     display: flex;
     justify-content: center;
-    transform: translate(0,5vh);
+    transform: translate(0,3vh);
 }
 
 .scoreNumClass {
-    transform: translate(0.6vw,3.5vh);
+    transform: translate(0.6vw,5.4vh);
+}
+
+.resetButtonClass {
+    position: absolute;
+    width: 5vw;
+    height: 5vh;
+    transform: translate(0,50vh);
+    background-color: orange;
+    border: none;
+    font-weight: bold;
+    outline: none;
+}
+
+.resetButtonClass:hover {
+    background-color: rgb(168, 109, 0);
+}
+
+.resetButtonClass:active {
+    width: 4vw;
+    height: 4vh;
 }
 
 .gameWindowClass {
+    background-color: black;
     margin-top: 8%;
     border: 1px solid black;
+}
+
+.gameOverClass {
+    position: absolute;
+    color: red;
+    font-weight: bold;
+    transform: translate(0,40vh);
 }

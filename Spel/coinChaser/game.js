@@ -1,5 +1,5 @@
 //Variabler
-
+let parentDiv = document.getElementById("parentDiv");
 //Canvasen
 let gameWindow = document.getElementById("gameWindow");
 let ctx = gameWindow.getContext("2d");
@@ -25,6 +25,8 @@ let enemy = {
     x: 770,
     y: 570,
     speed: 2,
+    width: 30,
+    height: 30,
     damage: 1
 }
 
@@ -44,7 +46,7 @@ let score = 0;
 
 
 //Gameloopen
-setInterval (gameLoop, 10);
+let gameInterval = setInterval (gameLoop, 10);
 function gameLoop() {
     clearCanvas();
     drawPlayerCircle();
@@ -55,9 +57,6 @@ function gameLoop() {
     enemyFollowPlayer();
     checkEnemyCollisions();
 }
-
-
-
 
 //////////////////////////////////////Alla andra funktioner
 
@@ -171,14 +170,41 @@ function enemyFollowPlayer() {
     
 }
 
-//Checkar ifall man kolliderat med enemyn
+//Checkar ifall man kolliderat med enemyn och stoppar gameloopen.
 function checkEnemyCollisions() {
     if (enemy.x < player.x + player.width &&
         enemy.x + enemy.width > player.x &&
         enemy.y < player.y + player.height &&
         enemy.height + enemy.y > player.y) {
+            gameOver();
+        }     
+}
 
-            
-        console.log("enemy")
-        }    
+////////Gameover och reset
+
+//Gameover screen
+function gameOver() {
+    let gameOverText = document.createElement("span");
+    gameOverText.innerText = "GAME OVER";
+    gameOverText.className = "gameOverClass";
+    gameOverText.id = "gameOverTextId";
+    parentDiv.appendChild(gameOverText);
+    clearInterval(gameInterval);
+    clearCanvas();
+    createResetButton();
+}
+
+//Resetknapp
+function createResetButton() {
+    let resetButton = document.createElement("button");
+    resetButton.innerText = "RESET";
+    resetButton.className = "resetButtonClass";
+    resetButton.id = "resetBtnId"
+    resetButton.addEventListener('click', restartGame);
+    parentDiv.appendChild(resetButton);
+}
+
+//Starta om spelet och göm gameover rutan
+function restartGame() {
+    document.location.reload();  
 }
