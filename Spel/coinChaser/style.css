@@ -1,0 +1,9 @@
+.parent {
+    display: flex;
+    justify-content: center;
+}
+
+.gameWindowClass {
+    margin-top: 8%;
+    border: 1px solid black;
+}
