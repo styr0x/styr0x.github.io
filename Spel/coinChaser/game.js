@@ -137,8 +137,8 @@ function checkCoinCollisions() {
 
 //Lägger coinen på ett random ställe
 function randomizeCoin() {
-    randomX = Math.floor((Math.random() * 770) + 30);
-    randomY = Math.floor((Math.random() * 570) + 30);
+    randomX = Math.floor((Math.random() * 760) + 40);
+    randomY = Math.floor((Math.random() * 560) + 40);
     coin.x = randomX;
     coin.y = randomY;
 }
