@@ -1,6 +1,8 @@
 html, body {
     overflow: hidden;
     font-size: 1rem;
+    background-color: hsl(160, 0, 240);
+    font-family: sans-serif;
 }
 
 .parent {
@@ -12,7 +14,7 @@ html, body {
 }
 
 .logo {
-    background-color: sandybrown;
+    padding: 2vh;
 }
 
 img {
@@ -23,34 +25,49 @@ img {
     transform: translate(0,0vh);
 }
 
-.toolbar {
-    padding: 1vh;
-    background-color: steelblue;
+.toolbarDescriptions {
+    color: rgb(170, 170, 170);
+    margin-bottom: 1vh;
+    font-size: 0.95rem;
     text-align: center;
 }
 
+.desc {
+    padding: 1.6vw;
+}
+
+
+.toolbar {
+    border-top: 2px solid hsl(0, 0%, 61%);
+    padding: 1vh;
+    background-color: rgb(245, 245, 245);
+    text-align: center;
+    border-bottom: 3px solid rgb(200, 200, 200);
+}
+
 .add, .remove, .misc, .string {
-    margin-right: 2vw;
+    padding-left: 1vw;
     display: inline;
 }
 
 .line {
-    margin-left: 1.7vw;
+    margin-left: 1vw;
     border-left: 1px solid black;
 }
 
 button {
     font-size: 1.3rem;
-    color: rgb(207, 0, 207);
-    background-color: white;
+    color: 	rgb(165, 29, 251);
+    background-color: rgb(245, 245, 245);
     outline: none;
-    border: 1px solid  rgb(207, 0, 207);
+    border: 1px solid  	rgb(165, 29, 251);
     border-radius: 2px;
 }
 
 button:hover {
     color: white;
-    background-color:  rgb(207, 0, 207);
+    background-color:  rgb(80, 80, 80);
+    border: 1px solid  	rgb(80, 80, 80);
 }
 
 .actionButton {
@@ -60,23 +77,27 @@ button:hover {
     height: 6vh;
     width: auto;
     font-size: 1.5rem;
-    color: rgb(207, 0, 207);
-    background-color: white;
+    color: rgb(165, 29, 251);
+    background-color: rgb(242, 242, 242);
     outline: none;
-    border: 1px solid  rgb(207, 0, 207);
+    border: 1px solid  rgb(165, 29, 251);
     border-radius: 2px;
 }
 
 .actionButton:hover {
     color: white;
-    background-color:  rgb(207, 0, 207);
+    background-color:  rgb(165, 29, 251);
 }
 
+.actionButton:active {
+    background-color:  rgb(80, 80, 80);
+    border: 1px solid  	rgb(80, 80, 80);
+}
 
 .input {
     text-align: center;
-    height: 42vh;
-    background-color: lightgreen;
+    height: 25vh;
+    background-color: rgb(242, 242, 242);
 }
 
 .pushInputBox {
@@ -117,24 +138,24 @@ button:hover {
 }
 
 .output {
+    border-top: 2px solid hsl(0, 0%, 88%);
     height: 45vh;
-    background-color: salmon;
 
 }
 
 .temporaryOutputDiv {
     margin: 1vw;
-    min-width: 5%;
-    max-width: auto;
+    width: 8%;
     padding: 1vw;
     height: 25%;
     display: inline-flex;
-    background-color: brown;
+    border: 2px solid rgb(139, 139, 139);
     transform: translate(0,13vh);
 }
 
 .arrayWord {
-    font-size: 3rem;
+    position: relative;
+    font-size: 1.5vw;
     text-align: center;
     margin: auto;
     margin-top: 1vh;
@@ -142,8 +163,8 @@ button:hover {
 }
 
 .arrayNumber {
+    position: absolute;
     font-size: 1.5rem;
-    text-align: center;
-    margin-top: 9vh;
-    margin-left: auto;
+    margin-left: 40%;
+    margin-top: 50%;
 }
