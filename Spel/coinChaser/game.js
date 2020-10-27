@@ -76,7 +76,6 @@ function drawPlayerCircle() {
     ctx.arc(x, y, 25, 0, 2 * Math.PI);
     ctx.fillStyle = "blue";
     ctx.fill();
-    ctx.stroke();
 }
 
 //Flytta Spelaren
@@ -121,7 +120,6 @@ function drawCoinCircle() {
     ctx.arc(coin.x, coin.y, 25, 0, 2 * Math.PI);
     ctx.fillStyle = "yellow";
     ctx.fill();
-    ctx.stroke();
 }
 //Ser ifall man kolliderat men coinen
 function checkCoinCollisions() {
@@ -137,8 +135,8 @@ function checkCoinCollisions() {
 
 //Lägger coinen på ett random ställe
 function randomizeCoin() {
-    randomX = Math.floor((Math.random() * 760) + 40);
-    randomY = Math.floor((Math.random() * 560) + 40);
+    randomX = Math.floor((Math.random() * 770) + 30);
+    randomY = Math.floor((Math.random() * 570) + 30);
     coin.x = randomX;
     coin.y = randomY;
 }
@@ -151,7 +149,6 @@ function drawEnemyCircle() {
     ctx.arc(enemy.x, enemy.y, 25, 0, 2 * Math.PI);
     ctx.fillStyle = "red";
     ctx.fill();
-    ctx.stroke();   
 }
 
 //Följ spelaren
