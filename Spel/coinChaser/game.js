@@ -7,11 +7,11 @@ let ctx = gameWindow.getContext("2d");
 let player = {
     x:gameWindow.width/2,
     y:gameWindow.height-100,
-    speed: 20
+    speed: 5
 };
 
-let left = false;
-let right = false;
+let moveLeft = false;
+let moveRight = false;
 
 //Coin
 
@@ -51,25 +51,30 @@ function drawPlayerCircle() {
 
 //Flytta Spelaren
 function movePlayer() {
-    if (left) {
+    if (moveLeft) {
         player.x -= player.speed;
-        console.log("moving left");
+        console.log("moving moveLeft");
     }
 
-    if (right) {
+    if (moveRight) {
         player.x += player.speed;
-        console.log("moving right");
+        console.log("moving moveRight");
     }
+
 }
 
 document.onkeydown = function(e) {
-    if (e.keycode == 37) left = true;
-    if (e.keycode == 39) right = true;
+    if (e.code == "ArrowLeft") {moveLeft = true;}
+    if (e.code == "ArrowRight") {moveRight = true;}
     console.log("keypress");
+    console.log (moveLeft,moveRight);
+    console.log(e.code);
 }
 
 document.onkeyup = function(e) {
-    if (e.keycode == 37) left = false;
-    if (e.keycode == 39) right = false;
+    if (e.code == "ArrowLeft") {moveLeft = false;}
+    if (e.code == "ArrowRight") {moveRight = false;}
     console.log("keyrelease");
+    console.log (moveLeft,moveRight);
+    console.log(e.code);
 }
