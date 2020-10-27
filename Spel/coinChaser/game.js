@@ -3,13 +3,15 @@
 //Canvasen
 let gameWindow = document.getElementById("gameWindow");
 let ctx = gameWindow.getContext("2d");
+
 //Player
 let player = {
     x:gameWindow.width/2,
     y:gameWindow.height/2,
     speed: 4,
     width: 30,
-    height: 30
+    height: 30,
+    health: 1
     
 };
 
@@ -17,6 +19,14 @@ let moveLeft = false;
 let moveRight = false;
 let moveUp = false;
 let moveDown = false;
+
+//Enemy
+let enemy = {
+    x: 770,
+    y: 570,
+    speed: 2,
+    damage: 1
+}
 
 //Coin
 let randomX = 30
@@ -40,18 +50,24 @@ function gameLoop() {
     drawPlayerCircle();
     movePlayer();
     drawCoinCircle();
-    checkCollisions();
+    checkCoinCollisions();
+    drawEnemyCircle();
+    enemyFollowPlayer();
+    checkEnemyCollisions();
 }
 
 
 
 
-//Alla andra funktioner
+//////////////////////////////////////Alla andra funktioner
 
 //Töm canvasen
 function clearCanvas () {
     ctx.clearRect(0,0,gameWindow.width,gameWindow.height);
 }
+
+
+////////Spelarens funktioner
 
 //Rita spelaren
 function drawPlayerCircle() {
@@ -59,7 +75,7 @@ function drawPlayerCircle() {
     let y = player.y;
     ctx.beginPath();
     ctx.arc(x, y, 25, 0, 2 * Math.PI);
-    ctx.fillStyle = "red";
+    ctx.fillStyle = "blue";
     ctx.fill();
     ctx.stroke();
 }
@@ -98,17 +114,18 @@ function movePlayer() {
 
 }
 
+////////Coinens funktioner
+
+//Skapar coinen
 function drawCoinCircle() {
-    let x = coin.x;
-    let y = coin.y;
     ctx.beginPath();
-    ctx.arc(x, y, 25, 0, 2 * Math.PI);
+    ctx.arc(coin.x, coin.y, 25, 0, 2 * Math.PI);
     ctx.fillStyle = "yellow";
     ctx.fill();
     ctx.stroke();
 }
-
-function checkCollisions() {
+//Ser ifall man kolliderat men coinen
+function checkCoinCollisions() {
     if (coin.x < player.x + player.width &&
         coin.x + coin.width > player.x &&
         coin.y < player.y + player.height &&
@@ -116,13 +133,52 @@ function checkCollisions() {
             randomizeCoin();
             score++;
             scoreDisplay.innerText = score;
-            console.log('COIN COLISSION!');
         }    
 }
 
+//Lägger coinen på ett random ställe
 function randomizeCoin() {
     randomX = Math.floor((Math.random() * 770) + 30);
     randomY = Math.floor((Math.random() * 570) + 30);
     coin.x = randomX;
     coin.y = randomY;
+}
+
+////////Enemyns funktioner
+
+//Skapa en enemy
+function drawEnemyCircle() {
+    ctx.beginPath();
+    ctx.arc(enemy.x, enemy.y, 25, 0, 2 * Math.PI);
+    ctx.fillStyle = "red";
+    ctx.fill();
+    ctx.stroke();   
+}
+
+//Följ spelaren
+function enemyFollowPlayer() {
+    let directionX = player.x - enemy.x;
+    let directionY = player.y - enemy.y;
+
+    let hyp = Math.sqrt(Math.pow(directionX, 2) + Math.pow(directionY, 2));
+    directionX /= hyp;
+    directionY /= hyp;
+
+    enemy.x += directionX * enemy.speed;
+    enemy.y += directionY * enemy.speed;
+
+
+    
+}
+
+//Checkar ifall man kolliderat med enemyn
+function checkEnemyCollisions() {
+    if (enemy.x < player.x + player.width &&
+        enemy.x + enemy.width > player.x &&
+        enemy.y < player.y + player.height &&
+        enemy.height + enemy.y > player.y) {
+
+            
+        console.log("enemy")
+        }    
 }
