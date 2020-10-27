@@ -1,6 +1,18 @@
 .parent {
+    font-size: 2rem;
     display: flex;
     justify-content: center;
+}
+
+.score {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    transform: translate(0,5vh);
+}
+
+.scoreNumClass {
+    transform: translate(0.6vw,3.5vh);
 }
 
 .gameWindowClass {

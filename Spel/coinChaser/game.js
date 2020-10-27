@@ -6,16 +6,29 @@ let ctx = gameWindow.getContext("2d");
 //Player
 let player = {
     x:gameWindow.width/2,
-    y:gameWindow.height-100,
-    speed: 5
+    y:gameWindow.height/2,
+    speed: 4,
+    width: 30,
+    height: 30
+    
 };
 
 let moveLeft = false;
 let moveRight = false;
+let moveUp = false;
+let moveDown = false;
 
 //Coin
-
+let randomX = 30
+let randomY = 30
+let coin = {
+    x: randomX,
+    y: randomY, 
+    width: 30,
+    height: 30
+}
 //Score
+let scoreDisplay = document.getElementById("scoreNum");
 let score = 0;
 
 
@@ -26,6 +39,8 @@ function gameLoop() {
     clearCanvas();
     drawPlayerCircle();
     movePlayer();
+    drawCoinCircle();
+    checkCollisions();
 }
 
 
@@ -51,30 +66,63 @@ function drawPlayerCircle() {
 
 //Flytta Spelaren
 function movePlayer() {
-    if (moveLeft) {
+    //Keypress
+    document.onkeydown = function(e) {
+        if (e.code == "ArrowLeft") moveLeft = true;
+        if (e.code == "ArrowRight") moveRight = true;
+        if (e.code == "ArrowUp") moveUp = true;
+        if (e.code == "ArrowDown") moveDown = true;
+    }
+    document.onkeyup = function(e) {
+        if (e.code == "ArrowLeft") moveLeft = false;
+        if (e.code == "ArrowRight") moveRight = false;
+        if (e.code == "ArrowUp") moveUp = false;
+        if (e.code == "ArrowDown") moveDown = false;
+    }
+    //Själva rörelsen
+    if (moveLeft && player.x > gameWindow.width - 770) {
         player.x -= player.speed;
-        console.log("moving moveLeft");
     }
 
-    if (moveRight) {
+    if (moveRight && player.x < gameWindow.width - 30) {
         player.x += player.speed;
-        console.log("moving moveRight");
+    }
+
+    if (moveUp && player.y > gameWindow.height - 570) {
+        player.y -= player.speed;
+    }
+
+    if (moveDown && player.y < gameWindow.height - 30) {
+        player.y += player.speed;
     }
 
 }
 
-document.onkeydown = function(e) {
-    if (e.code == "ArrowLeft") {moveLeft = true;}
-    if (e.code == "ArrowRight") {moveRight = true;}
-    console.log("keypress");
-    console.log (moveLeft,moveRight);
-    console.log(e.code);
+function drawCoinCircle() {
+    let x = coin.x;
+    let y = coin.y;
+    ctx.beginPath();
+    ctx.arc(x, y, 25, 0, 2 * Math.PI);
+    ctx.fillStyle = "yellow";
+    ctx.fill();
+    ctx.stroke();
 }
 
-document.onkeyup = function(e) {
-    if (e.code == "ArrowLeft") {moveLeft = false;}
-    if (e.code == "ArrowRight") {moveRight = false;}
-    console.log("keyrelease");
-    console.log (moveLeft,moveRight);
-    console.log(e.code);
+function checkCollisions() {
+    if (coin.x < player.x + player.width &&
+        coin.x + coin.width > player.x &&
+        coin.y < player.y + player.height &&
+        coin.height + coin.y > player.y) {
+            randomizeCoin();
+            score++;
+            scoreDisplay.innerText = score;
+            console.log('COIN COLISSION!');
+        }    
+}
+
+function randomizeCoin() {
+    randomX = Math.floor((Math.random() * 770) + 30);
+    randomY = Math.floor((Math.random() * 570) + 30);
+    coin.x = randomX;
+    coin.y = randomY;
 }
