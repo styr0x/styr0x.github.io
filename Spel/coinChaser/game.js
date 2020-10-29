@@ -114,7 +114,7 @@ function movePlayer() {
         player.x -= player.speed;
     }
 
-    if (moveRight && player.x < gameWindow.width - 0 - player.width) {
+    if (moveRight && player.x < gameWindow.width - player.width) {
         player.x += player.speed;
     }
 
@@ -122,7 +122,7 @@ function movePlayer() {
         player.y -= player.speed;
     }
 
-    if (moveDown && player.y < gameWindow.height - 0 - player.height) {
+    if (moveDown && player.y < gameWindow.height - player.height) {
         player.y += player.speed;
     }
 
