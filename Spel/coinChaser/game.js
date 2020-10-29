@@ -28,9 +28,17 @@ let enemySpawnHeight = 500;
 let enemySpeed = 1;
 
 //Coin
+let powerupCounter = 0;
 let randomX = 30
 let randomY = 30
 let coin = {
+    x: randomX,
+    y: randomY, 
+    width: 30,
+    height: 30
+}
+//Powerup
+let powerup = {
     x: randomX,
     y: randomY, 
     width: 30,
@@ -60,6 +68,10 @@ function gameLoop() {
     drawEnemyCircles();
     enemyFollowPlayer();
     checkEnemyCollisions();
+    if (powerupCounter >= 10) {
+        drawPowerupCircle();
+        checkPowerupCollisions();
+    }
 }
 
 //////////////////////////////////////Alla andra funktioner
@@ -133,8 +145,10 @@ function checkCoinCollisions() {
         coin.height + coin.y > player.y) {
             randomizeCoin();
             score++;
-            player.width+= 2
-            player.height+= 2
+            powerupCounter++;
+            player.width+= 3;
+            player.height+= 3;
+            player.speed -= 0.1;
             scoreDisplay.innerText = score;
         }    
 }
@@ -200,6 +214,29 @@ function checkEnemyCollisions() {
     });
      
 }
+
+////////Powerup
+
+//Ritar powerupen
+function drawPowerupCircle() {
+    ctx.beginPath();
+    ctx.arc(powerup.x, powerup.y, 12, 0, 2 * Math.PI);
+    ctx.fillStyle = "green";
+    ctx.fill();
+}
+//Checkar ifall man kolliderat med powerupen
+function checkPowerupCollisions() {
+    if (powerup.x < player.x + player.width &&
+        powerup.x + powerup.width > player.x &&
+        powerup.y < player.y + player.height &&
+        powerup.height + powerup.y > player.y) {
+            player.width = 30;
+            player.height = 30;
+            player.speed = 4;
+            powerupCounter = 0;
+        }    
+}
+
 
 ////////Gameover och reset
 

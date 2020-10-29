@@ -13,13 +13,18 @@ body, html {
 }
 
 .score {
+    background: repeating-radial-gradient(orange, red);
     position: absolute;
     display: flex;
     justify-content: center;
-    transform: translate(0,-3vh);
+    height: 13vh;
+    width: 10vw;
+    border-radius: 50px;
 }
 
-
+.scoreNumClass {
+    position: absolute;
+}
 
 .resetButtonClass {
     position: absolute;
