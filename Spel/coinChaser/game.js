@@ -21,13 +21,15 @@ let moveUp = false;
 let moveDown = false;
 
 //Enemy
+let enemyArray = [];
 let enemy = {
     x: 770,
     y: 570,
     speed: 2,
     width: 30,
     height: 30,
-    damage: 1
+    damage: 1,
+    amount: 2
 }
 
 //Coin
@@ -143,7 +145,7 @@ function randomizeCoin() {
 
 ////////Enemyns funktioner
 
-//Skapa en enemy
+//Skapa enemies
 function drawEnemyCircle() {
     ctx.beginPath();
     ctx.arc(enemy.x, enemy.y, 25, 0, 2 * Math.PI);

@@ -2,7 +2,6 @@ body, html {
     background: linear-gradient(blue, purple);
     background-repeat: no-repeat;
     height: 100%;
-    overflow: hidden;
 }
 .parent {
     font-family: 'Courier New', Courier, monospace;
