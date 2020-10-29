@@ -1,7 +1,9 @@
 body, html {
     background: linear-gradient(blue, purple);
     background-repeat: no-repeat;
-    height: 100%;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
 }
 .parent {
     font-family: 'Courier New', Courier, monospace;
@@ -14,7 +16,7 @@ body, html {
     position: absolute;
     display: flex;
     justify-content: center;
-    transform: translate(0,3vh);
+    transform: translate(0,-3vh);
 }
 
 

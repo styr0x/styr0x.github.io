@@ -22,7 +22,8 @@ let moveDown = false;
 
 //Enemy
 let enemyArray = [];
-
+let enemyAmount = 2;
+let loopStopper = true;
 
 //Coin
 let randomX = 30
@@ -47,7 +48,14 @@ function gameLoop() {
     movePlayer();
     drawCoinCircle();
     checkCoinCollisions();
-    drawEnemyCircle();
+    if (loopStopper) {
+        for (let i = 0; i < enemyAmount; i++) {
+            makeEnemy();
+            
+        }
+        loopStopper = false;   
+    }
+    drawEnemyCircles();
     enemyFollowPlayer();
     checkEnemyCollisions();
 }
@@ -140,46 +148,52 @@ function randomizeCoin() {
 //Skapa enemies
 function makeEnemy() {
     let enemy = {
-        x: 770,
-        y: 570,
+        x: Math.floor(Math.random() * gameWindow.width) - 30,
+        y: Math.floor(Math.random() * gameWindow.height) -30,
         speed: 2,
         width: 30,
         height: 30,
         damage: 1,
         amount: 2
     }
+    enemyArray.push(enemy);
+
 }
-function drawEnemyCircle() {
-    ctx.beginPath();
-    ctx.arc(enemy.x, enemy.y, 25, 0, 2 * Math.PI);
-    ctx.fillStyle = "red";
-    ctx.fill();
+function drawEnemyCircles() {
+    enemyArray.forEach(function(enemy, i){
+        ctx.beginPath();
+        ctx.arc(enemy.x, enemy.y, 25, 0, 2 * Math.PI);
+        ctx.fillStyle = "red";
+        ctx.fill();
+    });
 }
 
 //Följ spelaren
 function enemyFollowPlayer() {
-    let directionX = player.x - enemy.x;
-    let directionY = player.y - enemy.y;
-
-    let hyp = Math.sqrt(Math.pow(directionX, 2) + Math.pow(directionY, 2));
-    directionX /= hyp;
-    directionY /= hyp;
-
-    enemy.x += directionX * enemy.speed;
-    enemy.y += directionY * enemy.speed;
-
-
+    enemyArray.forEach(function(enemy,i){
+        let directionX = player.x - enemy.x;
+        let directionY = player.y - enemy.y;
     
+        let hyp = Math.sqrt(Math.pow(directionX, 2) + Math.pow(directionY, 2));
+        directionX /= hyp;
+        directionY /= hyp;
+    
+        enemy.x += directionX * enemy.speed;
+        enemy.y += directionY * enemy.speed;
+    });
 }
 
 //Checkar ifall man kolliderat med enemyn och stoppar gameloopen.
 function checkEnemyCollisions() {
-    if (enemy.x < player.x + player.width &&
-        enemy.x + enemy.width > player.x &&
-        enemy.y < player.y + player.height &&
-        enemy.height + enemy.y > player.y) {
-            gameOver();
-        }     
+    enemyArray.forEach(function(enemy,i){
+        if (enemy.x < player.x + player.width &&
+            enemy.x + enemy.width > player.x &&
+            enemy.y < player.y + player.height &&
+            enemy.height + enemy.y > player.y) {
+                gameOver();
+            }
+    });
+     
 }
 
 ////////Gameover och reset
