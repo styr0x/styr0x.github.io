@@ -22,7 +22,7 @@ let moveDown = false;
 
 //Enemy
 let enemyArray = [];
-let enemyAmount = 2;
+let enemyAmount = 3;
 let loopStopper = true;
 
 //Coin
@@ -75,7 +75,7 @@ function drawPlayerCircle() {
     let x = player.x;
     let y = player.y;
     ctx.beginPath();
-    ctx.arc(x, y, 25, 0, 2 * Math.PI);
+    ctx.arc(x, y, player.height - 5, 0, 2 * Math.PI);
     ctx.fillStyle = "blue";
     ctx.fill();
 }
@@ -131,6 +131,8 @@ function checkCoinCollisions() {
         coin.height + coin.y > player.y) {
             randomizeCoin();
             score++;
+            player.width+= 2
+            player.height+= 2
             scoreDisplay.innerText = score;
         }    
 }
@@ -150,7 +152,7 @@ function makeEnemy() {
     let enemy = {
         x: Math.floor(Math.random() * gameWindow.width) - 30,
         y: Math.floor(Math.random() * gameWindow.height) -30,
-        speed: 2,
+        speed: Math.floor(Math.random() * 4) + 1,
         width: 30,
         height: 30,
         damage: 1,
