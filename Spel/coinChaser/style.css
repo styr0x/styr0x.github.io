@@ -17,14 +17,12 @@ body, html {
     transform: translate(0,3vh);
 }
 
-.scoreNumClass {
-    transform: translate(0.6vw,5.4vh);
-}
+
 
 .resetButtonClass {
     position: absolute;
-    width: 5vw;
-    height: 5vh;
+    width: 80px;
+    height: 50px;
     transform: translate(0,50vh);
     background-color: orange;
     border: none;
@@ -37,8 +35,8 @@ body, html {
 }
 
 .resetButtonClass:active {
-    width: 4vw;
-    height: 4vh;
+    width: 70px;
+    height: 40px;
 }
 
 .gameWindowClass {

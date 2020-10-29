@@ -22,15 +22,7 @@ let moveDown = false;
 
 //Enemy
 let enemyArray = [];
-let enemy = {
-    x: 770,
-    y: 570,
-    speed: 2,
-    width: 30,
-    height: 30,
-    damage: 1,
-    amount: 2
-}
+
 
 //Coin
 let randomX = 30
@@ -137,8 +129,8 @@ function checkCoinCollisions() {
 
 //Lägger coinen på ett random ställe
 function randomizeCoin() {
-    randomX = Math.floor((Math.random() * 770) + 30);
-    randomY = Math.floor((Math.random() * 570) + 30);
+    randomX = Math.floor(Math.random() * (gameWindow.width - coin.width));
+    randomY = Math.floor(Math.random() * (gameWindow.height - coin.height));
     coin.x = randomX;
     coin.y = randomY;
 }
@@ -146,6 +138,17 @@ function randomizeCoin() {
 ////////Enemyns funktioner
 
 //Skapa enemies
+function makeEnemy() {
+    let enemy = {
+        x: 770,
+        y: 570,
+        speed: 2,
+        width: 30,
+        height: 30,
+        damage: 1,
+        amount: 2
+    }
+}
 function drawEnemyCircle() {
     ctx.beginPath();
     ctx.arc(enemy.x, enemy.y, 25, 0, 2 * Math.PI);
