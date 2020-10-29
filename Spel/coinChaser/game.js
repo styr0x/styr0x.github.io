@@ -150,7 +150,7 @@ function randomizeCoin() {
 //Skapa enemies
 function makeEnemy() {
     let enemy = {
-        x: Math.floor(Math.random() * gameWindow.width) - 30,
+        x: 760,
         y: Math.floor(Math.random() * gameWindow.height) -30,
         speed: Math.floor(Math.random() * 4) + 1,
         width: 30,
