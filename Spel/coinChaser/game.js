@@ -24,6 +24,8 @@ let moveDown = false;
 let enemyArray = [];
 let enemyAmount = 3;
 let loopStopper = true;
+let enemySpawnHeight = 500;
+let enemySpeed = 1;
 
 //Coin
 let randomX = 30
@@ -96,19 +98,19 @@ function movePlayer() {
         if (e.code == "ArrowDown") moveDown = false;
     }
     //Själva rörelsen
-    if (moveLeft && player.x > gameWindow.width - 770) {
+    if (moveLeft && player.x > gameWindow.width - 800  + player.width) {
         player.x -= player.speed;
     }
 
-    if (moveRight && player.x < gameWindow.width - 30) {
+    if (moveRight && player.x < gameWindow.width - 0 - player.width) {
         player.x += player.speed;
     }
 
-    if (moveUp && player.y > gameWindow.height - 570) {
+    if (moveUp && player.y > gameWindow.height - 600 + player.height) {
         player.y -= player.speed;
     }
 
-    if (moveDown && player.y < gameWindow.height - 30) {
+    if (moveDown && player.y < gameWindow.height - 0 - player.height) {
         player.y += player.speed;
     }
 
@@ -119,7 +121,7 @@ function movePlayer() {
 //Skapar coinen
 function drawCoinCircle() {
     ctx.beginPath();
-    ctx.arc(coin.x, coin.y, 25, 0, 2 * Math.PI);
+    ctx.arc(coin.x, coin.y, 12, 0, 2 * Math.PI);
     ctx.fillStyle = "yellow";
     ctx.fill();
 }
@@ -139,8 +141,8 @@ function checkCoinCollisions() {
 
 //Lägger coinen på ett random ställe
 function randomizeCoin() {
-    randomX = Math.floor(Math.random() * (gameWindow.width - coin.width));
-    randomY = Math.floor(Math.random() * (gameWindow.height - coin.height));
+    randomX = Math.floor(Math.random() * (gameWindow.width - coin.width - 20) + coin.width);
+    randomY = Math.floor(Math.random() * (gameWindow.height - coin.height - 20) + coin.height);
     coin.x = randomX;
     coin.y = randomY;
 }
@@ -151,15 +153,16 @@ function randomizeCoin() {
 function makeEnemy() {
     let enemy = {
         x: 760,
-        y: Math.floor(Math.random() * gameWindow.height) -30,
-        speed: Math.floor(Math.random() * 4) + 1,
+        y: enemySpawnHeight,
+        speed: enemySpeed,
         width: 30,
         height: 30,
         damage: 1,
         amount: 2
     }
     enemyArray.push(enemy);
-
+    enemySpawnHeight -= 200;
+    enemySpeed++;
 }
 function drawEnemyCircles() {
     enemyArray.forEach(function(enemy, i){
