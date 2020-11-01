@@ -1,24 +1,14 @@
-//Variabler
-let parentDiv = document.getElementById("parentDiv");
+import {Player} from './Entities/player.js'
+//////////////////////////////////////////////////////////////Variabler
+const parentDiv = document.getElementById("parentDiv");
 //Canvasen
-let gameWindow = document.getElementById("gameWindow");
-let ctx = gameWindow.getContext("2d");
+const gameWindow = document.getElementById("gameWindow");
+const ctx = gameWindow.getContext("2d");
 
 //Player
-let player = {
-    x:gameWindow.width/2,
-    y:gameWindow.height/2,
-    speed: 4,
-    width: 30,
-    height: 30,
-    health: 1
-    
-};
+let player = new Player(gameWindow.width/2, gameWindow.height/2);
+console.log(player);
 
-let moveLeft = false;
-let moveRight = false;
-let moveUp = false;
-let moveDown = false;
 
 //Enemy
 let enemyArray = [];
@@ -31,31 +21,31 @@ let enemySpeed = 1;
 let powerupCounter = 0;
 let randomX = 30
 let randomY = 30
-let coin = {
+const coin = {
     x: randomX,
     y: randomY, 
     width: 30,
     height: 30
 }
 //Powerup
-let powerup = {
+const powerup = {
     x: randomX,
     y: randomY, 
     width: 30,
     height: 30
 }
 //Score
-let scoreDisplay = document.getElementById("scoreNum");
+const scoreDisplay = document.getElementById("scoreNum");
 let score = 0;
 
 
 
-//Gameloopen
-let gameInterval = setInterval (gameLoop, 10);
+////////////////////////////////////////////////////////////////////Gameloopen
+const gameInterval = setInterval (gameLoop, 10);
 function gameLoop() {
     clearCanvas();
     drawPlayerCircle();
-    movePlayer();
+    player.movePlayer();
     drawCoinCircle();
     checkCoinCollisions();
     if (loopStopper) {
@@ -74,7 +64,7 @@ function gameLoop() {
     }
 }
 
-//////////////////////////////////////Alla andra funktioner
+//////////////////////////////////////////////////////////////////Alla andra funktioner
 
 //Töm canvasen
 function clearCanvas () {
@@ -94,39 +84,7 @@ function drawPlayerCircle() {
     ctx.fill();
 }
 
-//Flytta Spelaren
-function movePlayer() {
-    //Keypress
-    document.onkeydown = function(e) {
-        if (e.code == "ArrowLeft") moveLeft = true;
-        if (e.code == "ArrowRight") moveRight = true;
-        if (e.code == "ArrowUp") moveUp = true;
-        if (e.code == "ArrowDown") moveDown = true;
-    }
-    document.onkeyup = function(e) {
-        if (e.code == "ArrowLeft") moveLeft = false;
-        if (e.code == "ArrowRight") moveRight = false;
-        if (e.code == "ArrowUp") moveUp = false;
-        if (e.code == "ArrowDown") moveDown = false;
-    }
-    //Själva rörelsen
-    if (moveLeft && player.x > gameWindow.width - 800  + player.width) {
-        player.x -= player.speed;
-    }
 
-    if (moveRight && player.x < gameWindow.width - player.width) {
-        player.x += player.speed;
-    }
-
-    if (moveUp && player.y > gameWindow.height - 600 + player.height) {
-        player.y -= player.speed;
-    }
-
-    if (moveDown && player.y < gameWindow.height - player.height) {
-        player.y += player.speed;
-    }
-
-}
 
 ////////Coinens funktioner
 
@@ -165,7 +123,7 @@ function randomizeCoin() {
 
 //Skapa enemies
 function makeEnemy() {
-    let enemy = {
+    const enemy = {
         x: 760,
         y: enemySpawnHeight,
         speed: enemySpeed,
@@ -242,7 +200,7 @@ function checkPowerupCollisions() {
 
 //Gameover screen
 function gameOver() {
-    let gameOverText = document.createElement("span");
+    const gameOverText = document.createElement("span");
     gameOverText.innerText = "GAME OVER";
     gameOverText.className = "gameOverClass";
     gameOverText.id = "gameOverTextId";
@@ -254,7 +212,7 @@ function gameOver() {
 
 //Resetknapp
 function createResetButton() {
-    let resetButton = document.createElement("button");
+    const resetButton = document.createElement("button");
     resetButton.innerText = "RESET";
     resetButton.className = "resetButtonClass";
     resetButton.id = "resetBtnId"
