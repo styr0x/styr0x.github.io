@@ -6,48 +6,52 @@ export class Player {
         //Rörelse
         this.x = x;
         this. y = y;
-        this.moveLeft = false;
-        this.moveRight = false;
-        this.moveUp = false;
-        this.moveDown = false;        
+       
         //Hastighet
         this.speed = 4
         //Health (Oanvänd)
         this. health = 1
     }
+
+
+};
+
     //Flytta Spelaren
-    movePlayer() {
+    export function movePlayer() {
+        //Variabler
+        let moveLeft = false;
+        let moveRight = false;
+        let moveUp = false;
+        let moveDown = false; 
         //Keypress
         document.onkeydown = function(e) {
-            if (e.code == "ArrowLeft") player.moveLeft = true;
-            if (e.code == "ArrowRight") player.moveRight = true;
-            if (e.code == "ArrowUp") player.moveUp = true;
-            if (e.code == "ArrowDown") player.moveDown = true;
+            if (e.code == "ArrowLeft") moveLeft = true;
+            if (e.code == "ArrowRight") moveRight = true;
+            if (e.code == "ArrowUp") moveUp = true;
+            if (e.code == "ArrowDown") moveDown = true;
         }
         document.onkeyup = function(e) {
-            if (e.code == "ArrowLeft") player.moveLeft = false;
-            if (e.code == "ArrowRight") player.moveRight = false;
-            if (e.code == "ArrowUp") player.moveUp = false;
-            if (e.code == "ArrowDown") player.moveDown = false;
+            if (e.code == "ArrowLeft") moveLeft = false;
+            if (e.code == "ArrowRight") moveRight = false;
+            if (e.code == "ArrowUp") moveUp = false;
+            if (e.code == "ArrowDown") moveDown = false;
         }
         //Själva rörelsen
-        if (player.moveLeft && player.x > gameWindow.width - 800  + player.width) {
+        if (moveLeft && player.x > gameWindow.width - 800  + player.width) {
             player.x -= player.speed;
         }
 
-        if (player.moveRight && player.x < gameWindow.width - player.width) {
+        if (moveRight && player.x < gameWindow.width - player.width) {
             player.x += player.speed;
         }
 
-        if (player.moveUp && player.y > gameWindow.height - 600 + player.height) {
+        if (moveUp && player.y > gameWindow.height - 600 + player.height) {
             player.y -= player.speed;
         }
 
-        if (player.moveDown && player.y < gameWindow.height - player.height) {
+        if (moveDown && player.y < gameWindow.height - player.height) {
             player.y += player.speed;
         }
 
 }
-
-};
 

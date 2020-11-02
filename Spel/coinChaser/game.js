@@ -1,4 +1,5 @@
 import {Player} from './Entities/player.js'
+import {movePlayer} from './Entities/player.js'
 //////////////////////////////////////////////////////////////Variabler
 const parentDiv = document.getElementById("parentDiv");
 //Canvasen
@@ -7,7 +8,6 @@ const ctx = gameWindow.getContext("2d");
 
 //Player
 let player = new Player(gameWindow.width/2, gameWindow.height/2);
-console.log(player);
 
 
 //Enemy
@@ -45,7 +45,7 @@ const gameInterval = setInterval (gameLoop, 10);
 function gameLoop() {
     clearCanvas();
     drawPlayerCircle();
-    player.movePlayer();
+    movePlayer();
     drawCoinCircle();
     checkCoinCollisions();
     if (loopStopper) {
