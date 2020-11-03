@@ -47,7 +47,7 @@ function gameLoop() {
     
     
     player.move();
-    
+    enemy.follow();
     
     coin.isColliding();
     if (loopStopper) {
@@ -58,7 +58,7 @@ function gameLoop() {
         loopStopper = false;   
     }
     
-    enemy.follow();
+    
     checkEnemyCollisions();
     clearCanvas();
     if (powerup.powerupCounter >= 10) {
