@@ -10,13 +10,17 @@ let isGameRunning = 1;
 
 const player = new Player(gameWindow.width/2, gameWindow.height/2);
 const coin = new Coin();
-const enemy = new Enemy();
+
 
 //Enemy
 let enemyArray = [];
-let enemyAmount = 1;
-let loopStopper = true;
-
+let enemySpawnHeight = 500;
+let enemyAmount = 2;
+for (let i = 0; i < enemyAmount; i++){
+    enemyArray.push(new Enemy(760, enemySpawnHeight, player));
+    enemySpawnHeight -= 200;
+    }
+console.log(enemyArray)
 
 
 
@@ -44,22 +48,11 @@ function gameLoop() {
     if (isGameRunning === 1) {
     requestAnimationFrame(gameLoop);
     }
-    
-    
-    player.move();
-    enemy.follow();
-    
-    coin.isColliding();
-    if (loopStopper) {
-        for (let i = 0; i < enemyAmount; i++) {
-            enemy.make();
-            
-        }
-        loopStopper = false;   
+    player.update();
+    coin.update();
+    for (let i = 0; i < enemyArray.length; i ++) {
+    enemyArray[i].update();
     }
-    
-    
-    checkEnemyCollisions();
     clearCanvas();
     if (powerup.powerupCounter >= 10) {
         drawPowerupCircle();
@@ -67,7 +60,9 @@ function gameLoop() {
     }
     player.draw();
     coin.draw();
-    drawEnemyCircles();
+    for (let i = 0; i < enemyArray.length; i ++) {
+    enemyArray[i].draw();
+    }
 }
 
 //////////////////////////////////////////////////////////////////Alla andra funktioner
@@ -78,42 +73,6 @@ function clearCanvas () {
     ctx.clearRect(0,0,gameWindow.width,gameWindow.height);
 }
 
-////////Coinens funktioner
-
-//Skapar coinen
-
-
-
-
-////////Enemyns funktioner
-
-
-function drawEnemyCircles() {
-    const ctx = gameWindow.getContext("2d");
-    enemy.enemyArray.forEach(function(enemy, i){
-        ctx.beginPath();
-        ctx.arc(enemy.x, enemy.y, 25, 0, 2 * Math.PI);
-        ctx.fillStyle = "red";
-        ctx.fill();
-    });
-}
-
-
-
-//Checkar ifall man kolliderat med enemyn och stoppar gameloopen.
-function checkEnemyCollisions() {
-    enemy.enemyArray.forEach(function(enemy,i){
-        if (enemy.x < player.x + player.width &&
-            enemy.x + enemy.width > player.x &&
-            enemy.y < player.y + player.height &&
-            enemy.height + enemy.y > player.y) {
-                gameOver();
-            }
-    });
-     
-}
-
-////////Powerup
 
 //Ritar powerupen
 function drawPowerupCircle() {
@@ -170,5 +129,5 @@ function restartGame() {
 export {player};
 export {score};
 export {powerup};
-export {enemy};
-export {enemyArray};
+export {gameOver};
+export {enemySpawnHeight};

@@ -27,7 +27,7 @@ export class Player {
         }).bind(this);  
     }
     //Flytta Spelaren
-    move() {
+    update() {
         //Själva rörelsen
         if (this.moveLeft && this.x > gameWindow.width - 800  + this.width) {
             this.x -= this.speed;

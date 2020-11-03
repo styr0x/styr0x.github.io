@@ -18,7 +18,7 @@ export class Coin {
         this.y = this.randomY;
     }
     //Ser ifall man kolliderat men coinen
-    isColliding() {
+    update() {
         if (this.x < player.x + player.width &&
             this.x + this.width > player.x &&
             this.y < player.y + player.height &&
