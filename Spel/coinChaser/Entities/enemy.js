@@ -10,7 +10,6 @@ export class Enemy {
         this.width = 30;
         this.height = 30;
     }
-
     //Följ spelaren
     update() {
         let directionX = player.x - this.x;
@@ -20,7 +19,6 @@ export class Enemy {
         directionY /= hyp;
         this.x += directionX * this.speed;
         this.y += directionY * this.speed;
-        
         if (this.x < player.x + player.width &&
             this.x + this.width > player.x &&
             this.y < player.y + player.height &&
@@ -28,14 +26,11 @@ export class Enemy {
                 gameOver();
             }
     }
-    
     draw() {
         const ctx = gameWindow.getContext("2d");
         ctx.beginPath();
         ctx.arc(this.x, this.y, 25, 0, 2 * Math.PI);
         ctx.fillStyle = "red";
         ctx.fill();
-         
     } 
 };
-

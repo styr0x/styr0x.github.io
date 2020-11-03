@@ -39,5 +39,4 @@ export class Coin {
         ctx.fillStyle = "yellow";
         ctx.fill();
     }        
-    
 };

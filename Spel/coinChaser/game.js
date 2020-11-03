@@ -5,13 +5,12 @@ import {Enemy} from './Entities/enemy.js';
 const parentDiv = document.getElementById("parentDiv");
 //Canvasen
 const gameWindow = document.getElementById("gameWindow");
+//Variabel som kan bryta gameloopen
 let isGameRunning = 1;
-
-
+//Skapa en player entity
 const player = new Player(gameWindow.width/2, gameWindow.height/2);
+//Skapa en coin entity
 const coin = new Coin();
-
-
 //Enemy
 let enemyArray = [];
 let enemySpawnHeight = 500;
@@ -21,10 +20,6 @@ for (let i = 0; i < enemyAmount; i++){
     enemySpawnHeight -= 200;
     }
 console.log(enemyArray)
-
-
-
-
 //Powerup
 const powerup = {
     x: coin.randomX,
@@ -38,10 +33,6 @@ let score = {
     scoreDisplay: document.getElementById("scoreNum"),
     currentScore: 0
 }
-
-
-
-
 ////////////////////////////////////////////////////////////////////Gameloopen
 window.requestAnimationFrame(gameLoop);
 function gameLoop() {
@@ -64,16 +55,12 @@ function gameLoop() {
     enemyArray[i].draw();
     }
 }
-
 //////////////////////////////////////////////////////////////////Alla andra funktioner
-
 //Töm canvasen
 function clearCanvas () {
     const ctx = gameWindow.getContext("2d");
     ctx.clearRect(0,0,gameWindow.width,gameWindow.height);
 }
-
-
 //Ritar powerupen
 function drawPowerupCircle() {
     const ctx = gameWindow.getContext("2d");
@@ -94,10 +81,7 @@ function checkPowerupCollisions() {
             powerup.powerupCounter = 0;
         }    
 }
-
-
 ////////Gameover och reset
-
 //Gameover screen
 function gameOver() {
     isGameRunning = 0;
@@ -109,7 +93,6 @@ function gameOver() {
     clearCanvas();
     createResetButton();
 }
-
 //Resetknapp
 function createResetButton() {
     const resetButton = document.createElement("button");
@@ -119,12 +102,10 @@ function createResetButton() {
     resetButton.addEventListener('click', restartGame);
     parentDiv.appendChild(resetButton);
 }
-
 //Starta om spelet och göm gameover rutan
 function restartGame() {
     document.location.reload();  
 }
-
 ////////////////////////////////////////////////////////////Exports
 export {player};
 export {score};
