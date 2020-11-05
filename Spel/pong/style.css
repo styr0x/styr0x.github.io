@@ -1,0 +1,23 @@
+html, body {
+    background-color: black;
+    color: whitesmoke;
+    font-family: sans-serif;
+    overflow: hidden;
+}
+
+.parent {
+    display: flex;
+    justify-content: center;
+    margin-top: 15vh;
+
+}
+
+.titleClass {
+    position: absolute;
+    margin-top: -10vh;
+    font-size: 5rem;
+}
+
+.gameWindowClass {
+    background-color: tomato;
+}
