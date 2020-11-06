@@ -5,7 +5,7 @@ import {gameWindow} from '../game.js';
 class Ball {
     constructor(y) {
         this.velocityX = -3;
-        this.velocityY = 0;
+        this.velocityY = -1;
         this.y = 300;
         this.x = 400;
         this.size = 8;
@@ -32,8 +32,7 @@ class Ball {
                 this.velocityY = this.velocityY *= -1;
         }
         if (this.x + this.size > gameWindow.width) {
-            this.velocityX = this.velocityX *= -1;
-            this.velocityY = this.velocityY *= -1;
+            this.velocityX = this.velocityX * -1;
         }
     }
 
