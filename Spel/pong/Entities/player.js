@@ -3,36 +3,41 @@ import {gameWindow} from '../game.js';
 //Player class
 class Player {
     constructor(y) {
-        this.acceleration = 10;
-        this.drag = 1;
-        this.velocity = 3;
+        this.acceleration = 0.5;
+        this.drag = 0.95;
+        this.velocity = 0;
         this.y = 250;
         this.width = 10;
         this.height = 100;
-        this.moveUp = false;
-        this.moveDown = false;
+        this.moveDirection = 0;
         //Handlar keypress
         document.onkeydown = (function(e) {
-            if (e.code == "ArrowUp") this.moveUp = true;
-            if (e.code == "ArrowDown") this.moveDown = true;
+            if (e.code == "ArrowUp") this.moveDirection = 1;
+            if (e.code == "ArrowDown") this.moveDirection = -1;
         }).bind(this);
         document.onkeyup = (function(e) {
-            if (e.code == "ArrowUp") this.moveUp = false;
-            if (e.code == "ArrowDown") this.moveDown = false;
+            if (e.code == "ArrowUp") this.moveUp = 0;
+            if (e.code == "ArrowDown") this.moveDown = 0; 
         }).bind(this);
     }
     //Functions
-    update() {       
-        //Input movement
-        if (this.moveUp && this.y > gameWindow.height - 700 + this.height) {
-            this.y -= this.velocity;
-            console.log(this.y);
+    update() {
+        this.velocity -= this.acceleration * this.moveDirection;
+        this.y += this.velocity;
+        this.velocity *= this.drag;
+        //Flyttar paddlan
+        //Stoppar paddlan från att gå över rutan
+        if (this.y + this.height > gameWindow.height) {
+            y = gameWindow.height - this.height;
+            this.velocity = 0;
         }
-        if (this.moveDown && this.y < gameWindow.height - this.height) {
-            this.y += this.velocity;
-            console.log(this.y);
+        else if (this.y < 0) {
+            y = 0;
+            this.velocity = 0;
         }
+
     }
+
     draw() {
         const ctx = gameWindow.getContext('2d');
         ctx.beginPath();
