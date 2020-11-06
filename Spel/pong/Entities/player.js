@@ -12,8 +12,8 @@ class Player {
         this.moveDirection = 0;
         //Handlar keypress
         document.onkeydown = (function(e) {
-            if (e.code == "ArrowUp") this.moveDirection = 1;
-            if (e.code == "ArrowDown") this.moveDirection = -1;
+            if (e.code == "ArrowUp") this.moveDirection = -1;
+            if (e.code == "ArrowDown") this.moveDirection = 1;
         }).bind(this);
         document.onkeyup = (function(e) {
             if (e.code == "ArrowUp") this.moveDirection = 0;
@@ -22,20 +22,18 @@ class Player {
     }
     //Functions
     update() {
-        this.velocity -= this.acceleration * this.moveDirection;
+        this.velocity += this.acceleration * this.moveDirection;
         this.y += this.velocity;
         this.velocity *= this.drag;
         //Flyttar paddlan
         //Stoppar paddlan från att gå över rutan
         if (this.y + this.height > gameWindow.height) {
-            y = gameWindow.height - this.height;
-            this.velocity = 0;
+            this.y = gameWindow.height - this.height;
         }
         else if (this.y < 0) {
-            y = 0;
-            this.velocity = 0;
+            this.y = 0;
         }
-
+        console.log(this.velocity)
     }
 
     draw() {
