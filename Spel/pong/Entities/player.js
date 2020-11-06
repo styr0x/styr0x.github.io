@@ -3,8 +3,8 @@ import {gameWindow} from '../game.js';
 //Player class
 class Player {
     constructor(y) {
-        this.acceleration = 0.5;
-        this.drag = 0.95;
+        this.acceleration = 0.8;
+        this.drag = 0.9;
         this.velocity = 0;
         this.y = 250;
         this.width = 10;
@@ -16,8 +16,8 @@ class Player {
             if (e.code == "ArrowDown") this.moveDirection = -1;
         }).bind(this);
         document.onkeyup = (function(e) {
-            if (e.code == "ArrowUp") this.moveUp = 0;
-            if (e.code == "ArrowDown") this.moveDown = 0; 
+            if (e.code == "ArrowUp") this.moveDirection = 0;
+            if (e.code == "ArrowDown") this.moveDirection = 0; 
         }).bind(this);
     }
     //Functions
