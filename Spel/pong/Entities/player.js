@@ -6,6 +6,7 @@ class Player {
         this.acceleration = 0.8;
         this.drag = 0.9;
         this.velocity = 0;
+        this.x = 20;
         this.y = 250;
         this.width = 10;
         this.height = 100;
@@ -33,13 +34,12 @@ class Player {
         else if (this.y < 0) {
             this.y = 0;
         }
-        console.log(this.velocity)
     }
 
     draw() {
         const ctx = gameWindow.getContext('2d');
         ctx.beginPath();
-        ctx.rect(20, this.y, this.width, this.height);
+        ctx.rect(this.x, this.y, this.width, this.height);
         ctx.fillStyle = "blue";
         ctx.fill();
     }
