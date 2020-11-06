@@ -3,8 +3,8 @@ import {gameWindow} from '../game.js';
 //Player class
 class Player {
     constructor(y) {
-        this.acceleration = 1000;
-        this.drag = 5;
+        this.acceleration = 10;
+        this.drag = 1;
         this.velocity = 3;
         this.y = 250;
         this.width = 10;
@@ -22,7 +22,8 @@ class Player {
         }).bind(this);
     }
     //Functions
-    update() {
+    update() {       
+        //Input movement
         if (this.moveUp && this.y > gameWindow.height - 700 + this.height) {
             this.y -= this.velocity;
             console.log(this.y);
@@ -30,7 +31,7 @@ class Player {
         if (this.moveDown && this.y < gameWindow.height - this.height) {
             this.y += this.velocity;
             console.log(this.y);
-        }  
+        }
     }
     draw() {
         const ctx = gameWindow.getContext('2d');
