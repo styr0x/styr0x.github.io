@@ -6,10 +6,10 @@ class Player {
         this.acceleration = 0.8;
         this.drag = 0.9;
         this.velocity = 0;
-        this.x = 20;
-        this.y = 250;
+        this.x = 10;
+        this.y = 80;
         this.width = 10;
-        this.height = 100;
+        this.height = 50;
         this.moveDirection = 0;
         //Handlar keypress
         document.onkeydown = (function(e) {

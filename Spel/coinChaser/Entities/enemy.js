@@ -14,7 +14,7 @@ export class Enemy {
     update() {
         let directionX = player.x - this.x;
         let directionY = player.y - this.y;
-        let hyp = Math.sqrt(Math.pow(directionX, 2) + Math.pow(directionY, 2));
+        let hyp = Math.sqrt(Math.pow(directionY, 2));
         directionX /= hyp;
         directionY /= hyp;
         this.x += directionX * this.speed;

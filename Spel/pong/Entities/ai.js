@@ -1,0 +1,48 @@
+//Imports
+import {gameWindow, player} from '../game.js';
+import {ball}  from '../game.js';
+//Ai class
+class Ai {
+    constructor(y) {
+        this.acceleration = 2.5;
+        this.drag = 0.9;
+        this.velocity = 0;
+        this.x = 780;
+        this.y = 80;
+        this.width = 10;
+        this.height = 50;
+        this.moveDirection = 0;
+    }
+    //Functions
+    update() {
+
+        this.velocity = this.acceleration * this.moveDirection;
+        this.y += this.velocity;
+
+        //Ändra movedirection
+        if (ball.y < this.y + this.height / 2) {
+            this.moveDirection = -1
+        }
+        else if (ball.y > this.y) {
+            this.moveDirection = 1
+        }
+
+        //Stoppar paddlan från att gå över rutan
+        if (this.y + this.height > gameWindow.height) {
+            this.y = gameWindow.height - this.height;
+        }
+        else if (this.y < 0) {
+            this.y = 0;
+        }
+    }
+    //Rita ut ai'n
+    draw() {
+        const ctx = gameWindow.getContext('2d');
+        ctx.beginPath();
+        ctx.rect(this.x, this.y, this.width, this.height);
+        ctx.fillStyle = "blue";
+        ctx.fill();
+    }    
+};
+//Exports
+export {Ai};
