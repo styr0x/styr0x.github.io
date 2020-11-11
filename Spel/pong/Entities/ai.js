@@ -4,7 +4,7 @@ import {ball}  from '../game.js';
 //Ai class
 class Ai {
     constructor(y) {
-        this.acceleration = 2.5;
+        this.acceleration = 3;
         this.drag = 0.9;
         this.velocity = 0;
         this.x = 780;
@@ -18,12 +18,13 @@ class Ai {
 
         this.velocity = this.acceleration * this.moveDirection;
         this.y += this.velocity;
+        this.velocity *= this.drag;
 
         //Ändra movedirection
         if (ball.y < this.y + this.height / 2) {
             this.moveDirection = -1
         }
-        else if (ball.y > this.y) {
+        else if (ball.y > this.y / 2) {
             this.moveDirection = 1
         }
 
