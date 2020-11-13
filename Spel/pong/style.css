@@ -1,7 +1,7 @@
 html, body {
-    background-color: black;
-    color: whitesmoke;
-    font-family: sans-serif;
+    background-color: green;
+    color: black;
+    font-family: 'Press Start 2P', cursive;
 }
 
 .parent {
@@ -18,5 +18,5 @@ html, body {
 }
 
 .gameWindowClass {
-    background-color: tomato;
+    background-color: black;
 }

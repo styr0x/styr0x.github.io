@@ -40,7 +40,7 @@ export class Player {
         const ctx = gameWindow.getContext('2d');
         ctx.beginPath();
         ctx.rect(this.x, this.y, this.width, this.height);
-        ctx.fillStyle = "blue";
+        ctx.fillStyle = "green";
         ctx.fill();
     }
 };
