@@ -7,7 +7,7 @@ export class Player {
         this.drag = 0.9;
         this.velocity = 0;
         this.x = 10;
-        this.y = 80;
+        this.y = gameWindow.height / 2 - 25;
         this.width = 10;
         this.height = 50;
         this.moveDirection = 0;
@@ -23,10 +23,11 @@ export class Player {
     }
     //Functions
     update() {
+        //Flyttar paddlan
         this.velocity += this.acceleration * this.moveDirection;
         this.y += this.velocity;
         this.velocity *= this.drag;
-        //Flyttar paddlan
+
         //Stoppar paddlan från att gå över rutan
         if (this.y + this.height > gameWindow.height) {
             this.y = gameWindow.height - this.height;

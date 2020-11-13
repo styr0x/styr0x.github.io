@@ -5,11 +5,11 @@ import {ball}  from '../game.js';
 //Ai class
 export class Ai {
     constructor(y) {
-        this.acceleration = 3;
+        this.acceleration = 0.3;
         this.drag = 0.9;
         this.velocity = 0;
         this.x = 780;
-        this.y = 80;
+        this.y = gameWindow.height / 2 - 25;
         this.width = 10;
         this.height = 50;
         this.moveDirection = 0;
@@ -17,18 +17,17 @@ export class Ai {
     //Functions
     update() {
 
-        this.velocity = this.acceleration * this.moveDirection;
+        this.velocity += this.acceleration * this.moveDirection;
         this.y += this.velocity;
         this.velocity *= this.drag;
 
         //Ändra movedirection
         if (ball.y < this.y + this.height / 2) {
-            this.moveDirection = -1
+            this.moveDirection = -1;
         }
         else if (ball.y > this.y / 2) {
-            this.moveDirection = 1
+            this.moveDirection = 1;
         }
-
         //Stoppar paddlan från att gå över rutan
         if (this.y + this.height > gameWindow.height) {
             this.y = gameWindow.height - this.height;

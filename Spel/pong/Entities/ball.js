@@ -8,7 +8,7 @@ import {gameWindow} from '../gamewindow.js';
 export class Ball {
     constructor(y) {
         this.velocityX = -4;
-        this.velocityY = -2;
+        this.velocityY = 0;
         this.y = 300;
         this.x = 400;
         this.size = 8;
@@ -21,7 +21,7 @@ export class Ball {
         this.x += this.velocityX;
         this.y += this.velocityY;
 
-        //Studsa väggar
+        //Studsa väggar upp & ner
         if (this.y + this.size > gameWindow.height) {
             this.velocityY = this.velocityY *= -1;
         }
@@ -29,19 +29,51 @@ export class Ball {
             this.velocityY = this.velocityY *= -1;
         }
         //Studsa player paddle
+        //Översta tredjedelen
         if(this.x < player.x + player.width &&
             this.y > player.y &&
+            this.y < player.y + 16.66) {
+                this.velocityX = this.velocityX * -1;
+                this.velocityY = this.velocityY -2;
+            }
+        //Mittersta    
+        else if(this.x < player.x + player.width &&
+            this.y > player.y + 16.66 &&
+            this.y < player.y + 33.33) {
+                this.velocityX = this.velocityX * -1;
+                this.velocityY = this.velocityY = 0;
+            }
+        //Lägsta    
+        else if(this.x < player.x + player.width &&
+            this.y > player.y + 33.33 &&
             this.y < player.y + player.height) {
                 this.velocityX = this.velocityX * -1;
+                this.velocityY = this.velocityY = 2;
             }
+            
 
         //Studsa ai paddle
+        //Översta tredjedelen
         if(this.x > ai.x - ai.width &&
             this.y > ai.y &&
+            this.y < ai.y + 16.66) {
+                this.velocityX = this.velocityX * -1;
+                this.velocityY = this.velocityY -2;
+            }
+        //Mittersta    
+        else if(this.x > ai.x - ai.width &&
+            this.y > ai.y + 16.66 &&
+            this.y < ai.y + 33.33) {
+                this.velocityX = this.velocityX * -1;
+                this.velocityY = this.velocityY = 0;
+            }
+        //Lägsta    
+        else if(this.x > ai.x - ai.width &&
+            this.y > ai.y + 33.33 &&
             this.y < ai.y + ai.height) {
                 this.velocityX = this.velocityX * -1;
-        }
-
+                this.velocityY = this.velocityY = 2;
+            }
         //Player score
         if (ball.x > gameWindow.width) {
             scoreUpPlayer();

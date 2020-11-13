@@ -23,6 +23,7 @@ function resetBall(direction) {
     ball.y = 300;
     ball.x = 400;
     ball.velocityX = direction;
-    ai.y = 80;
-    player.y = 80;
+    ball.velocityY = 0;
+    ai.y = gameWindow.height / 2 - 25;
+    player.y = gameWindow.height / 2 - 25;
 }
