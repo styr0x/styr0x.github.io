@@ -20,10 +20,10 @@ export function scoreUpPlayer() {
         playerScore.className = "scoreClassPlayer";
     
     } ,2000)
-    resetBall(-5);
+    resetBall(-ball.speed);
     player.height += 10;
     ai.height -= 10;
-    ai.acceleration += 0.01
+    ai.acceleration += 0.005
 }
 
 export function scoreUpAi() {
@@ -37,10 +37,10 @@ export function scoreUpAi() {
         messenger.className = "titleClass";
         aiScore.className = "scoreClassPlayer";
     }, 2000)
-    resetBall(5);
+    resetBall(ball.speed);
     player.height -= 10;
     ai.height += 10;
-    ai.acceleration -= 0.01
+    ai.acceleration -= 0.005
 
 }
 
@@ -49,6 +49,6 @@ function resetBall(direction) {
     ball.x = 400;
     ball.velocityX = direction;
     ball.velocityY = 0;
-    ai.y = gameWindow.height / 2 - 25;
-    player.y = gameWindow.height / 2 - 25;
+    ai.y = gameWindow.height / 2 - ai.height / 2;
+    player.y = gameWindow.height / 2 - player.height / 2;
 }

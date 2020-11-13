@@ -8,7 +8,8 @@ import {playPop, playScoreAi, playScorePlayer} from '../Sound/sound.js';
 //Player class
 export class Ball {
     constructor(y) {
-        this.velocityX = -5;
+        this.speed = 5
+        this.velocityX = -this.speed;
         this.velocityY = 0;
         this.y = 300;
         this.x = 400;
