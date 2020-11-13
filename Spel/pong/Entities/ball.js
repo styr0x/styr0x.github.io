@@ -35,22 +35,22 @@ export class Ball {
         //Översta tredjedelen
         if(this.x < player.x + player.width &&
             this.y > player.y &&
-            this.y < player.y + 16.66) {
+            this.y < player.y + (player.height / 3)) {
                 this.velocityX = this.velocityX * -1;
                 this.velocityY = this.velocityY -1.5;
                 playPop();
             }
         //Mittersta    
         else if(this.x < player.x + player.width &&
-            this.y > player.y + 16.66 &&
-            this.y < player.y + 33.33) {
+            this.y > player.y + (player.height / 3) &&
+            this.y < player.y + (player.height / 3) * 2) {
                 this.velocityX = this.velocityX * -1;
                 this.velocityY = this.velocityY = 0;
                 playPop();
             }
         //Lägsta    
         else if(this.x < player.x + player.width &&
-            this.y > player.y + 33.33 &&
+            this.y > player.y + (player.height / 3) * 2 &&
             this.y < player.y + player.height) {
                 this.velocityX = this.velocityX * -1;
                 this.velocityY = this.velocityY = 1.5;
@@ -62,22 +62,22 @@ export class Ball {
         //Översta tredjedelen
         if(this.x > ai.x - ai.width &&
             this.y > ai.y &&
-            this.y < ai.y + 16.66) {
+            this.y < ai.y + (ai.height / 3)) {
                 this.velocityX = this.velocityX * -1;
                 this.velocityY = this.velocityY -2;
                 playPop();
             }
         //Mittersta    
         else if(this.x > ai.x - ai.width &&
-            this.y > ai.y + 16.66 &&
-            this.y < ai.y + 33.33) {
+            this.y > ai.y + (ai.height / 3) &&
+            this.y < ai.y + (ai.height / 3) * 2) {
                 this.velocityX = this.velocityX * -1;
                 this.velocityY = this.velocityY = 0;
                 playPop();
             }
         //Lägsta    
         else if(this.x > ai.x - ai.width &&
-            this.y > ai.y + 33.33 &&
+            this.y > ai.y + (ai.height / 3) * 2 &&
             this.y < ai.y + ai.height) {
                 this.velocityX = this.velocityX * -1;
                 this.velocityY = this.velocityY = 2;

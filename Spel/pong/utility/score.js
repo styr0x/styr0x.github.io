@@ -21,6 +21,9 @@ export function scoreUpPlayer() {
     
     } ,2000)
     resetBall(-5);
+    player.height += 10;
+    ai.height -= 10;
+    ai.acceleration += 0.01
 }
 
 export function scoreUpAi() {
@@ -35,6 +38,9 @@ export function scoreUpAi() {
         aiScore.className = "scoreClassPlayer";
     }, 2000)
     resetBall(5);
+    player.height -= 10;
+    ai.height += 10;
+    ai.acceleration -= 0.01
 
 }
 

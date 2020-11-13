@@ -5,13 +5,13 @@ import {ball}  from '../game.js';
 //Ai class
 export class Ai {
     constructor(y) {
-        this.acceleration = 0.155;
+        this.acceleration = 0.14;
         this.drag = 0.9;
         this.velocity = 0;
-        this.x = 780;
-        this.y = gameWindow.height / 2 - 25;
         this.width = 10;
-        this.height = 50;
+        this.height = 80;
+        this.x = 780;
+        this.y = gameWindow.height / 2 - this.height / 2;
         this.moveDirection = 0;
     }
     //Functions
