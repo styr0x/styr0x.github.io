@@ -1,8 +1,5 @@
 //Imports
-import {gameWindow} from './gamewindow.js';
 import {clearGameWindow} from './gamewindow.js'
-import {playerOneScore} from './gamewindow.js';
-import {playerTwoScore} from './gamewindow.js';
 import {Player} from './Entities/player.js';
 import {Ai} from './Entities/ai.js';
 import {Ball} from './Entities/ball.js'; 
@@ -32,9 +29,6 @@ function gameLoop() {
 }
 };
 //Exports
-export {gameWindow};
-export {playerOneScore};
-export {playerTwoScore};
 export {player};
 export {ball};
 export {ai};

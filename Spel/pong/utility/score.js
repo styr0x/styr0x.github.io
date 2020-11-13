@@ -1,7 +1,7 @@
 import {ai, ball, player} from '../game.js';
 //Element
 const playerScore = document.getElementById("playerOneScoreId");
-const aiScore = document.getElementById("playerOneScoreId");
+const aiScore = document.getElementById("playerTwoScoreId");
 const messager = document.getElementById("announcer");
 //Variabler
 let playerScoreCount = 0;

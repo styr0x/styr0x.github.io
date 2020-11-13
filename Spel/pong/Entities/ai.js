@@ -1,8 +1,9 @@
 //Imports
-import {gameWindow, player} from '../game.js';
+import {gameWindow} from '../gamewindow.js';
+import {player} from '../game.js';
 import {ball}  from '../game.js';
 //Ai class
-class Ai {
+export class Ai {
     constructor(y) {
         this.acceleration = 3;
         this.drag = 0.9;
@@ -45,5 +46,3 @@ class Ai {
         ctx.fill();
     }    
 };
-//Exports
-export {Ai};

@@ -1,7 +1,7 @@
 //Imports
-import {gameWindow} from '../game.js';
+import {gameWindow} from '../gamewindow.js';
 //Player class
-class Player {
+export class Player {
     constructor(y) {
         this.acceleration = 0.8;
         this.drag = 0.9;
@@ -44,5 +44,3 @@ class Player {
         ctx.fill();
     }
 };
-//Exports
-export {Player};
