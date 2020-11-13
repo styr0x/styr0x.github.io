@@ -44,55 +44,55 @@ html, body {
 
     0% {
         
-        color: blue;
+        color: rgb(255, 0, 0);
       }
       
       10% {
         
-        color: #8e44ad;
+        color: #ff00c8;
       }
       
       20% {
         
-        color: #1abc9c;
+        color: #0019fa;
       }
       
       30% {
         
-        color: #d35400;
+        color: #00ff00;
       }
       
       40% {
         
-        color: blue;
+        color: rgb(251, 255, 0);
       }
       
       50% {
-        
-        color: #34495e;
+        font-size: 3.5rem;
+        color: #ff0000;
       }
       
       60% {
         
-        color: blue;
+        color: rgb(234, 0, 255);
       }
       
       70% {
         
-        color: #2980b9;
+        color: #0011ff;
       }
       80% {
      
-        color: #f1c40f;
+        color: #00ffff;
       }
       
       90% {
      
-        color: #2980b9;
+        color: #09ff00;
       }
       
       100% {
-        
-        color: pink;
+        font-size: 3rem;
+        color: rgb(255, 153, 0);
       }
     }

@@ -4,6 +4,7 @@ import {scoreUpAi} from '../utility/score.js';
 import {ball, player} from '../game.js';
 import {ai} from '../game.js';
 import {gameWindow} from '../gamewindow.js';
+import {playPop, playScoreAi, playScorePlayer} from '../Sound/sound.js';
 //Player class
 export class Ball {
     constructor(y) {
@@ -24,9 +25,11 @@ export class Ball {
         //Studsa väggar upp & ner
         if (this.y + this.size > gameWindow.height) {
             this.velocityY = this.velocityY *= -1;
+            playPop();
         }
         if (this.y < 0) {
             this.velocityY = this.velocityY *= -1;
+            playPop();
         }
         //Studsa player paddle
         //Översta tredjedelen
@@ -35,6 +38,7 @@ export class Ball {
             this.y < player.y + 16.66) {
                 this.velocityX = this.velocityX * -1;
                 this.velocityY = this.velocityY -1.5;
+                playPop();
             }
         //Mittersta    
         else if(this.x < player.x + player.width &&
@@ -42,6 +46,7 @@ export class Ball {
             this.y < player.y + 33.33) {
                 this.velocityX = this.velocityX * -1;
                 this.velocityY = this.velocityY = 0;
+                playPop();
             }
         //Lägsta    
         else if(this.x < player.x + player.width &&
@@ -49,6 +54,7 @@ export class Ball {
             this.y < player.y + player.height) {
                 this.velocityX = this.velocityX * -1;
                 this.velocityY = this.velocityY = 1.5;
+                playPop();
             }
             
 
@@ -59,6 +65,7 @@ export class Ball {
             this.y < ai.y + 16.66) {
                 this.velocityX = this.velocityX * -1;
                 this.velocityY = this.velocityY -2;
+                playPop();
             }
         //Mittersta    
         else if(this.x > ai.x - ai.width &&
@@ -66,6 +73,7 @@ export class Ball {
             this.y < ai.y + 33.33) {
                 this.velocityX = this.velocityX * -1;
                 this.velocityY = this.velocityY = 0;
+                playPop();
             }
         //Lägsta    
         else if(this.x > ai.x - ai.width &&
@@ -73,14 +81,17 @@ export class Ball {
             this.y < ai.y + ai.height) {
                 this.velocityX = this.velocityX * -1;
                 this.velocityY = this.velocityY = 2;
+                playPop();
             }
         //Player score
         if (ball.x > gameWindow.width) {
             scoreUpPlayer();
+            playScorePlayer();
         }
         //Ai score
         if (ball.x < 0) {
             scoreUpAi();
+            playScoreAi();
         }
     }
 
