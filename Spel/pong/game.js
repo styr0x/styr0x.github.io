@@ -4,6 +4,7 @@ import {Player} from './Entities/player.js';
 import {Ai} from './Entities/ai.js';
 import {Ball} from './Entities/ball.js'; 
 import {drawGameField} from './gamewindow.js';
+import {startScreen} from './startscreen.js';
 
 ////Skapa 2 players
 //Playern
@@ -12,10 +13,11 @@ const player = new Player();
 const ai = new Ai();
 ////Skapa bollen
 const ball = new Ball();
+////Start screen
+//startScreen();
+gameLoop();
+
 ////Gameloop
-let gameRunning = true;
-if (gameRunning) {
-    gameLoop();
 function gameLoop() {
     requestAnimationFrame(gameLoop);
     player.update();
@@ -29,8 +31,8 @@ function gameLoop() {
     ai.draw();
     ball.draw();
 }
-};
 //Exports
 export {player};
 export {ball};
 export {ai};
+export {gameLoop};
