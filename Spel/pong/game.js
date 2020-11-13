@@ -3,6 +3,7 @@ import {clearGameWindow} from './gamewindow.js'
 import {Player} from './Entities/player.js';
 import {Ai} from './Entities/ai.js';
 import {Ball} from './Entities/ball.js'; 
+import {drawGameField} from './gamewindow.js';
 
 ////Skapa 2 players
 //Playern
@@ -23,6 +24,7 @@ function gameLoop() {
     
     clearGameWindow();
     
+    drawGameField();
     player.draw();
     ai.draw();
     ball.draw();
