@@ -2,7 +2,6 @@ html, body {
     background-color: black;
     color: whitesmoke;
     font-family: sans-serif;
-    overflow: hidden;
 }
 
 .parent {
