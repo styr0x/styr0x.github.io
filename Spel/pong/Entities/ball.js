@@ -7,7 +7,7 @@ import {gameWindow} from '../gamewindow.js';
 //Player class
 export class Ball {
     constructor(y) {
-        this.velocityX = -4;
+        this.velocityX = -5;
         this.velocityY = 0;
         this.y = 300;
         this.x = 400;
@@ -34,7 +34,7 @@ export class Ball {
             this.y > player.y &&
             this.y < player.y + 16.66) {
                 this.velocityX = this.velocityX * -1;
-                this.velocityY = this.velocityY -2;
+                this.velocityY = this.velocityY -1.5;
             }
         //Mittersta    
         else if(this.x < player.x + player.width &&
@@ -48,7 +48,7 @@ export class Ball {
             this.y > player.y + 33.33 &&
             this.y < player.y + player.height) {
                 this.velocityX = this.velocityX * -1;
-                this.velocityY = this.velocityY = 2;
+                this.velocityY = this.velocityY = 1.5;
             }
             
 

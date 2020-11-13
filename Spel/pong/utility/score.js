@@ -10,13 +10,13 @@ let aiScoreCount = 0;
 export function scoreUpPlayer() {
     playerScoreCount++
     playerScore.innerText = playerScoreCount;
-    resetBall(-4);
+    resetBall(-5);
 }
 
 export function scoreUpAi() {
     aiScoreCount++
     aiScore.innerText = aiScoreCount;
-    resetBall(4);
+    resetBall(5);
 }
 
 function resetBall(direction) {
