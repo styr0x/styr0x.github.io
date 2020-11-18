@@ -1,0 +1,24 @@
+body, html {
+    color: rgb(0, 60, 255);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.5rem;
+    height: 100%;
+    margin: 0;
+}
+
+.parent {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.titleScore{
+    margin-top: 3vh;
+}
+
+.gameWindowClass {
+    margin-top: 13vh;
+    background-color: rgb(29, 29, 29);
+}

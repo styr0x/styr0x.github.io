@@ -5,7 +5,7 @@ import {ball}  from '../game.js';
 //Ai class
 export class Ai {
     constructor(y) {
-        this.acceleration = 0.14;
+        this.acceleration = 0.135;
         this.drag = 0.95;
         this.velocity = 0;
         this.width = 10;
