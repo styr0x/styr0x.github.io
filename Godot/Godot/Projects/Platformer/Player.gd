@@ -3,7 +3,7 @@ extends KinematicBody2D
 #Score
 var score = 0;
 #Physics
-var speed = 80;
+var speed = 50;
 var drag = 0.9;
 var jumpForce = 400;
 var gravity = 800;
@@ -12,13 +12,17 @@ var grounded = false;
 #Components
 onready var sprite = $Sprite;
 
+
+
 func _physics_process(delta):
 	print(grounded)
 	vel.x *= drag
 	if Input.is_action_pressed("move_left"):
 		vel.x -= speed;
+		$AnimationPlayer.play("walk");
 	if Input.is_action_pressed("move_right"):
-		vel.x += speed;	
+		vel.x += speed;
+		$AnimationPlayer.play("walk");
 	vel = move_and_slide(vel, Vector2.UP);
 	vel.y += gravity * delta;
 	if Input.is_action_pressed("jump") and is_on_floor():
