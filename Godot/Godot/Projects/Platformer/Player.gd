@@ -8,36 +8,60 @@ var drag = 0.9;
 var jumpForce = 400;
 var gravity = 800;
 var vel = Vector2();
-var grounded = false;
+var grounded = true;
 #Components
-onready var sprite = $Sprite;
-
-
-
-func _physics_process(delta):
-	print(grounded)
-	vel.x *= drag
-	if Input.is_action_pressed("move_left"):
-		vel.x -= speed;
-		$AnimationPlayer.play("walk");
-	if Input.is_action_pressed("move_right"):
-		vel.x += speed;
-		$AnimationPlayer.play("walk");
-	vel = move_and_slide(vel, Vector2.UP);
-	vel.y += gravity * delta;
-	if Input.is_action_pressed("jump") and is_on_floor():
-		vel.y -= jumpForce
-	if vel.x < 0:
-		sprite.flip_h = true;
-	elif vel.x > 0:
-		sprite.flip_h = false;
-
-
+onready var player = $AnimatedSprite;
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	player.play("idle");# Replace with function body.
+
+#Själva gameloop behavior
+func _physics_process(delta):
+	movePlayer(delta);
+	animatePlayer(delta);
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+		
+	if vel.x < 0:
+		player.flip_h = true;
+	
+	elif vel.x > 0:
+		player.flip_h = false;
+
+func movePlayer(delta):
+	vel.x *= drag
+	vel = move_and_slide(vel, Vector2.UP);
+	vel.y += gravity * delta;
+	
+
+	
+	if Input.is_action_pressed("move_left"):
+		vel.x -= speed;
+
+		
+	if Input.is_action_pressed("move_right"):
+		vel.x += speed;
+
+		
+	if Input.is_action_pressed("jump") and is_on_floor():
+		vel.y -= jumpForce;
+		
+func animatePlayer(delta):
+
+	if Input.is_action_pressed("move_left") and is_on_floor():
+		player.play("walk");
+	elif Input.is_action_just_released("move_left") and is_on_floor():
+		player.play("idle");
+		
+	if Input.is_action_pressed("move_right") and is_on_floor():
+		player.play("walk");
+	elif Input.is_action_just_released("move_right") and is_on_floor():
+		player.play("idle");	
+		
+	if Input.is_action_pressed("jump") and is_on_floor():
+		player.play("jump");
+	elif vel.y > 13.333334 and !is_on_floor():
+		player.play("fall");
+		
+	print(vel.x, vel.y)
+	

@@ -2,19 +2,19 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Walking Man.png-e02061359c1810f0407e9c71012553bb.stex"
+path="res://.import/playerWalk0.png-a5d29cda94347f3e8c46a7371ec6a777.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Walking Man.png"
-dest_files=[ "res://.import/Walking Man.png-e02061359c1810f0407e9c71012553bb.stex" ]
+source_file="res://Sprites/player/playerWalk/playerWalk0.png"
+dest_files=[ "res://.import/playerWalk0.png-a5d29cda94347f3e8c46a7371ec6a777.stex" ]
 
 [params]
 
-compress/mode=3
+compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
