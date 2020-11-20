@@ -1,5 +1,0 @@
-export class Scene {
-    constructor() {
-
-    }
-};
