@@ -1,40 +1,33 @@
 extends KinematicBody2D
 
-#Score
-var score = 0;
-#Physics
-var speed = 50;
-var drag = 0.9;
-var jumpForce = 400;
-var gravity = 800;
-var vel = Vector2();
-var grounded = true;
-#Components
+#Playern
 onready var player = $AnimatedSprite;
+#Rukasi
+var speed = 20;
+var drag = 0.9;
+var jumpForce = 300;
+var gravity = 981;
+var vel = Vector2();
+#Health damage osv
+var currentHealth = 100;
+var maxHealth = 100;
+#Enemy
+var enemy;
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	player.play("idle");# Replace with function body.
+	pass;
 
-#Själva gameloop behavior
+#Allt som har me flyttas å animeras att göra
 func _physics_process(delta):
+	getInfo();
 	movePlayer(delta);
-	animatePlayer(delta);
-
-
-		
-	if vel.x < 0:
-		player.flip_h = true;
-	
-	elif vel.x > 0:
-		player.flip_h = false;
-
+	animatePlayer();
+#He som flyttar duudn
 func movePlayer(delta):
 	vel.x *= drag
-	vel = move_and_slide(vel, Vector2.UP);
 	vel.y += gravity * delta;
-	
+	vel = move_and_slide(vel, Vector2.UP);
 
-	
 	if Input.is_action_pressed("move_left"):
 		vel.x -= speed;
 
@@ -45,9 +38,12 @@ func movePlayer(delta):
 		
 	if Input.is_action_pressed("jump") and is_on_floor():
 		vel.y -= jumpForce;
+#Animerar duudn		
+func animatePlayer():
 		
-func animatePlayer(delta):
-
+	if vel.x == 0 and vel.y == 0 and is_on_floor():
+		player.play("idle"); 
+	
 	if Input.is_action_pressed("move_left") and is_on_floor():
 		player.play("walk");
 	elif Input.is_action_just_released("move_left") and is_on_floor():
@@ -60,8 +56,32 @@ func animatePlayer(delta):
 		
 	if Input.is_action_pressed("jump") and is_on_floor():
 		player.play("jump");
-	elif vel.y > 13.333334 and !is_on_floor():
+	elif vel.y > 13 and !is_on_floor():
 		player.play("fall");
+	elif vel.x < 0 and vel.x > -50 and is_on_floor() or vel.x > 0 and vel.x < 50 and is_on_floor():
+		player.play("idle");
 		
-	print(vel.x, vel.y)
+	if vel.x < 0:
+		player.flip_h = true;
 	
+	elif vel.x > 0:
+		player.flip_h = false;	
+		
+
+	
+
+func damagePlayer():
+	currentHealth -=5;
+	vel.x += enemy.moveDir * 4 
+	vel.y -= jumpForce / 3;
+	player.play("damaged");
+	if currentHealth <= 0:
+		playerDie();
+
+func playerDie():
+	player.play("die");
+	print("Yadead")
+	
+
+func getInfo():
+	enemy = get_parent().get_node("Enemy");
