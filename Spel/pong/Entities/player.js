@@ -2,7 +2,7 @@
 import {gameWindow} from '../gamewindow.js';
 //Player class
 export class Player {
-    constructor(y) {
+    constructor() {
         this.acceleration = 0.8;
         this.drag = 0.9;
         this.velocity = 0;

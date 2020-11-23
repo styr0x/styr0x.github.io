@@ -1,4 +1,4 @@
-export class Gamewindow {
+export class GameLayer {
     constructor (width, height) {
         this.width = width;
         this.height = height;
@@ -11,6 +11,6 @@ export class Gamewindow {
         this.parent.appendChild(this.gameWindowElement);
     }
     clear() {
-        this.ctx.clearRect(0, 0, this.gameWindowElement.width, this.gameWindowElement.height);
+        this.ctx.clearRect(0, 0, this.width, this.height);
     }
 };

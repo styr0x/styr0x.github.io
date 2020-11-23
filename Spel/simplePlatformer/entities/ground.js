@@ -1,15 +1,13 @@
-import {gameWindow} from '../game.js'
+import { Square } from '../shapes/square.js';
 export class Ground {
-    constructor() {
-        this.width = 21.875;
-        this.height = 21.875;
-        this.x = 400;
-        this.y = 300;
+    constructor(x,y) {
+        this.x = x;
+        this.y = y;
+        this.color = "green";
+        this.type = "ground";
     }
     draw() {
-        gameWindow.ctx.beginPath();
-        gameWindow.ctx.rect(this.x, this.y, this.width, this.height);
-        gameWindow.ctx.fillStyle = "green";
-        gameWindow.ctx.fill();
+    
+    new Square(this.x, this.y, this.type, this.color);
     }
 }

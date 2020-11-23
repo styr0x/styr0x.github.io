@@ -1,21 +1,31 @@
-import {Gamewindow} from './utility/gamewindow.js';
+import {GameLayer} from './utility/gamewindow.js';
 import {Ui} from './utility/ui.js';
 import {Level0} from './maps/level0.js';
+import { Player } from './entities/player.js';
+import {squareWidth, squareHeight} from './shapes/square.js';
 const width = 800;
 const height = 600;
 
 
 const ui = new Ui();
-export let gameWindow = new Gamewindow(width, height);
+export const groundLayer = new GameLayer(width, height);
 const scene = new Level0();
+export const player = new Player(scene.playerSpawnX, scene.playerSpawnY);
 
-window.onload = requestAnimationFrame(gameLoop);
+
+
+
+
+requestAnimationFrame(gameLoop);
+
 function gameLoop() {
     requestAnimationFrame(gameLoop);
 
-    scene.ground.draw();
+    player.update();
 
-    gameWindow.clear
 
-    console.log("kellogs")
+
+    player.draw();
+
 }
+

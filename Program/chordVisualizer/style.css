@@ -1,5 +1,5 @@
 html, body {
-    background-color: rgb(0, 0, 20);
+    background-color: rgb(255, 255, 255);
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
@@ -8,21 +8,23 @@ html, body {
 }
 
 .parent {
-    margin-top: 30vh;
-    width: 100%;
+    margin-top: 0vh;
+    width: auto;
+    height: auto;
 }
 
 .neck {
-    border: 0.1vh solid lightgray;
+    display: block;
+    border-right: 0.1vh solid rgb(0, 0, 0);
     position: relative;
     margin: 0 auto;
-    height: 30vh;
-    width: 90vw;
+    height: auto;
+    width: auto;
 }
 
 .nut {
     position: absolute;
-    background-color: lightgray;
+    background-color: rgb(0, 0, 0);
     height: 30vh;
     width: 1vw;
 }
@@ -31,25 +33,27 @@ html, body {
 
 .fret {
     position: absolute;
-    background-color: lightgray;
+    background-color: rgb(0, 0, 0);
     height: 30vh;
     width: 0.1vw;
+    z-index: 99999;
 }
 
 .fretMarker {
     position: absolute;
     margin-top: 14.5vh;
-    height: 1.4vh;
-    width: 0.7vw;
-    background-color: lightgray;
+    height: 12px;
+    width: 12px;
+    background-color: rgb(0, 0, 0);
     border-radius: 50px;
 
 }
 
+
 .note {
-    position: absolute;
-    height: 2vh;
-    width: 1.5vw;
+    position: relative;
+    height: 30px;
+    width: 30px;
     border-radius: 50px;
-    background-color: lightgray;
+    background-color: rgb(0, 0, 0);
 }
