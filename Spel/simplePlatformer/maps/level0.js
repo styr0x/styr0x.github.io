@@ -51,11 +51,11 @@ export class Level0 {
               
                 
             ]
-
-            this.build();        
+            
+            this.buildLevel();
     }
-    build() {
-        for (let row = 0; row < this.rows; row++) {
+    buildLevel() {
+                for (let row = 0; row < this.rows; row++) {
             this.y += squareHeight;
             
             for (let column = 0; column < this.columns; column++) {
@@ -82,8 +82,7 @@ export class Level0 {
             }
         }
     }
-    
     draw() {
-        this.groundTile.draw();
+
     }
 };
