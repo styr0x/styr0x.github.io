@@ -5,7 +5,6 @@ export class Player {
     constructor(x,y) {
         this.x = x;
         this.y = y;
-        this.type = "player";
         this.color = "blue";
         this.acceleration = 0.8;
         this.drag = 0.9;
@@ -20,6 +19,6 @@ export class Player {
 
     }
     draw() {
-        new Square(this.x, this.y, this.type, this.color);
+        new Square(this.x, this.y, this.color);
         }
 }

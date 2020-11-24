@@ -6,9 +6,15 @@ public class playerController : MonoBehaviour
 {
     public float speed;
     public float jumpForce;
-    float moveDir;
+    [HideInInspector]
+    public float moveDir;
+    [HideInInspector]
+    public bool isMoving;
+    [HideInInspector]
+    public bool isGrounded;
+    
     bool facingRight;
-    bool isGrounded;
+    
     Rigidbody2D player;
     SpriteRenderer sprite;
     BoxCollider2D collider;
@@ -22,6 +28,7 @@ public class playerController : MonoBehaviour
         moveDir = 0;
         facingRight = true;
         isGrounded = true;
+        isMoving = false;
     }
 
     // Update is called once per frame
@@ -35,29 +42,38 @@ public class playerController : MonoBehaviour
         playerMove();
         playerFlip();
         playerJump();
+        print(moveDir);
     }
 
     void playerMove()
     {
-        if (Input.GetKey("right"))
+
+        if (Input.GetAxis("Horizontal") > 0 || Input.GetAxis("Horizontal") < 0)
         {
-            facingRight = true;
-            moveDir = 1;
+            moveDir = Input.GetAxis("Horizontal");
+            isMoving = true;
             player.velocity = new Vector2(moveDir * speed, player.velocity.y);
             
             
         }
-        
-        if (Input.GetKey("left"))
+        else
+        {
+            isMoving = false;
+            moveDir = 0;
+        }
+
+        if (Input.GetAxis("Horizontal") < 0)
         {
             facingRight = false;
-            moveDir = -1;
-            player.velocity = new Vector2(moveDir * speed, player.velocity.y);
-
-
         }
+
+        if (Input.GetAxis("Horizontal") > 0)
+        {
+            facingRight = true;
+        }
+
     }
-    
+
     void playerFlip()
     {
         if (facingRight == true)

@@ -51,11 +51,10 @@ export class Level0 {
               
                 
             ]
-            
-            this.draw();
-            
+
+            this.build();        
     }
-    draw() {
+    build() {
         for (let row = 0; row < this.rows; row++) {
             this.y += squareHeight;
             
@@ -73,8 +72,8 @@ export class Level0 {
 
                 }
                 else if (tileNum == 1) {
-                    let groundTile = new Ground(this.x, this.y);
-                    groundTile.draw();
+                    this.groundTile = new Ground(this.x, this.y);
+                    this.groundTile.draw();
                 }
                 else if (tileNum == 2) {
                     this.playerSpawnX = this.x
@@ -82,6 +81,9 @@ export class Level0 {
                 }
             }
         }
-
+    }
+    
+    draw() {
+        this.groundTile.draw();
     }
 };

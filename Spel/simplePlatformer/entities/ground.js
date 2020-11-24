@@ -4,10 +4,8 @@ export class Ground {
         this.x = x;
         this.y = y;
         this.color = "green";
-        this.type = "ground";
     }
     draw() {
-    
-    new Square(this.x, this.y, this.type, this.color);
+    new Square(this.x, this.y, this.color);
     }
 }
