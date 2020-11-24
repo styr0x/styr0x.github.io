@@ -51,11 +51,12 @@ export class Level0 {
               
                 
             ]
-            
-            this.buildLevel();
+            //Om int ja kör dehär ein gang jär så syns int playern.
+            this.draw();
     }
-    buildLevel() {
-                for (let row = 0; row < this.rows; row++) {
+
+    draw() {
+            for (let row = 0; row < this.rows; row++) {
             this.y += squareHeight;
             
             for (let column = 0; column < this.columns; column++) {
@@ -81,8 +82,5 @@ export class Level0 {
                 }
             }
         }
-    }
-    draw() {
-
     }
 };

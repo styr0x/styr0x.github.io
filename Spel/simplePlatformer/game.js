@@ -22,7 +22,8 @@ function gameLoop() {
 
     player.update();
 
-    gameWindow.clear();
+    //Om man kommenterar bort dehär syns bana, högst troligen na i leve0.js
+    //gameWindow.clear();
 
     scene.draw();
     player.draw();
