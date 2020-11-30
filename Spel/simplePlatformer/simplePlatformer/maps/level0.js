@@ -1,7 +1,7 @@
 import { Ground } from '../entities/ground.js';
 import {squareWidth, squareHeight} from '../shapes/square.js';
 
-
+export let groundTileArr = [];
 
 export class Level0 {
     constructor() {
@@ -49,38 +49,41 @@ export class Level0 {
                 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
               
-                
             ]
-            //Om int ja kör dehär ein gang jär så syns int playern.
-            this.draw();
     }
 
     draw() {
             for (let row = 0; row < this.rows; row++) {
             this.y += squareHeight;
-            
-            for (let column = 0; column < this.columns; column++) {
-                const index = column + row * this.columns;
-                let tileNum = this.tileMap[index];
-
-                this.x += squareWidth;
-
-                if (this.x == 800) {
-                    this.x = 0;
-                }
-                
-                if (tileNum == 0) {
-
-                }
-                else if (tileNum == 1) {
-                    this.groundTile = new Ground(this.x, this.y);
-                    this.groundTile.draw();
-                }
-                else if (tileNum == 2) {
-                    this.playerSpawnX = this.x
-                    this.playerSpawnY = this.y
-                }
+            if (this.y < 600) {
+                for (let column = 0; column < this.columns; column++) {
+                    const index = column + row * this.columns;
+                    let tileNum = this.tileMap[index];
+    
+                    this.x += squareWidth;
+    
+                    if (this.x == 800) {
+                        this.x = 0;
+                    }
+                    
+                    
+                    if (tileNum == 0) {
+    
+                    }
+                    else if (tileNum == 1) {
+    
+                        this.groundTile = new Ground(this.x, this.y);
+                        groundTileArr.push(this.groundTile);
+                        this.groundTile.draw();
+    
+                    }
+                    else if (tileNum == 2) {
+                        this.playerSpawnX = this.x
+                        this.playerSpawnY = this.y
+                    }
+                }                                                                                       
             }
+
         }
     }
 };

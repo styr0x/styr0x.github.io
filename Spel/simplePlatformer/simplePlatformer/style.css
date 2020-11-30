@@ -16,11 +16,13 @@ body, html {
 }
 
 .titleScoreClass{
+    position: absolute;
     width: 800px;
     background-color: rgb(47, 0, 255);
-    margin-top: 10vh;
+    margin-top: 17.2vh;
 }
 
 .gameWindowClass {
-    background-color: rgb(29, 29, 29);
+    margin-top: 20vh;
+    position: absolute;
 }

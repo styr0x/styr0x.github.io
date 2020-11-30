@@ -1,5 +1,5 @@
 export class GameWindow {
-    constructor (width, height) {
+    constructor (width, height, color) {
         this.width = width;
         this.height = height;
         this.parent = document.getElementById('parentDiv')
@@ -7,6 +7,7 @@ export class GameWindow {
         this.gameWindowElement.width = width;
         this.gameWindowElement.height = height;
         this.gameWindowElement.className = 'gameWindowClass'
+        this.gameWindowElement.style.backgroundColor = color;
         this.ctx = this.gameWindowElement.getContext('2d');
         this.parent.appendChild(this.gameWindowElement);
     }
