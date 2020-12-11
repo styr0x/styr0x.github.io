@@ -1,6 +1,8 @@
 import { Square } from '../shapes/square.js';
 import { moveDirX, moveDirY } from '../utility/input.js';
-import {isGrounded} from '../utility/collisions.js';
+import {CollisionDetection, isGrounded} from '../utility/collisions.js';
+import {scene} from '../game.js'
+import { gameWindow } from '../game.js';
 
 export class Player {
     constructor(x,y) {
@@ -14,6 +16,7 @@ export class Player {
         this.gravity = 0.5;
         this.velocityX = 0;
         this.velocityY = 0;
+        this.collision = new CollisionDetection;
 
     }
     update() {
@@ -23,15 +26,9 @@ export class Player {
         this.velocityX *= this.drag;
         //Jump
         this.velocityY += this.jumpForce * moveDirY;
-        this.y -= this.velocityY;
+        this.y -= this.velocity
         
-        if (isGrounded) {
-            this.velocityY = 0;
-        }
-        else if (!isGrounded) {
-            this.velocityY -= this.gravity;
-        }
-        
+        this.collision.detectCollision(player, scene.groundTile);
 
 
 
