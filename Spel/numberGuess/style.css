@@ -1,0 +1,17 @@
+body,html {
+ background-color: rgb(0, 0, 70);   
+ font-family: '8BITWONDERNominal';
+}
+
+.parent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.announcerClass {
+    margin-top: 45vh;
+    font-size: 2rem;
+    color: aliceblue;
+}

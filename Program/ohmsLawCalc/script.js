@@ -105,4 +105,4 @@ function countOhmLaw() {
 }
 
 
-
+console.log(6 / 2 * (1 +2))
