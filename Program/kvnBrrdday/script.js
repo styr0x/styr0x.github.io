@@ -17,7 +17,7 @@ function funStart() {
         
     }, 730);
     if (playAllowed) {
-        let music = new Audio('./music/happyBd.mp3');
+        let music = new Audio('music/happyBd.mp3');
         music.play();
         playAllowed = false;
     }
