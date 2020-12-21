@@ -3,8 +3,10 @@ let smileyTwo = document.getElementById('smiley2');
 let outputText = document.getElementById('output1');
 let outputText2 = document.getElementById('output2');
 let x = 0;
+let playAllowed = true;
 
-document.body.addEventListener('click', randomBgColor)
+document.body.addEventListener('click', randomBgColor);
+
 
 function randomBgColor() {
     x++
@@ -25,6 +27,11 @@ function randomBgColor() {
     
     }, 730);
     console.log(x)
+    if (playAllowed) {
+        let music = new Audio('happyBd.mp3');
+        music.play();
+        playAllowed = false;
+    }
 }
 
 outputText.addEventListener('click', function () {
@@ -82,8 +89,7 @@ function happyBirthday() {
     let daysUntilBirthday = Math.floor(dateDiff / (1000 * 60 * 60 * 24));
     let daysUntilBirthday2 = Math.floor(dateDiff2 / (1000 * 60 * 60 * 24));
     let m = currentDate.getMonth() - inputDate.getMonth();
-    let music = new Audio('happyBd.mp3');
-    music.play();
+
     
     if (m < 0 || (m === 0 && currentDate.getDate() < inputDate.getDate()))
     {
