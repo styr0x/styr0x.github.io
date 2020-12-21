@@ -1,7 +1,81 @@
+@media only screen and (max-width: 480px) {
+
+    html, body { 
+        color: lawngreen;
+        font-family: '8BITWONDERNominal';
+        overflow: hidden;
+    }
+    
+    body {
+        background-color: rebeccapurple;
+    }
+    
+    .allt{
+        display: flex;
+        text-align: center;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .topSmiley {
+        margin-top: 5vh;
+    }
+    
+    .topSmileyAnim {
+        margin-top: 5vh;
+        animation: spin 0.73s infinite reverse;
+    }
+    
+    .bottomSmiley {
+        margin-top: 50vh;
+        position: relative;
+    
+    }
+    
+    .bottomSmileyAnim {
+        margin-top: 50vh;
+        animation: spin 0.73s infinite;
+    }
+    
+    @keyframes spin {
+        50% {transform: rotate(180deg);}
+        100%{transform: rotate(360deg);}
+      }
+    
+    .outputs {
+        font-size: 1rem !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 20%;
+        transform: translate(0,-65vh) !important;
+    
+    }
+    
+    .output {
+    
+    }
+    
+    .outputAnim {
+        animation: grow 1.47s infinite;
+    }
+    
+    @keyframes grow {
+        0% {font-size:100%; opacity:1;}
+        50% {font-size:120%; opacity:1;}
+        100% {font-size:100%; opacity:1;}
+    }
+
+
+}
+
+
+
 html, body { 
     color: lawngreen;
     font-family: '8BITWONDERNominal';
-    font-size: 1rem;
     overflow: hidden;
 }
 
@@ -43,12 +117,13 @@ body {
   }
 
 .outputs {
+    font-size: 1.8rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 20%;
-    transform: translate(0,-65vh);
+    transform: translate(0,-50vh);
 
 }
 
@@ -65,3 +140,4 @@ body {
     50% {font-size:120%; opacity:1;}
     100% {font-size:100%; opacity:1;}
 }
+
