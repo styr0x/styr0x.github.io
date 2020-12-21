@@ -2,36 +2,33 @@ let smileyOne = document.getElementById('smiley1');
 let smileyTwo = document.getElementById('smiley2');
 let outputText = document.getElementById('output1');
 let outputText2 = document.getElementById('output2');
-let x = 0;
 let playAllowed = true;
 
-document.body.addEventListener('click', randomBgColor);
+document.body.addEventListener('click', funStart);
 
 
-function randomBgColor() {
-    x++
+function funStart() {
+
+    
+    setInterval(() => {
+        document.body.style.background = randColor();
+        outputText.style.color = randColor();
+        outputText2.style.color = randColor();
+        
+    }, 730);
+    if (playAllowed) {
+        let music = new Audio('./music/happyBd.mp3');
+        music.play();
+        playAllowed = false;
+    }
+}
+
+function randColor() {
     const r = Math.random() * 256;
     const g = Math.random() * 256;
     const b = Math.random() * 256;
     let randColor = "rgb(" + r + "," + g + "," + b + ")";
-    
-
-    setInterval(() => {
-        if (x < 5) {
-            document.body.style.background = randColor; 
-        }
-        if (x > 5) {
-            x = 0;
-            document.body.style.background = "rebeccapurple"
-        }
-    
-    }, 730);
-    console.log(x)
-    if (playAllowed) {
-        let music = new Audio('happyBd.mp3');
-        music.play();
-        playAllowed = false;
-    }
+    return randColor;
 }
 
 outputText.addEventListener('click', function () {
@@ -95,7 +92,6 @@ function happyBirthday() {
     {
         age--;
     }
-    console.log(daysUntilBirthday < 0)
 
     if (daysUntilBirthday < 0) {
         output2.innerText = "It is " + daysUntilBirthday2 + " days until your next birthday"

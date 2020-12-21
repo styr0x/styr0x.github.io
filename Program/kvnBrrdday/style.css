@@ -11,6 +11,7 @@
     }
     
     .allt{
+        margin-top: 5vh;
         display: flex;
         text-align: center;
         flex-direction: column;
@@ -20,6 +21,7 @@
     
     .topSmiley {
         margin-top: 5vh;
+        position: relative;
     }
     
     .topSmileyAnim {
@@ -50,7 +52,7 @@
         justify-content: center;
         align-items: center;
         width: 20%;
-        transform: translate(0,-65vh) !important;
+        transform: translate(0,-170%) !important;
     
     }
     
