@@ -1,0 +1,77 @@
+html, body {
+    font-family: 'Bangers', cursive;
+    background: linear-gradient(purple, rgb(65, 80, 0));
+    background-repeat: no-repeat;
+    height: 100%;
+    overflow: hidden;
+}
+
+.parent {
+    margin-top: 20vh;
+    display: grid;
+    justify-content: center;
+}
+
+.scoreDiv {
+    display: flex;
+}
+
+.moneyDiv {
+
+}
+
+.betDiv {
+    position: absolute;
+    margin-left: 50vmin;
+}
+
+.slotDiv {
+    display: flex;
+
+}
+
+.slotImg {
+    background-color: white;
+    border: 2px solid black;
+    height: 20vh;
+}
+
+.buttonDiv {
+    gap: 100px;
+    margin-top: 25vh;
+    display: flex;
+    justify-self: center;
+}
+
+.playButton {
+    background-color: green;
+    box-shadow: 0 0 50px green;
+}
+
+.betButton {
+    background-color: blue;
+    box-shadow: 0 0 50px blue;
+}
+
+.playButton, .betButton {
+    letter-spacing: 5px;
+    border-radius: 100%;
+    font-family: 'Bangers';
+    font-size: 2rem;
+    width: 100px;
+    height: 100px;
+    outline: none;
+    border: none;
+    color: white;
+    transition: font-size 500ms, background-color 300ms;
+}
+
+.playButton:hover, .betButton:hover {
+    font-size: 2.5rem;
+    transition: font-size 500ms, background-color 300ms;
+}
+
+.playButton:active, .betButton:active {
+    background-color: white;
+    transition: background-color 300ms;
+}
