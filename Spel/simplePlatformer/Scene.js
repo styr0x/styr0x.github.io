@@ -42,9 +42,23 @@ export class Scene {
         this.tileSize = 16;
         this.tileMap = new Tilemap(LEVEL1DATA, this.tileSize);
         this.player = new Player(this.tileMap.playerSpawn.x, this.tileMap.playerSpawn.y);
+        this.currentTile = this.tileMap.tileArr;
+
+    
     }
     update() {
+        
         this.player.update();
+        
+        for (let i = 0; i < this.currentTile.length; i++) {
+            if (this.player.x < this.currentTile.x + this.tileSize &&
+                this.player.x + this.player.width > this.currentTile.x &&
+                this.player.y < this.currentTile.y + this.tileSize &&
+                this.player.y + this.player.height > this.currentTile.y) {
+                    console.log("collision!")
+                }
+        }    
+
 
     }
     draw() {
