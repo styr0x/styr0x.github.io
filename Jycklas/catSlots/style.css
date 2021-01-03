@@ -36,6 +36,19 @@ html, body {
     height: 20vh;
 }
 
+.slotImgBlur {
+    background-color: white;
+    border: 2px solid black;
+    height: 20vh;
+    animation: SPIN 100ms infinite;    
+}
+
+@keyframes SPIN {
+    0% {filter: blur(1px);}
+    50% {filter: blur(5px);}
+    100% {filter: blur(1px);}
+}
+
 .buttonDiv {
     gap: 100px;
     margin-top: 25vh;
