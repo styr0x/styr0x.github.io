@@ -13,7 +13,7 @@ html, body {
 }
 
 .scoreDiv {
-    display: flex;
+    display: grid;
 }
 
 .moneyDiv {
