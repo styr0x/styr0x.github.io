@@ -1,0 +1,31 @@
+html, body {
+    background-color: rgb(0, 0, 58);
+    color: white;
+    font-size: 1rem;
+}
+
+.parent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40vh;
+
+}
+
+.formula {
+    display: grid;
+
+}
+
+.inputBox {
+    border-radius: 50px;
+    font-weight: bold;
+}
+
+.btn {
+    background-color: white;
+    margin-top:  2vh;
+    border-radius: 50px;
+    border: 2px blue;
+    font-weight: bold;
+}
