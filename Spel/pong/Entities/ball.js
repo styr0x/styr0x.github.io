@@ -5,6 +5,7 @@ import {ball, player} from '../game.js';
 import {ai} from '../game.js';
 import {gameWindow} from '../gamewindow.js';
 import {playPop, playScoreAi, playScorePlayer} from '../Sound/sound.js';
+import { Collider } from '../utility/collider.js';
 //Player class
 export class Ball {
     constructor(y) {
@@ -16,10 +17,11 @@ export class Ball {
         this.size = 8;
         this.moveX = 0;
         this.moveY = 0;
+        this.collider = new Collider(this);
     }
     //Functions
     update() {
-        console.log(this.velocityY)
+        console.log(this.velocityY);
         this.x += this.velocityX;
         this.y += this.velocityY;
 
@@ -32,32 +34,8 @@ export class Ball {
             this.velocityY = this.velocityY *= -1;
             playPop();
         }
-        //Studsa player paddle
-        //Översta tredjedelen
-        if(this.x < player.x + player.width &&
-            this.y > player.y &&
-            this.y < player.y + (player.height / 3)) {
-                this.velocityX = this.velocityX * -1;
-                this.velocityY = this.velocityY -1.5;
-                playPop();
-            }
-        //Mittersta    
-        else if(this.x < player.x + player.width &&
-            this.y > player.y + (player.height / 3) &&
-            this.y < player.y + (player.height / 3) * 2) {
-                this.velocityX = this.velocityX * -1;
-                this.velocityY = this.velocityY = 0;
-                playPop();
-            }
-        //Lägsta    
-        else if(this.x < player.x + player.width &&
-            this.y > player.y + (player.height / 3) * 2 &&
-            this.y < player.y + player.height) {
-                this.velocityX = this.velocityX * -1;
-                this.velocityY = this.velocityY = 1.5;
-                playPop();
-            }
-            
+
+        this.collider.bounce();    
 
         //Studsa ai paddle
         //Översta tredjedelen

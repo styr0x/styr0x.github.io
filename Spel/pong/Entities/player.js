@@ -1,8 +1,10 @@
 //Imports
 import {gameWindow} from '../gamewindow.js';
+import {Collider} from '../utility/collider.js'
 //Player class
 export class Player {
     constructor() {
+        this.name = 'player';
         this.acceleration = 0.8;
         this.drag = 0.9;
         this.velocity = 0;
@@ -21,13 +23,13 @@ export class Player {
             if (e.code == "ArrowDown") this.moveDirection = 0; 
         }).bind(this);
     }
+
     //Functions
     update() {
         //Flyttar paddlan
         this.velocity += this.acceleration * this.moveDirection;
         this.y += this.velocity;
         this.velocity *= this.drag;
-
         //Stoppar paddlan från att gå över rutan
         if (this.y + this.height > gameWindow.height) {
             this.y = gameWindow.height - this.height;
@@ -35,7 +37,9 @@ export class Player {
         else if (this.y < 0) {
             this.y = 0;
         }
+
     }
+
 
     draw() {
         const ctx = gameWindow.getContext('2d');
