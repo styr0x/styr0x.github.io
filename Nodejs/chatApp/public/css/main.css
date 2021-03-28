@@ -1,0 +1,40 @@
+body, html {
+    background-color: rgb(10, 0, 7);
+    font-size: 1rem;
+    font-family: sans-serif;
+}
+
+.parent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.messagesAndUsers {
+    background-color: white;
+    width: 95vw;
+    height: 90vh;
+}
+
+.messages {
+
+}
+
+.users {
+
+}
+
+.inputField {
+
+}
+
+.input {
+    width: 90vw;
+    height: 5vh;
+}
+
+.sendBtn {
+    width: 4.5vw;
+    height: 5vh;
+}
