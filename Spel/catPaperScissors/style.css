@@ -4,10 +4,6 @@ html, body {
     display: block;
     background-image: url(img/background.jpg);
     background-size: cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
     font-size: 1.5vw;
     text-align: center;
     font-family: sans-serif;
@@ -15,24 +11,29 @@ html, body {
     overflow: hidden;
 }
 
+.parent {
+    display: grid;
+}
 img {
     max-width: 100%;
     height: auto;
-    width: auto\9; /* ie8 */
 }
 
 .opponent {
     height: auto;
-    width: 25%;
+    max-width: 100%;
 }
 .avatar {
     height: auto;
-    width: 25%;
+    max-width: 100%;
 }
 
 .score {
+    position: absolute;
+    display: block;
     font-size: 1.5rem;
-    margin: 50px;
+    margin-top: 50vh;
+    margin-left: 43vw;
 }
  .scorenumber {
      transform: translate(0px, 40px);
@@ -41,7 +42,7 @@ img {
  }
 
  .scoretext {
-     margin: -2%;
+    margin-top: -5vh;
  }
 
 
@@ -99,16 +100,14 @@ img {
 
 .restartbtn {
     visibility: hidden;
-    position: absolute;
     outline: none;
     background-color: tomato;
     border: none;
     color: white;
     padding: 15px 32px;
-    width: 10%;
+    width: 200px;
     height: auto;
     text-decoration: none;
-    transform: translate(-50%, -500%);
     
 }
 

@@ -8,39 +8,44 @@
 </head>
 <body>
     <h1 id="announcer">Choose a cat!</h1>
+    <div class="parent">
+        <div class="screen1" id="screen1">    
     
-    <div class="screen1" id="screen1">    
+            <div class="buttons">
+            <button type="submit" id="btn" class="button1">
+                <img src="img/1.png" class="imgbtns"/>
+            </button>
+            <button type="submit" id="btn2" class="button2">
+                <img src="img/2.png" class="imgbtns"/>
+            </button>
+            <button type="submit" id="btn3" class="button3">
+                <img src="img/3.png" class="imgbtns"/>
+            </button>
     
-        <div class="buttons">
-        <button type="submit" id="btn" class="button1">
-            <img src="img/1.png" class="imgbtns"/>
-        </button>
-        <button type="submit" id="btn2" class="button2">
-            <img src="img/2.png" class="imgbtns"/>
-        </button>
-        <button type="submit" id="btn3" class="button3">
-            <img src="img/3.png" class="imgbtns"/>
-        </button>
-
-    </div>
-    </div>
-
-    <div class="screen2" id="screen2">
-        
-        <img src="img/1.png" class="avatar" id="avatar">
-        <img src="img/1.png" type="submit" id="opponent" class="opponent">
-        <br>
-        
-        
-
-    </div>
-
-    <div class="score">
-        <p id="score" class="scorenumber">0</p>
-        <p class="scoretext">Score</p>
-    </div>
+            </div>
+        </div>
     
-    <button type="button" id="restartbtn" class="restartbtn">Play Again</button>
+        <div class="screen2" id="screen2">
+            <div class="buttons">
+                <img src="img/1.png" class="avatar" id="avatar">
+                <img src="img/1.png" type="submit" id="opponent" class="opponent">
+            </div>
+
+        </div>
+        
+        <div class="score">
+            <button type="button" id="restartbtn" class="restartbtn">Play Again</button>
+            <p id="score" class="scorenumber">0</p>
+            <p class="scoretext">Score</p>
+
+        </div>
+        
+ 
+
+    </div>
+
+
+
         <script src="script.js"></script>
 </body>
 </html>
