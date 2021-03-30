@@ -82,4 +82,10 @@ export function resetScore() {
 
     player.height = normalHeight;
     ai.height = normalHeight;
+
+    player.r = 0;
+    player.g = 255;
+
+    ai.r = 0;
+    ai.g = 255;
 }
