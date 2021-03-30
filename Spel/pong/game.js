@@ -72,7 +72,6 @@ function checkWin() {
     if (player.height < 1 ||
         ai.height < 1) {
             gameRunning = false;
-            console.log("gameOver");
         }
 }
 //Exports

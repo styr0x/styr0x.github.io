@@ -1,5 +1,4 @@
 export function playPop() {
-    console.log("pop")
     let pop1 = new Audio('Sound/pop1.wav');
     let pop2 = new Audio('Sound/pop2.wav');
     let pop3 = new Audio('Sound/pop3.wav');
