@@ -6,13 +6,17 @@ import {ball}  from '../game.js';
 export class Ai {
     constructor(y) {
         this.acceleration = 0.1;
-        this.drag = 0.95;
+        this.drag = 0.99;
         this.velocity = 0;
         this.width = 10;
         this.height = 80;
         this.x = 780;
         this.y = gameWindow.height / 2 - this.height / 2;
         this.moveDirection = 0;
+
+        this.r = 0;
+        this.g = 255;
+        this.b = 0;
     }
     //Functions
     update() {
@@ -41,7 +45,7 @@ export class Ai {
         const ctx = gameWindow.getContext('2d');
         ctx.beginPath();
         ctx.rect(this.x, this.y, this.width, this.height);
-        ctx.fillStyle = "green";
+        ctx.fillStyle = `rgb(${this.r},${this.g},${this.b})`;
         ctx.fill();
     }    
 };

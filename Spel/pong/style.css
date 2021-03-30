@@ -2,6 +2,7 @@ html, body {
     background-color: green;
     color: black;
     font-family: 'Press Start 2P', cursive;
+    user-select: none;
 }
 
 .parent {
@@ -13,11 +14,12 @@ html, body {
 
 .anyKey {
   position: absolute;
-  margin-top: 28vh;
+  margin-top: 38vh;
   font-size: 2rem;
   color: green;
   z-index: 1;
   animation:blink 0.6s infinite alternate;
+  text-align: center;
 }
 
 .titleClass {

@@ -5,8 +5,10 @@ const playerScore = document.getElementById("playerOneScoreId");
 const aiScore = document.getElementById("playerTwoScoreId");
 const messenger = document.getElementById("announcer");
 //Variabler
-let playerScoreCount = 0;
-let aiScoreCount = 0;
+export let playerScoreCount = 0;
+export let aiScoreCount = 0;
+let damageAmount = 20;
+let normalHeight = 80;
 //Funktioner
 export function scoreUpPlayer() {
     messenger.innerHTML = "YOU SCORE!";
@@ -14,6 +16,7 @@ export function scoreUpPlayer() {
     playerScoreCount++;
     playerScore.innerText = playerScoreCount;
     playerScore.className = "titleClassAnimated";
+    
     setTimeout(function (){
         messenger.innerHTML = "PONG";
         messenger.className = "titleClass";
@@ -21,9 +24,18 @@ export function scoreUpPlayer() {
     
     } ,2000)
     resetBall(-ball.speed);
+    
     player.height += 10;
-    ai.height -= 10;
+    ai.height -= damageAmount;
     ai.acceleration += 0.005
+    
+    player.r -= 100;
+    player.g += 100;
+
+    ai.r += 100;
+    ai.g -= 100;
+
+    
 }
 
 export function scoreUpAi() {
@@ -32,17 +44,25 @@ export function scoreUpAi() {
     aiScoreCount++
     aiScore.innerText = aiScoreCount;
     aiScore.className = "titleClassAnimated";
+    
     setTimeout(function (){
         messenger.innerHTML = "PONG"
         messenger.className = "titleClass";
         aiScore.className = "scoreClassPlayer";
     }, 2000)
     resetBall(ball.speed);
-    player.height -= 10;
-    ai.height += 10;
+    
+    player.height -= damageAmount;
+    ai.height += damageAmount;
     ai.acceleration -= 0.005
+    
+    player.r += 100;
+    player.g -= 100;
 
+    ai.r -= 100;
+    ai.g += 100;
 }
+
 
 function resetBall(direction) {
     ball.y = 300;
@@ -51,4 +71,15 @@ function resetBall(direction) {
     ball.velocityY = 0;
     ai.y = gameWindow.height / 2 - ai.height / 2;
     player.y = gameWindow.height / 2 - player.height / 2;
+}
+
+export function resetScore() {
+    aiScoreCount = 0;
+    playerScoreCount = 0;
+
+    aiScore.innerText = aiScoreCount;
+    playerScore.innerText = playerScoreCount;
+
+    player.height = normalHeight;
+    ai.height = normalHeight;
 }

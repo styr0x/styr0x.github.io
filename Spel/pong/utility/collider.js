@@ -5,9 +5,16 @@ import {playPop} from '../Sound/sound.js';
 export class Collider {
     constructor(object) {
             this.ball = object;
+            this.paddleBounceAngle = 2;
 
     }
     bounce() {
+
+        this.bouncePlayer();
+        this.bounceAi();
+        this.bounceWall();
+    }
+    bouncePlayer() {
         //Studsa väggar upp & ner
         if (this.y + this.size > gameWindow.height) {
             this.velocityY = this.velocityY *= -1;
@@ -23,7 +30,7 @@ export class Collider {
             this.ball.y > player.y &&
             this.ball.y < player.y + (player.height / 3)) {
                 this.ball.velocityX = this.ball.velocityX * -1;
-                this.ball.velocityY = this.ball.velocityY -1.5;
+                this.ball.velocityY = this.ball.velocityY - this.paddleBounceAngle;
                 playPop();
             }
         //Mittersta    
@@ -39,34 +46,46 @@ export class Collider {
             this.ball.y > player.y + (player.height / 3) * 2 &&
             this.ball.y < player.y + player.height) {
                 this.ball.velocityX = this.ball.velocityX * -1;
-                this.ball.velocityY = this.ball.velocityY = 1.5;
+                this.ball.velocityY = this.ball.velocityY = this.paddleBounceAngle;
                 playPop();
             }
-        
-        //Studsa ai paddle
+    }
+    bounceAi() {
+                //Studsa ai paddle
         //Översta tredjedelen
-        if(this.x > ai.x - ai.width &&
-            this.y > ai.y &&
-            this.y < ai.y + (ai.height / 3)) {
-                this.velocityX = this.velocityX * -1;
-                this.velocityY = this.velocityY -2;
+        if(this.ball.x > ai.x - ai.width &&
+            this.ball.y > ai.y &&
+            this.ball.y < ai.y + (ai.height / 3)) {
+                this.ball.velocityX = this.ball.velocityX * -1;
+                this.ball.velocityY = this.ball.velocityY - this.paddleBounceAngle;
                 playPop();
             }
         //Mittersta    
-        else if(this.x > ai.x - ai.width &&
-            this.y > ai.y + (ai.height / 3) &&
-            this.y < ai.y + (ai.height / 3) * 2) {
-                this.velocityX = this.velocityX * -1;
-                this.velocityY = this.velocityY = 0;
+        else if(this.ball.x > ai.x - ai.width &&
+            this.ball.y > ai.y + (ai.height / 3) &&
+            this.ball.y < ai.y + (ai.height / 3) * 2) {
+                this.ball.velocityX = this.ball.velocityX * -1;
+                this.ball.velocityY = this.ball.velocityY = Math.floor(Math.random() * 4);
                 playPop();
             }
         //Lägsta    
-        else if(this.x > ai.x - ai.width &&
-            this.y > ai.y + (ai.height / 3) * 2 &&
-            this.y < ai.y + ai.height) {
-                this.velocityX = this.velocityX * -1;
-                this.velocityY = this.velocityY = 2;
+        else if(this.ball.x > ai.x - ai.width &&
+            this.ball.y > ai.y + (ai.height / 3) * 2 &&
+            this.ball.y < ai.y + ai.height) {
+                this.ball.velocityX = this.ball.velocityX * -1;
+                this.ball.velocityY = this.ball.velocityY = this.paddleBounceAngle;
                 playPop();
             }
+    }
+    bounceWall() {
+                //Studsa väggar upp & ner
+                if (this.ball.y + this.ball.size > gameWindow.height) {
+                    this.ball.velocityY = this.ball.velocityY *= -1;
+                    playPop();
+                }
+                if (this.ball.y < 0) {
+                    this.ball.velocityY = this.ball.velocityY *= -1;
+                    playPop();
+                }
     }
 }

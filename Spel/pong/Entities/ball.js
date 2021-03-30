@@ -9,7 +9,7 @@ import { Collider } from '../utility/collider.js';
 //Player class
 export class Ball {
     constructor(y) {
-        this.speed = 5
+        this.speed = 7;
         this.velocityX = -this.speed;
         this.velocityY = 0;
         this.y = 300;
@@ -18,50 +18,21 @@ export class Ball {
         this.moveX = 0;
         this.moveY = 0;
         this.collider = new Collider(this);
+
+        this.r = 0;
+        this.g = 255;
+        this.b = 0;
+        this.color = `rgb(${this.r},${this.g},${this.b})`;
     }
     //Functions
     update() {
-        console.log(this.velocityY);
         this.x += this.velocityX;
         this.y += this.velocityY;
 
-        //Studsa väggar upp & ner
-        if (this.y + this.size > gameWindow.height) {
-            this.velocityY = this.velocityY *= -1;
-            playPop();
-        }
-        if (this.y < 0) {
-            this.velocityY = this.velocityY *= -1;
-            playPop();
-        }
 
         this.collider.bounce();    
 
-        //Studsa ai paddle
-        //Översta tredjedelen
-        if(this.x > ai.x - ai.width &&
-            this.y > ai.y &&
-            this.y < ai.y + (ai.height / 3)) {
-                this.velocityX = this.velocityX * -1;
-                this.velocityY = this.velocityY -2;
-                playPop();
-            }
-        //Mittersta    
-        else if(this.x > ai.x - ai.width &&
-            this.y > ai.y + (ai.height / 3) &&
-            this.y < ai.y + (ai.height / 3) * 2) {
-                this.velocityX = this.velocityX * -1;
-                this.velocityY = this.velocityY = 0;
-                playPop();
-            }
-        //Lägsta    
-        else if(this.x > ai.x - ai.width &&
-            this.y > ai.y + (ai.height / 3) * 2 &&
-            this.y < ai.y + ai.height) {
-                this.velocityX = this.velocityX * -1;
-                this.velocityY = this.velocityY = 2;
-                playPop();
-            }
+
         //Player score
         if (ball.x > gameWindow.width) {
             scoreUpPlayer();
@@ -78,7 +49,7 @@ export class Ball {
         const ctx = gameWindow.getContext("2d");
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
-        ctx.fillStyle = "green";
+        ctx.fillStyle = this.color;
         ctx.fill();
     }
 };

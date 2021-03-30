@@ -13,6 +13,12 @@ export class Player {
         this.x = 10;
         this.y = gameWindow.height / 2 - this.height / 2;
         this.moveDirection = 0;
+        
+        this.r = 0;
+        this.g = 255;
+        this.b = 0;
+        this.color = `rgb(${this.r},${this.g},${this.b})`;
+
         //Handlar keypress
         document.onkeydown = (function(e) {
             if (e.code == "ArrowUp") this.moveDirection = -1;
@@ -45,7 +51,7 @@ export class Player {
         const ctx = gameWindow.getContext('2d');
         ctx.beginPath();
         ctx.rect(this.x, this.y, this.width, this.height);
-        ctx.fillStyle = "green";
+        ctx.fillStyle = `rgb(${this.r},${this.g},${this.b})`;
         ctx.fill();
     }
 };
