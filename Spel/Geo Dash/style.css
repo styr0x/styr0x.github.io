@@ -1,0 +1,20 @@
+body, html {
+    display: grid;
+    justify-content: center;
+    text-align: center;
+}
+
+.messageClass {
+    display: flex;
+
+    font-size: 2rem;
+    transform: translate(0,260px);
+    animation: blink 1s both infinite;
+}
+
+@keyframes blink {
+    0% {opacity: 1;}
+    50% {opacity: 0;}
+    100% {opacity: 1;}
+    
+}
