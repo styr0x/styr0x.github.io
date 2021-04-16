@@ -1,0 +1,5 @@
+body, html {
+    display: grid;
+    justify-content: center;
+    text-align: center;
+}
