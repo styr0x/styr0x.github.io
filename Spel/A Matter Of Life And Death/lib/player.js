@@ -35,7 +35,7 @@ export class Player
             this.body.isStatic = true;
         }
         else if (!mouseIsPressed) {
-            Body.applyForce(this);
+            //Body.applyForce();
             this.body.isStatic = false;
         }
 
