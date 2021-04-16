@@ -23,23 +23,6 @@ export class MouseClass {
                 this.mouse.position.x < player.pos.x + player.width / 2 && 
                 this.mouse.position.y > player.pos.y - player.height / 2 &&
                 this.mouse.position.y < player.pos.y + player.height / 2) {
-                    console.log(this.staticCounter);
-                    this.staticCounter += 1;
-                    if (this.staticCounter === 1) {
-                        player.body.isStatic = true;
-                        
-                        
-                        
-                    }
-                    
-                    else if (this.staticCounter === 2) {
-                        player.body.isStatic = false;
-                        this.staticCounter = 0;
-                    }
-
-                    
-                    
-                    
                     
                 }
             
