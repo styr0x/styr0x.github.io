@@ -1,0 +1,35 @@
+
+body, html {
+  background-color: rgb(42, 165, 124);
+}
+
+.parent {
+  display: grid;
+  justify-content: center;
+  margin-top: 25vh;
+  width: 100vw;
+  font-size: 2rem;
+}
+
+.companyNames {
+  grid-column-start: 1;
+  color: blue;
+  
+}
+
+.companyCountries {
+  grid-column: 2;
+  color: red;
+  margin-left: -6vw;
+}
+
+.form {
+  align-self: center;
+}
+
+button {
+  grid-column-end: 1;
+  background-color: red;
+  width: 100px;
+  height: 80px;
+}
