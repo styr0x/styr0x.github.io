@@ -6,7 +6,7 @@ const passwordField = document.getElementById('password');
 const message = document.getElementById('message');
 let span;
 
-
+message.style.color = "black";
 
 signupButton.addEventListener('click', e => {
     let info = {
